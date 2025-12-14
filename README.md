@@ -1,0 +1,1 @@
+# Synteza-trajektorii-fazowych-oscylatora-chaotycznego-metodami-generatywnymi
