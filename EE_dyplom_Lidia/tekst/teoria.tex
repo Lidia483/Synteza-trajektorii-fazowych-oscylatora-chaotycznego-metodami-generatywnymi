@@ -1,0 +1,105 @@
+
+Formułę matematyczną estymatora Theil-Sen stworzyli holenderski profesor nauk ekonomicznych Henri Theil oraz indyjsko-amerykański profesor statystyki Pranab Kumar Sen. Pierwszy artykuł na jej temat ukazał się w 1950 roku, którego autorem był Henri Theil. Następna publikacja pojawiła się w 1968 roku autorstwa Pranab Kumar Sen. Sama metoda polega na dopasowywaniu linii trendu przez obliczanie mediany wszystkich nachyleń oraz wyrazów wolnych.
+
+
+\section{Henri Theil}
+Henri Theil urodził się w Holandii w 1925 roku. Swoją pracę naukową rozpoczynał jako student matematyki i fizyki na Uniwersytecie Utrecht w Amsterdamie.Theil jest najbardziej znany z ulepszenia metody najmniejszych kwadratów w dwóch etapach (2SLS) z 1953 roku.
+\begin{figure}[h!]
+\centering \includegraphics[width=0.5\linewidth]{prof_dr_H_Theil_1966.jpg}
+\caption{Prof. dr. Henri Theil, autor Gemeente Rotterdam , r. 1966}
+\label{rys:prof_dr_H_Theil_1966}
+\end{figure}
+
+Technika ta znacznie uprościła szacowanie modeli równań w ekonomii i stała się powszechnie stosowana. W tym samym roku został mianowany profesorem ekonometrii w Niderlandzkiej Szkole Ekonomii. W kolejnych latach założył tam między innymi Instytut Ekonometrii, który prężnie rozwijał się pod jego opieką. W 1966 roku przeniósł się do Stanów Zjednoczonych, na Uniwersytet w Chicago, gdzie kontynuował swoją pracę naukową. Zmarł 20 sierpnia 2000 roku w wieku 75 lat.
+
+
+
+
+\section{Pranab Kumar Sen}
+Pranab Kumar Sen urodził się w Kalkucie 7 listopada 1937 roku. Jest on autorem i współautorem wielu książek na temat statystyki. Znany jest głównie z opracowania estymatora Theil-Sen, był również członkiem Instytutu Statystyki Matematycznej oraz Amerykańskiego Towarzystwa Statystycznego (ASA). W 2010 roku stowarzyszenie przyznało mu nagrodę Wilks Memorial Award „za wybitne osiągnięcia w badaniach statystycznych, szczególnie w statystyce nieparametrycznej i biostatystyce oraz za wyjątkową służbę jako mentor dla doktorantów". Sen zmarł w Chapel Hill, w Karolinie Północnej 31 grudnia 2023 roku w wieku 86 lat.
+
+\begin{figure}[h!]
+\centering \includegraphics[width=0.45\linewidth]{rysunki/sen_now.jpg}
+\caption{Prof. dr. Pranab Kumar Sen, autor Tom Fuldner, r. 2011}
+\label{rys:Pranab_K_Sen}
+\end{figure}
+
+\section{Metoda Theil-Sen}
+Metoda Theil-Sen, nazwana również estymatorem Theil-Sen, to technika dopasowywania prostej linii regresji na podstawie mediany nachyleń wszystkich linii przechodzących przez pary punktów istniejących w danym zbiorze.
+
+Niech $x_i, x_j, \ldots, x_n$ oraz $y_i, y_j, \ldots, y_n$ będą niezależnymi punktami należącymi do zbioru liczb rzeczywistych.
+
+Nachylenia wszystkich linii przechodzących przez pary punktów:
+
+\[m_{ij} = \frac{y_j - y_i}{x_j - x_i}\]
+Mediana nachyleń:
+\[m = {mediana}\ \ m_{ij}\]
+Obliczenie wyrazu wolnego (b) jako medianę wartości (yi - mxi):
+\
+\[b = {mediana}\ (y_i -mx_i)\]
+Ostateczna linia regresji ma postać:
+\[y=mx+b\]
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{theil2.png}
+\caption{Wykres metody Theil-Sen}
+\label{fig:enter-label}
+\end{figure}
+Metoda ta jest szczególnie przydatna, gdy chcemy znaleźć linie ternu, ale występuje możliwość, że kilka nietypowych wartości zniekształci wynik.
+
+Metoda Theil-Sen ma szerokie zastosowania w statystyce nieparametrycznej wymagającej założeń dotyczących rozkładu błędów, szerzej opisanych w artykule „Unbiasedness of the Theil–Sen estimator” z 2005 roku~\cite{wang2005}.
+
+\section{Metoda najmniejszych kwadratów}
+
+Metoda najmniejszych kwadratów ~\cite{linnik1962}~\cite{rand2010}(z angielskiego Method of Least Squares OLS) jest techniką stosowaną w statystyce, polegającą na dopasowaniu linii prostych (lub krzywych) do zbioru danych~\cite{bartoszewicz1989}~\cite{zieliński1990}. Jej celem jest wyznaczenie linii regresji, która najlepiej dopasuje się do danych punktów. Przedstawia się ją jako prostą y = ax + b, gdzie "a" to nachylenie, "b" to punkt przecięcia z osią y.
+
+Dla zbioru danych $(x_1,y_1),(x_2,y_2)\ldots(x_n,y_n)$, szukana jest prosta $y=ax+b$, dla której suma kwadratów odchyleń między rzeczywistymi wartościami a wartościami przewidywanymi przez linię $y_i=ax_i+b$ była minimalna.
+
+Suma z reszty kwadratów
+\begin{equation*}
+S(a,b) = \sum (y_i - (ax _i+b))^2
+\end{equation*}
+
+
+Aby znaleźć wartości dla, a i b, należy zminimalizować funkcję S(a,b). By to osiągnąć, należy zróżniczkować funkcję S względem, a i b, a następnie przyrównać te pochodne do zera.
+
+Dla a:
+
+\begin{equation*}
+\frac{\partial S}{\partial a} = -2 \sum^n_{i=1} x_i (y_i - (ax _i+b))=0
+\end{equation*}
+
+Dla b:
+
+\begin{equation*}
+\frac{\partial S}{\partial b} = -2 \sum^n_{i=1} (y_i - (ax _i+b))=0
+\end{equation*}
+
+Metoda najmniejszych kwadratów  jest kluczowym narzędziem w analizie regresji, stosowanym w przeróżnych przypadkach. Dzięki efektywności obliczeniowej znajduje zastosowanie w takich dziedzinach jak analiza sygnałów, optymalizacja procesów technologicznych czy prognozowanie ekonomiczne.
+
+Jednym z przykładów zastosowania tej metody jest artykuł z 2006 roku, w którym wykorzystano ją do identyfikacji oraz separacji składowych harmonicznych prądu obciążenia w aktywnych filtrach mocy, co umożliwiło skuteczną kompensację zakłóceń i poprawę jakości energii elektrycznej ~\cite{chudamani2006}. 
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.77\linewidth]{kwadrat1.png}
+\caption{Wykres metody najmniejszych kwadratów}
+\label{rys:enter-label}
+\end{figure}
+
+\section{Porównanie metody}
+
+Metoda Theil-Sen i metoda najmniejszych kwadratów to dwa podejścia do wyznaczania linii regresji.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\linewidth]{kwathe1.png}
+\caption{Wykres obu metod}
+\label{fig:enter-label}
+\end{figure}
+ 
+Metoda najmniejszych kwadratów minimalizuje sumę kwadratów odchyleń między przewidywanymi a rzeczywistymi wartościami.
+Co sprawia, że jest szybsza, bardziej wydajna obliczeniowo oraz lepiej radzi sobie przy dużych zbiorach danych. Z kolei estymator Theil-Sen wyznacza nachylenie jako medianę nachyleń wyliczoną ze wszystkich możliwych par punktów, co czyni go dużo bardziej odpornym na wartości odstające. Fakt ten oznacza, że jest lepszą metodą w sytuacjach, gdzie istnieją dane o odstających wartościach i czas obliczeń nie jest istotny. Obie metody znajdują zastosowanie w analizie finansowej. W artykule z 2015 roku omówiono wykorzystanie metody najmniejszych kwadratów do prognozowania przyszłych wyników finansowych oraz przeprowadzono porównanie z metodą Theil-Sen. Analiza wykazała, że metoda Theil-Sen lepiej radzi sobie z wartościami odstającymi, zapewniając bardziej wiarygodne wyniki w porównaniu do metody najmniejszych kwadratów~\cite{james2015}.

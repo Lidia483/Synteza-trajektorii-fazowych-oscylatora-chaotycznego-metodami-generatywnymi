@@ -1,0 +1,333 @@
+Kody w STM32 stanowią główną część pracy. Pierwszy z nich, czyli plik main.c, odpowiada za konfigurację mikrokontrolera. Kolejne pliki, theil\_sen.c oraz theil\_sen.h, zawierają implementację samego algorytmu Theil-Sen i odpowiadają za jego działanie. Taki podział kodu pozwala na wyraźne rozgraniczenie funkcji związanych z obsługą mikrokontrolera od właściwej logiki obliczeniowej~\cite{UM1727}~\cite{ionescu2020}~\cite{jacko2019}.
+
+\section{main.c}
+Jest to główny plik odpowiadający za konfigurację mikrokontrolera oraz dostarczanie wyników~\cite{francuz2015}~\cite{prata2016}.
+
+\lstinputlisting[language=C,
+firstnumber=30,
+firstline=30,
+lastline=34,
+caption=\lstname,
+label={lst:Keccak}]{main.c}
+
+Na listingu 14 "string.h" dodaje funkcje do pracy z ciągami znaków. "stdio.h" umożliwia korzystanie z funkcji wejścia/wyjścia, takich jak printf do wyświetlania informacji. "theil\_sen.h" wprowadza deklaracje funkcji związanych z algorytmem Theil-Sen.
+
+\lstinputlisting[language=C,
+firstnumber=42,
+firstline=42,
+lastline=44,
+caption=\lstname,
+label={lst:Keccak}]{main.c}
+
+Ustawienie tablicy na maksymalną wartość równą 4095, czyli maksymalną wartość bitową mikrokontrolera.
+
+\lstinputlisting[language=C,
+firstnumber=53,
+firstline=53,
+lastline=61,
+caption=\lstname,
+label={lst:Keccak}]{main.c}
+
+\lstinputlisting[language=C,
+firstnumber=107,
+firstline=107,
+lastline=110,
+caption=\lstname,
+label={lst:Keccak}]{main.c}
+
+Pierwsza funkcja ma za zadanie uruchomić przetwornik cyfrowo-analogowy (DAC) na kanale 1. Druga kalibruje przetwornik analogowo-cyfrowy (ADC) w trybie pojedynczego wejścia, co poprawia dokładność pomiarów.
+
+\lstinputlisting[language=C,
+firstnumber=113,
+firstline=113,
+lastline=131,
+caption=\lstname,
+label={lst:Keccak}]{main.c}
+
+W pętli while znajduje się pętla for, która wykonuje się, dopóki zmienna "i" nie osiągnie wartości MAX\_VALUES, zdefiniowana wcześniej w kodzie jako 4095. Przy każdym wykonaniu pętli zmienna "i" jest inkrementowana, co powoduje zwiększenie wartości DAC o 1.
+
+Pętla rozpoczyna się od komendy uruchamiającej ADC. Następnie program oczekuje na zakończenie przetwarzania sygnału analogowego przez ADC i ustawia odpowiednią wartość na DAC. Wynik z ADC jest odczytywany za pomocą funkcji HAL\_ADC\_GetValue i zapisywany do zmiennej value\_adc. Wartości y są równe wartościom value\_adc i zapisywane do tablicy.
+
+Zmienne x są otrzymywane w analogiczny sposób, jednak dodatkowo dzielone są przez rezystancję "r" równą 330 Ω, zgodnie ze wzorem
+I = U/R. Takie podejście pozwala uzyskać wyniki z precyzją do kilku miejsc po przecinku.
+Aktualnie wartość value\_adc mieści się w zakresie od 0 do 4095. Dopiero po przeliczeniu na odpowiednią skalę (od 0 do 3,3 V) dane będą gotowe do prezentacji. Proces ten zostanie szczegółowo opisany w dalszej części pracy.
+
+Aby lepiej zrozumieć cel i sposób działania, należy wyjaśnić, dlaczego używane są przetworniki DAC i ADC w tej implementacji. DAC pełni rolę wymuszenia, czyli generuje sygnał napięciowy sterujący, który jest podawany na wejście układu. ADC z kolei mierzy napięcie wynikowe, odpowiadające temu wymuszeniu.
+
+Warto również wspomnieć o roli rezystora 330 Ω. Jego obecność ma na celu ograniczenie prądu w obwodzie, co zapobiega uszkodzeniu elementów, takich jak na przykład diody. W zależności od układu można tę wartość dowolnie zmieniać.
+
+\lstinputlisting[language=C,
+firstnumber=132,
+firstline=132,
+lastline=143,
+caption=\lstname,
+label={lst:Keccak}]{main.c}
+
+Fragment kodu rozpoczyna się od obliczenia długości tablicy x, co realizowane jest przez podzielenie jej rozmiaru w bajtach przez rozmiar pojedynczego elementu. Następnie wywoływana jest funkcja TheilSen\_Estymator, która przyjmuje jako argumenty tablice x i y oraz ich długość. Funkcja zwraca strukturę WynikTheilSena, zawierającą wartości wyrazu wolnego i nachylenia.
+
+Obliczone wartości są formatowane jako tekst za pomocą funkcji sprintf i zapisywane do zmiennej msg, która została zadeklarowana na początku programu. Ostatecznie wiadomość jest przesyłana przez UART za pomocą funkcji HAL\_UART\_Transmit, co umożliwia wyświetlenie wyników na urządzeniu zewnętrznym.
+
+Aby zapewnić poprawne działanie i wyświetlanie wartości zmiennoprzecinkowych na urządzeniu zewnętrznym, konieczne było odpowiednie skonfigurowanie ustawień programu zgodnie z dokumentacją dotyczącą obsługi zmiennych typu float~\cite{UM2609}.
+
+\lstinputlisting[language=C,
+firstnumber=190,
+firstline=190,
+lastline=193,
+caption=\lstname,
+label={lst:Keccak}]{main.c}
+
+Te funkcje służą do odbioru danych z mikrokontrolera przez UART za pomocą Tx i Rx.
+
+\section{thil\_sen.c}
+Plik realizuje procedurę obliczeniową opartą na algorytmie estymacji Theila-Sena, dedykowanym do wyznaczania parametrów regresji liniowej, takich jak współczynnik kierunkowy i wyraz wolny. Algorytm został zaimplementowany z uwzględnieniem optymalizacji pod kątem ograniczonych zasobów sprzętowych mikrokontrolera, co pozwala na efektywne przetwarzanie danych i uzyskiwanie wyników o wysokiej precyzji.
+
+\lstinputlisting[language=C,
+firstnumber=1,
+firstline=1,
+lastline=3,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen.c}
+
+Nagłówek theil\_sen.h włącza plik deklarujący funkcję i struktury związane z implementacją metody Theil-Sen. Stdlib.h jest to standardowa biblioteka C, która umożliwia sortowanie za pomocą funkcji qsort. Ostatnia biblioteka stddef.h pozwala na zdefiniowanie rozmiaru tablicy size\_t.
+
+\lstinputlisting[language=C,
+firstnumber=5,
+firstline=5,
+lastline=10,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen.c}
+
+Zostaje zdefiniowana wielkość MAX\_ELEMENTOW jako 4095.
+Funkcja porownaj\_floaty porównuje dwie wartości. Jest używana jako funkcja pomocnicza w qsort do sortowania tablic. Parametry a, b są to wskaźniki typu float, za pomocą których obliczana jest różnica między wartościami.
+
+\lstinputlisting[language=C,
+firstnumber=12,
+firstline=12,
+lastline=19,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen.c}
+
+Funkcja mediana oblicza medianę wartości w tablicy liczb zmiennoprzecinkowych. Sortuje tablicę za pomocą qsort (korzysta z funkcji porownaj\_floaty). Mediana obliczana jest zgodnie z matematyczną definicją:
+Jeśli liczba elementów jest parzysta, zwraca średnią z dwóch środkowych elementów.
+Jeśli nieparzysta, zwraca środkowy element.
+
+\lstinputlisting[language=C,
+firstnumber=21,
+firstline=21,
+lastline=26,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen.c}
+
+Funkcja TheilSen\_Estymator oblicza estymację metodą Theila-Sena, przyjmując jako argumenty tablice współrzędnych x i y oraz ich długość. W jej wnętrzu deklarowane są tablice nachylenia i wyrazy\_wolne do przechowywania obliczonych wartości, a także zmienne pomocnicze indeks\_nachylen i indeks\_wyrazow, służące do określenia indeksu w dalszych obliczeniach.
+
+\lstinputlisting[language=C,
+firstnumber=28,
+firstline=28,
+lastline=32,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen.c}
+
+\lstinputlisting[language=C,
+firstnumber=42,
+firstline=42,
+lastline=43,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen.c}
+
+Na listingu 25 i 26 obliczana jest mediana wartości przechowywanych w tablicy nachylenia, która zawiera obliczone nachylenia dla wszystkich par punktów. Funkcja mediana przyjmuje jako argumenty tablicę nachylenia oraz liczbę elementów w niej zapisanych (indeks\_nachylen) i zwraca wartość mediany, przypisywaną do zmiennej mediana\_nachylenia.
+
+\lstinputlisting[language=C,
+firstnumber=43,
+firstline=43,
+lastline=52,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen.c}
+
+Na listingu 27 obliczany jest wyraz wolny dla każdego punktu danych, wykorzystując wcześniej wyznaczoną medianę nachyleń. Dla każdego punktu (x[i], y[i]), obliczana jest wartość y[i] - {mediana nachylenia} x[i] , która zostaje zapisana w tablicy wyrazy\_wolne, o ile jej maksymalna pojemność nie zostanie przekroczona. Następnie wyznaczana jest mediana z tablicy wyrazy\_wolne, która reprezentuje wyraz wolny prostej regresji. Funkcja zwraca wynik w postaci struktury WynikTheilSena, zawierającej medianę nachyleń jako nachylenie prostej oraz medianę wyrazów wolnych jako punkt przecięcia z osią y.
+
+\subsection{thil\_sen.h}
+
+Jest to kod do implementacji metody Theila-Sena.
+
+\lstinputlisting[language=C,
+firstnumber=1,
+firstline=1,
+lastline=15,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen.h}
+
+Zawiera definicję struktury WynikTheilSena do przechowywania nachylenia i wyrazu wolnego linii regresji oraz deklarację funkcji TheilSen\_Estymator, która oblicza parametry regresji dla podanych danych x i y.
+
+\section{Układ z rezystancyjnym dzielnikiem napięcia}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{rysunki/układ.jpeg}
+\caption{Układ pomiarowy rezystory}
+\label{rys:Układ pomiarowy}
+\end{figure}
+
+\subsection{Wykres i wynik}
+
+Po wykonaniu programu uzyskano dane wyjściowe. Na podstawie tych danych wygenerowano wykres ilustrujący zależności wartości ADC/330 od wartości ADC (y od x). Na wykresie znajduje się linia regresji, wyznaczona metodą Theila-Sena. W celu poprawy czytelności wykresu liczba punktów została ograniczona do około 80, co stanowi reprezentatywną próbkę danych. Taka redukcja liczby punktów umożliwia lepszą interpretację wyników i wizualizację, bez utraty istotnych informacji.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{rysunki/ADC_I.jpg}
+\caption{Wykres ADC/330 od ADC}
+\label{rys:enter-label}
+\end{figure}
+
+Obliczenia metodą Theil-Sen nachylenia oraz punktu przecięcia z osią y zostały przeprowadzone dla wybranych punktów danych przy użyciu wcześniej opracowanego programu w środowisku Python. Z uwagi na przejrzystość wykresu obliczenia zostały przeprowadzone na ograniczonych wcześniej danych.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\linewidth]{rysunki/wynik_python.png}
+\caption{Wynik ADC/330 od ADC w środowisku Python}
+\label{rys:enter-label}
+\end{figure}
+
+Wyniki uzyskane z programu STM32CubeIDE są bardzo zbliżone do tych otrzymanych w Pythonie. Niewielkie różnice mogą wynikać z faktu, że tym pierwszym obliczenia są wykonywane na pełnej próbce danych, obejmującej 4096 punktów. W przeciwieństwie do tego, w wersji programu w Pythonie, obliczenia zostały przeprowadzone na ograniczonej liczbie punktów (około 80), co może wpływać na dokładność i precyzję uzyskanych wyników. Mimo tych drobnych rozbieżności wyniki pozostają zbliżone, co świadczy o poprawności obu analizy, z uwzględnieniem różnic w liczbie punktów danych użytych do obliczeń.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\linewidth]{rysunki/wynik_rez1.png}
+\caption{Wynik ADC/330 od ADC}
+\label{rys:enter-label}
+\end{figure}
+
+\subsection{Przeliczenie wartości}
+Uzyskane dane są przedstawione w postaci wartości bitowych. Aby przeliczyć je na wartości napięcia wyrażone w [V] oraz prądu w [mA], należy zastosować poniższe zależności:
+
+\[U = \frac{ADC}{4096}*3,3 [V]\]
+\[I = \frac{ADC/330}{4096}*1000 [mA]\]
+gdzie:
+
+• 4096 to maksymalna wartość z przetwornika DAC w mikrokontrolerze, wynikająca z 12-bitowej rozdzielczości (zakres od 0 do 2$^{12}$ - 1),
+
+• 3.3 V to maksymalne napięcie przetwornika,
+
+• 1000 to zamiana z A na mA.
+
+Widać, że charakterystyka jest liniowa, co zgadza się z teoretycznymi założeniami dla rezystorów.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{rysunki/U_I.jpg}
+\caption{Wykres U od I}
+\label{rys:enter-label}
+\end{figure}
+
+\section{Układ z diodą i rezystorem}
+
+Celem tego fragmentu pracy jest zaprezentowanie układu testowego, który umożliwia ocenę poprawności działania implementacji metody Theil-Sen dla przebiegu nielinioweg.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\linewidth]{rysunki/Dioda.jpg}
+\caption{Płytka PCB}
+\label{rys:enter-label}
+\end{figure}
+
+\subsection{Wykres i wynik}
+
+W przeprowadzonym eksperymencie stworzono wykres porównujący sygnał odebrany przez przetwornik analogowo-cyfrowy (ADC) z sygnałem zadanym, generowanym przez przetwornik cyfrowo-analogowy (DAC). Na podstawie otrzymanych danych stworzono wykres, który pozwala wizualnie ocenić, czy układ działa zgodnie z założeniami projektowymi oraz, czy przetwarzanie sygnałów przebiega poprawnie. Analiza wykresu umożliwia szybkie wykrycie ewentualnych błędów w działaniu układu oraz ocenę jakości pomiarów.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.85\linewidth]{wykres_python_dioda.png}
+\caption{Wykres ADC od DAC}
+\label{rys:enter-label}
+\end{figure}
+
+Na wykresie przedstawiono trzy estymacje regresji liniowej dla różnych zakresów danych. Pierwsza estymacja (czerwona linia) została obliczona dla przedziału po x od 0 do 2500, czyli w zakresie, w którym charakterystyka diody pozostaje płaska. Druga estymacja (niebieska linia) obejmuje zakres od 2200 do 4095, gdzie charakterystyka diody liniowo rośnie. Zakresy te celowo nałożono na siebie, co umożliwia wyznaczenie ich punktu przecięcia.
+
+Dodatkowo można zauważyć, że wykres jest zgodny z teoretyczną charakterystyką diody, co potwierdza poprawność zarówno układu, jak i zastosowanej metody. Otrzymane dane są wiarygodne, a układ działa zgodnie z oczekiwaniami.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\linewidth]{python_dioda.png}
+\caption{Wyniki ADC od DAC w środowisku Python}
+\label{rys:enter-label}
+\end{figure}
+
+Podobnie jak w poprzednim przypadku, wybrano reprezentatywną próbkę danych, składającą się z około 80 punktów pomiarowych. Na podstawie tych danych, przy użyciu algorytmu zaimplementowanego we wcześniejszej części pracy w środowisku Python, obliczono wartości nachylenia oraz wyrazu wolnego.
+
+Wyraz wolny i nachylenie w przypadku pierwszej regresji (linia czerwona) wynoszą 0, co jest zgodne z założeniami. Charakterystyka diody w tym zakresie pozostaje płaska, co oznacza brak obserwowalnego wzrostu. Druga część analizy obejmuje przedział od 2200 do 4095, w którym charakterystyka diody rośnie liniowo. Dodatkowo wyznaczono punkt przecięcia prostych, co umożliwia określenie napięcia progowego diody U\(_f\).
+
+
+
+Aby osiągnąć też ten efekt również w środowisku STM32, niezbędne będzie dokonanie drobnych modyfikacji w pliku theil\_sen.c. Zmiany te umożliwią uwzględnienie podzielnie zakresu na dwie części. 
+
+
+\lstinputlisting[language=C,
+firstnumber=5,
+firstline=5,
+lastline=5,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen_PCB.c}
+
+
+W pierwszej kolejności dokonana zostanie zamiana wartości, przyjmując maksymalną liczbę elementów równą 2500. Oznacza to, że program uwzględni jedynie wartości do 2500, czyli zakres, w którym charakterystyka diody pozostaje płaska i nie wykazuje wzrostu.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\linewidth]{0-2500.png}
+\caption{Wyniki ADC od DAC dla wartości od 0 do 2500}
+\label{rys:enter-label}
+\end{figure}
+ 
+Wyniki uzyskane w środowisku STM32 są zgodne z danymi otrzymanymi w środowisku Pythona, co potwierdza, że implementacja algorytmu została przeprowadzona poprawnie. 
+
+
+
+
+W drugim zakresie, obejmującym przedział od 2200 do 4095, wartość MAX\_ELEMENTÓW zostaje przywrócona do 4095. 
+
+
+\lstinputlisting[language=C,
+firstnumber=29,
+firstline=29,
+lastline=30,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen_PCB.c}
+
+\lstinputlisting[language=C,
+firstnumber=44,
+firstline=44,
+lastline=44,
+caption=\lstname,
+label={lst:Keccak}]{theil_sen_PCB.c}
+
+Na listingu 30 i 31 początkowa wartość zmiennej “i” została ustawiona na 2200, co powoduje, że obliczenia będą przeprowadzane w zakresie od 2200 do 4095.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\linewidth]{rysunki/2200-4096.png}
+\caption{Wyniki ADC od DAC dla wartości od 2200 do 4095}
+\label{rys:enter-label}
+\end{figure}
+
+
+Jak widać, nachylenie jest bliskie 0,85, a punkt przecięcia będzie równy około -1840. W obu przypadkach otrzymane wyniki są zbliżone, co świadczy o zgodności implementacji oraz poprawności działania zarówno wersji kodu uruchomionej na mikrokontrolerze STM32, jak i tej działającej w środowisku Pythona. Taka zgodność wyników sugeruje, że proces obliczeniowy został przeprowadzony prawidłowo, a algorytm działa zgodnie z oczekiwaniami.
+
+
+
+
+\section{Napotkane problemy}
+
+Podczas implementacji kodu ograniczona pamięć mikrokontrolera uniemożliwiła przeprowadzenie najdokładniejszych z możliwych obliczeń.
+
+Dla równania:
+x[i] = value\_adc / r;
+
+Wynik dzielenia value\_adc przez rezystancję równą 330 jest zaokrąglany do całkowitych wartości w zakresie od 0 do 7, co obniża precyzję obliczeń.
+
+Aby zwiększyć dokładność, można zmodyfikować działanie, dzieląc przez liczbę zmiennoprzecinkową:
+r = 330.0;
+
+W tym przypadku uzyskiwana jest dokładność nawet do 11 miejsc po przecinku, np. x[1] = 0.00606060587. Jednak w kodzie theil\_sen.c występują wartości typu float, które mają precyzję do 8 miejsc po przecinku, co oznacza, że nie są wystarczające do dalszego przetwarzania danych, zwłaszcza że metoda wymaga bardziej złożonych obliczeń, generujących jeszcze większą liczbę cyfr po przecinku.
+
+Logicznym rozwiązaniem tego problem byłoby zamiana wartości na typ double, który oferuje precyzję do 16 miejsc po przecinku. Niestety, ograniczona pamięć mikrokontrolera nie pozwala na przetwarzanie danych o tak dużej precyzji.
+
+Ostatecznie precyzja oferowana przez typ float jest wystarczająca do realizacji dokładnych obliczeń w ramach bieżącego zastosowania. Jednak pozostawia to pole do dalszego rozwoju i ulepszania tego rozwiązania.

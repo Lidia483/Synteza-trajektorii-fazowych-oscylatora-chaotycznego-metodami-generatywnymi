@@ -1,0 +1,28 @@
+\babel@toc {polish}{}\relax 
+\babel@toc {polish}{}\relax 
+\thispagestyle {empty}
+\contentsline {chapter}{\numberline {1}Wstęp}{9}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Metoda Theil-Sen}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Henri Theil}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Pranab Kumar Sen}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Metoda Theil-Sen}{13}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Metoda najmniejszych kwadratów}{14}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Porównanie metody}{15}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Porównanie metod przy użyciu środowiska Python}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Kod źródłowy Theil-Sen}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Kod źródłowy metody najmniejszych kwadratów}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Porównanie metod Thei-Sen i OLS}{21}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Porównanie wyników}{22}{subsection.3.3.1}%
+\contentsline {chapter}{\numberline {4}Implementacja estymatora Theil-Sen w środowisku STM32}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}main.c}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}thil\_sen.c}{28}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}thil\_sen.h}{30}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Układ z rezystancyjnym dzielnikiem napięcia}{31}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Wykres i wynik}{31}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Przeliczenie wartości}{32}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Układ z diodą i rezystorem}{33}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Wykres i wynik}{33}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}Napotkane problemy}{36}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{39}{chapter.5}%
+\contentsline {chapter}{Bibliografia}{41}{section*.21}%
+\contentsline {chapter}{Spis rysunk\'ow}{41}{chapter*.22}%
