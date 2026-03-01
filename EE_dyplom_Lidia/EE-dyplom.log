@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  16 JAN 2026 19:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  16 FEB 2026 13:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -768,12 +768,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip106
 )
-Package hyperref Info: Option `unicode' set `true' on input line 358.
-Package hyperref Info: Option `pdftoolbar' set `true' on input line 358.
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 358.
-Package hyperref Info: Option `pdffitwindow' set `false' on input line 358.
-Package hyperref Info: Option `pdfnewwindow' set `true' on input line 358.
-Package hyperref Info: Option `colorlinks' set `true' on input line 358.
+Package hyperref Info: Option `unicode' set `true' on input line 357.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 357.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 357.
+Package hyperref Info: Option `pdffitwindow' set `false' on input line 357.
+Package hyperref Info: Option `pdfnewwindow' set `true' on input line 357.
+Package hyperref Info: Option `colorlinks' set `true' on input line 357.
  (/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/lipsum/lipsum.sty (/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
 )
@@ -1233,84 +1233,6 @@ LaTeX Warning: Label `lst:hellopy' multiply defined.
 
 LaTeX Warning: Label `fig:enter-label' multiply defined.
 
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `lst:Keccak' multiply defined.
-
-
-LaTeX Warning: Label `rys:enter-label' multiply defined.
-
 )
 \openout1 = `EE-dyplom.aux'.
 
@@ -1390,8 +1312,16 @@ Package biblatex Info: Automatic encoding selection.
 \openout7 = `EE-dyplom.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'EE-dyplom.bbl' not found.
-No file EE-dyplom.bbl.
+Package biblatex Info: ... file 'EE-dyplom.bbl' found.
+(./EE-dyplom.bbl
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                linnik1962
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+)
 Package biblatex Info: Reference section=0 on input line 63.
 Package biblatex Info: Reference segment=0 on input line 63.
 Package caption Info: Begin \AtBeginDocument code.
@@ -1399,7 +1329,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 63.
-(./EE-dyplom.out) (./EE-dyplom.out)
+ (./EE-dyplom.out) (./EE-dyplom.out)
 \@outlinefile=\write9
 \openout9 = `EE-dyplom.out'.
 
@@ -1423,12 +1353,12 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 \c@lstlisting=\count533
-<gfx/HeadeePL.png, id=131, 2015.53pt x 320.19624pt>
+<gfx/HeadeePL.png, id=99, 2015.53pt x 320.19624pt>
 File: gfx/HeadeePL.png Graphic file (type png)
 <use gfx/HeadeePL.png>
 Package pdftex.def Info: gfx/HeadeePL.png  used on input line 66.
 (pdftex.def)             Requested size: 455.24411pt x 72.31953pt.
-<gfx/mgrhead.png, id=133, 1392.20125pt x 303.1325pt>
+<gfx/mgrhead.png, id=101, 1392.20125pt x 303.1325pt>
 File: gfx/mgrhead.png Graphic file (type png)
 <use gfx/mgrhead.png>
 Package pdftex.def Info: gfx/mgrhead.png  used on input line 66.
@@ -1505,107 +1435,77 @@ File: uesint.fd
 
 ] (./tekst/main.tex
 Rozdzia\l  1.
-(./tekst/wstep.tex
-
-LaTeX Warning: Citation 'david2012' on page 9 undefined on input line 1.
-
-
-LaTeX Warning: Citation 'theil1950' on page 9 undefined on input line 6.
-
-
-LaTeX Warning: Citation 'sen1968' on page 9 undefined on input line 10.
-
-
+(./tekst/wstep.tex)
 
 [9
 
-])
+]
 
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 8.
-[10]
+[10
+
+]
 Rozdzia\l  2.
 (./tekst/teoria.tex
-<rysunki/prof_dr_H_Theil_1966.jpg, id=234, 1027.84pt x 1041.8925pt>
+<rysunki/prof_dr_H_Theil_1966.jpg, id=186, 1027.84pt x 1041.8925pt>
 File: rysunki/prof_dr_H_Theil_1966.jpg Graphic file (type jpg)
 <use rysunki/prof_dr_H_Theil_1966.jpg>
-Package pdftex.def Info: rysunki/prof_dr_H_Theil_1966.jpg  used on input line 8.
+Package pdftex.def Info: rysunki/prof_dr_H_Theil_1966.jpg  used on input line 14.
 (pdftex.def)             Requested size: 227.62206pt x 230.72737pt.
 
 
-[11
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- <./rysunki/prof_dr_H_Theil_1966.jpg>]
-<rysunki/sen_now.jpg, id=240, 786.2976pt x 1179.4464pt>
+<rysunki/sen_now.jpg, id=187, 786.2976pt x 1179.4464pt>
 File: rysunki/sen_now.jpg Graphic file (type jpg)
 <use rysunki/sen_now.jpg>
-Package pdftex.def Info: rysunki/sen_now.jpg  used on input line 22.
+Package pdftex.def Info: rysunki/sen_now.jpg  used on input line 28.
 (pdftex.def)             Requested size: 204.85846pt x 307.27872pt.
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12 <./rysunki/sen_now.jpg>]
-<rysunki/theil2.png, id=246, 1356.06625pt x 998.73125pt>
+
+
+[11]
+
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 36.
+[12 <./rysunki/prof_dr_H_Theil_1966.jpg> <./rysunki/sen_now.jpg>]
+<rysunki/theil2.png, id=200, 1356.06625pt x 998.73125pt>
 File: rysunki/theil2.png Graphic file (type png)
 <use rysunki/theil2.png>
-Package pdftex.def Info: rysunki/theil2.png  used on input line 47.
+Package pdftex.def Info: rysunki/theil2.png  used on input line 53.
 (pdftex.def)             Requested size: 364.19667pt x 268.21329pt.
 
 
 [13{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./rysunki/theil2.png>]
 
-LaTeX Warning: Citation 'wang2005' on page 14 undefined on input line 53.
+LaTeX Warning: Citation 'linnik1962' on page 14 undefined on input line 63.
 
-
-LaTeX Warning: Citation 'linnik1962' on page 14 undefined on input line 57.
-
-
-LaTeX Warning: Citation 'rand2010' on page 14 undefined on input line 57.
-
-
-LaTeX Warning: Citation 'bartoszewicz1989' on page 14 undefined on input line 57.
-
-
-LaTeX Warning: Citation 'zieli≈Ñski1990' on page 14 undefined on input line 57.
-
-
-LaTeX Warning: Citation 'chudamani2006' on page 14 undefined on input line 83.
-
-<rysunki/kwadrat1.png, id=258, 687.06688pt x 532.99126pt>
+<rysunki/kwadrat1.png, id=217, 687.06688pt x 532.99126pt>
 File: rysunki/kwadrat1.png Graphic file (type png)
 <use rysunki/kwadrat1.png>
-Package pdftex.def Info: rysunki/kwadrat1.png  used on input line 88.
+Package pdftex.def Info: rysunki/kwadrat1.png  used on input line 94.
 (pdftex.def)             Requested size: 350.5399pt x 271.92767pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<rysunki/kwathe1.png, id=259, 763.35187pt x 548.54938pt>
+<rysunki/kwathe1.png, id=218, 763.35187pt x 548.54938pt>
 File: rysunki/kwathe1.png Graphic file (type png)
 <use rysunki/kwathe1.png>
-Package pdftex.def Info: rysunki/kwathe1.png  used on input line 99.
+Package pdftex.def Info: rysunki/kwathe1.png  used on input line 105.
 (pdftex.def)             Requested size: 341.43307pt x 245.35504pt.
 
-
-[14{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-
-LaTeX Warning: Citation 'james2015' on page 15 undefined on input line 105.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
+
+[14{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 
 [15 <./rysunki/kwadrat1.png> <./rysunki/kwathe1.png>]
 
 [16]
 Rozdzia\l  3.
-(./tekst/praktyka.tex
-
-LaTeX Warning: Citation 'amit2021' on page 17 undefined on input line 1.
-
-
-LaTeX Warning: Citation 'mark2022' on page 17 undefined on input line 1.
-
-
-LaTeX Warning: Citation 'luciano2015' on page 17 undefined on input line 1.
-
-(/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/listings/lstlang1.sty
+(./tekst/praktyka.tex (/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 10.
@@ -1622,7 +1522,7 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 ]
 
 [18]
-<rysunki/theil.png, id=325, 656.95438pt x 569.62813pt>
+<rysunki/theil.png, id=296, 656.95438pt x 569.62813pt>
 File: rysunki/theil.png Graphic file (type png)
 <use rysunki/theil.png>
 Package pdftex.def Info: rysunki/theil.png  used on input line 123.
@@ -1639,7 +1539,7 @@ Package pdftex.def Info: rysunki/kwadrat1.png  used on input line 155.
 
 
 [21]
-<rysunki/THKW.png, id=373, 820.56563pt x 614.79688pt>
+<rysunki/THKW.png, id=345, 820.56563pt x 614.79688pt>
 File: rysunki/THKW.png Graphic file (type png)
 <use rysunki/THKW.png>
 Package pdftex.def Info: rysunki/THKW.png  used on input line 215.
@@ -1647,12 +1547,6 @@ Package pdftex.def Info: rysunki/THKW.png  used on input line 215.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Citation 'hristo2019' on page 22 undefined on input line 233.
-
-
-LaTeX Warning: Citation 'james2015' on page 22 undefined on input line 233.
 
 )
 
@@ -1664,164 +1558,19 @@ LaTeX Warning: Citation 'james2015' on page 22 undefined on input line 233.
 
 ]
 Rozdzia\l  4.
-(./tekst/praktyka2.tex
-
-LaTeX Warning: Citation 'UM1727' on page 25 undefined on input line 1.
-
-
-LaTeX Warning: Citation 'ionescu2020' on page 25 undefined on input line 1.
-
-
-LaTeX Warning: Citation 'jacko2019' on page 25 undefined on input line 1.
-
-
-LaTeX Warning: Citation 'francuz2015' on page 25 undefined on input line 4.
-
-
-LaTeX Warning: Citation 'prata2016' on page 25 undefined on input line 4.
-
-
-Underfull \hbox (badness 1038) in paragraph at lines 4--5
-\T1/lmss/m/n/10.95 Jest to g™Ûwny plik od-po-wia-da-j°cy za kon-fi-gu-ra-cj¶ mi-kro-kon-tro-lera oraz do-star-cza-nie wy-ni-
- []
-
-(/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/listings/lstlang1.sty
+(./tekst/praktyka2.tex (/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-) (./src/main.c) (./src/main.c)
+) (./src/main.c))
 
-[25] (./src/main.c) (./src/main.c) (./src/main.c)
+[25]
 
-[26]
-LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 51.
- (/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/lm/ts1lmss.fd
-File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./src/main.c)
-
-LaTeX Warning: Citation 'UM2609' on page 27 undefined on input line 70.
-
-
-
-[27{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (./src/main.c) (./src/theil_sen.c) (./src/theil_sen.c) (./src/theil_sen.c
-
-[28]) (./src/theil_sen.c) (./src/theil_sen.c) (./src/theil_sen.c) (./src/theil_sen.c
-
-[29]) (./src/theil_sen.h)
-<rysunki/uk≈Çad.jpeg, id=528, 1964.33875pt x 1331.97626pt>
-File: rysunki/uk≈Çad.jpeg Graphic file (type jpg)
-<use rysunki/uk≈Çad.jpeg>
-Package pdftex.def Info: rysunki/uk≈Çad.jpeg  used on input line 165.
-(pdftex.def)             Requested size: 364.19667pt x 246.94019pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-[30]
-<rysunki/ADC_I.jpg, id=553, 717.17938pt x 524.45938pt>
-File: rysunki/ADC_I.jpg Graphic file (type jpg)
-<use rysunki/ADC_I.jpg>
-Package pdftex.def Info: rysunki/ADC_I.jpg  used on input line 176.
-(pdftex.def)             Requested size: 364.19667pt x 266.33438pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<rysunki/wynik_python.png, id=554, 328.72812pt x 66.2475pt>
-File: rysunki/wynik_python.png Graphic file (type png)
-<use rysunki/wynik_python.png>
-Package pdftex.def Info: rysunki/wynik_python.png  used on input line 185.
-(pdftex.def)             Requested size: 318.66948pt x 64.22157pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<rysunki/wynik_rez1.png, id=555, 470.25688pt x 72.77188pt>
-File: rysunki/wynik_rez1.png Graphic file (type png)
-<use rysunki/wynik_rez1.png>
-Package pdftex.def Info: rysunki/wynik_rez1.png  used on input line 194.
-(pdftex.def)             Requested size: 409.71692pt x 63.40317pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-[31 <./rysunki/uk≈Çad.jpeg>]
-
-[32 <./rysunki/ADC_I.jpg> <./rysunki/wynik_python.png> <./rysunki/wynik_rez1.png>]
-<rysunki/U_I.jpg, id=571, 1539.7525pt x 961.5925pt>
-File: rysunki/U_I.jpg Graphic file (type jpg)
-<use rysunki/U_I.jpg>
-Package pdftex.def Info: rysunki/U_I.jpg  used on input line 215.
-(pdftex.def)             Requested size: 364.19667pt x 227.44153pt.
-<rysunki/Dioda.jpg, id=572, 1859.94875pt x 1147.28625pt>
-File: rysunki/Dioda.jpg Graphic file (type jpg)
-<use rysunki/Dioda.jpg>
-Package pdftex.def Info: rysunki/Dioda.jpg  used on input line 226.
-(pdftex.def)             Requested size: 409.71692pt x 252.71886pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<rysunki/wykres_python_dioda.png, id=573, 706.13812pt x 550.055pt>
-File: rysunki/wykres_python_dioda.png Graphic file (type png)
-<use rysunki/wykres_python_dioda.png>
-Package pdftex.def Info: rysunki/wykres_python_dioda.png  used on input line 237.
-(pdftex.def)             Requested size: 386.96027pt x 301.43167pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-[33 <./rysunki/U_I.jpg>]
-
-LaTeX Warning: Text page 34 contains only floats.
-
-
-
-[34 <./rysunki/Dioda.jpg> <./rysunki/wykres_python_dioda.png>]
-<rysunki/python_dioda.png, id=586, 306.14375pt x 149.55875pt>
-File: rysunki/python_dioda.png Graphic file (type png)
-<use rysunki/python_dioda.png>
-Package pdftex.def Info: rysunki/python_dioda.png  used on input line 248.
-(pdftex.def)             Requested size: 318.66948pt x 155.68576pt.
- (./src/theil_sen_PCB.c)
-<rysunki/0-2500.png, id=587, 530.48187pt x 72.77188pt>
-File: rysunki/0-2500.png Graphic file (type png)
-<use rysunki/0-2500.png>
-Package pdftex.def Info: rysunki/0-2500.png  used on input line 274.
-(pdftex.def)             Requested size: 409.71692pt x 56.2055pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./src/theil_sen_PCB.c
-
-[35 <./rysunki/python_dioda.png>]) (./src/theil_sen_PCB.c)
-<rysunki/2200-4096.png, id=596, 549.55313pt x 72.27pt>
-File: rysunki/2200-4096.png Graphic file (type png)
-<use rysunki/2200-4096.png>
-Package pdftex.def Info: rysunki/2200-4096.png  used on input line 306.
-(pdftex.def)             Requested size: 409.71692pt x 53.88255pt.
-
-
-[36 <./rysunki/0-2500.png> <./rysunki/2200-4096.png>])
-
-[37]
-
-[38
+[26
 
 ]
 Rozdzia\l  5.
 (./tekst/podsumowanie.tex
-
-LaTeX Warning: Citation 'bitcoin2021' on page 39 undefined on input line 4.
-
-
-LaTeX Warning: Citation 'zahra2024' on page 39 undefined on input line 4.
-
-
 Underfull \hbox (badness 3849) in paragraph at lines 9--10
 []\T1/lmss/m/n/10.95 W pracy za-im-ple-men-to-wano es-ty-ma-tor Theil-Sen w j¶-zyku C z uªy-ciem ±ro-do-wi-ska
  []
@@ -1838,13 +1587,40 @@ Underfull \hbox (badness 1210) in paragraph at lines 9--10
 
 ))
 
-[39]
+[27]
 
-[40]
+[28]
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 74.
+ (/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 
-LaTeX Warning: Empty bibliography on input line 74.
+LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10.95> not available
+(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 74.
 
-(./EE-dyplom.lof)
+
+Underfull \hbox (badness 4013) in paragraph at lines 74--74
+[]\T1/lmss/m/sl/10.95 Getting star-ted with STM32 Nuc-leo bo-ard so-ftware de-ve-lop-ment to-ols\T1/lmss/m/n/10.95 , UM1727,
+ []
+
+
+
+[29
+
+
+]
+Underfull \hbox (badness 1112) in paragraph at lines 74--74
+[]\T1/lmss/m/n/10.95 V. M. Io-ne-scu i F. M. Ene-scu, ^^R  In-ve-sti-ga-ting the per-for-mance of Mi-cro-Py-thon and
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 74--74
+\T1/lmss/m/n/10.95 C on ESP32 and STM32 mi-cro-con-trol-lers,^^Q \T1/lmss/m/sl/10.95 2020 IEEE 26th In-ter-na-tio-nal Sym-po-
+ []
+
+
+
+[30] (./EE-dyplom.lof)
 \tf@lof=\write11
 \openout11 = `EE-dyplom.lof'.
 
@@ -1856,8 +1632,7 @@ This document will not have a glossary.
 
 
 
-[41
-
+[31
 
 ] (./EE-dyplom.aux)
  ***********
@@ -1866,35 +1641,27 @@ L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `EE-dyplom.out' has not changed.
-(rerunfilecheck)             Checksum: E2FCF67905F6EC8731934EB42ECBC187;4150.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                EE-dyplom
-(biblatex)                and rerun LaTeX afterwards.
-
+(rerunfilecheck)             Checksum: C62D2C55F4DD21EFA65797296DEB5C3C;2839.
 Package logreq Info: Writing requests to 'EE-dyplom.run.xml'.
 \openout1 = `EE-dyplom.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45647 strings out of 473190
- 886681 string characters out of 5704335
- 2146512 words of memory out of 5000000
- 67842 multiletter control sequences out of 15000+600000
- 614579 words of font info for 75 fonts, out of 8000000 for 9000
+ 45355 strings out of 473190
+ 883183 string characters out of 5704335
+ 2097046 words of memory out of 5000000
+ 67719 multiletter control sequences out of 15000+600000
+ 617004 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,12n,131p,2502b,2343s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on EE-dyplom.pdf (41 pages, 15178807 bytes).
+ 114i,12n,131p,2502b,1854s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmss8.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on EE-dyplom.pdf (31 pages, 13927833 bytes).
 PDF statistics:
- 805 PDF objects out of 1000 (max. 8388607)
- 677 compressed objects within 7 object streams
- 294 named destinations out of 1000 (max. 500000)
- 404 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 555 PDF objects out of 1000 (max. 8388607)
+ 454 compressed objects within 5 object streams
+ 161 named destinations out of 1000 (max. 500000)
+ 290 words of extra memory for PDF output out of 10000 (max. 10000000)
 

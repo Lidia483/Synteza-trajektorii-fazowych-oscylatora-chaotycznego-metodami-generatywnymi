@@ -1,167 +1,185 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from tensorflow.keras.models import Sequential, Model
-from tensorflow.keras.layers import LSTM, Dense, Input, Reshape
+import os
+import datetime
+import tensorflow as tf
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import LSTM, Dense, Input, LeakyReLU, Concatenate, GaussianNoise, Dropout
 from tensorflow.keras.optimizers import Adam
-import warnings
+from sklearn.preprocessing import MinMaxScaler
 
+# 1. KONFIGURACJA
+folder_name = "Wyniki_GAN"
+if not os.path.exists(folder_name): os.makedirs(folder_name)
 
+# Parametry
+SEQ_LEN = 64            
+PREDICT_STEPS = 2000    
+EPOCHS = 150            
+BATCH_SIZE = 32         
+TIMESTEP = 2.5e-6       
 
-# --- KONFIGURACJA ---
-SEQ_LEN = 50           # Długość historii 
-PREDICT_STEPS = 2000   # Długość generowanego sygnału 
-TRAIN_SIZE = 20000     # Ile danych bierzemy z pliku
-NOISE_DIM = 100        # Wielkość szumu
-EPOCHS = 1000          # Liczba rund treningu
-BATCH_SIZE = 32
-TIMESTEP = 2.5e-6
-
-# Wczytanie danych
+# 2. DANE
 print("Wczytywanie danych...")
 try:
     df = pd.read_csv('foo.csv', header=None)
-    limit = min(TRAIN_SIZE, len(df))
-    time_vals = df.iloc[:limit, 0].values
-    signal = df.iloc[:limit, 1:3].values
+    data_len = len(df)
+    
+    if data_len < 5000:
+        DOWNSAMPLE = 1
+        print("Mały zbiór danych - pobieranie wszystkich próbek.")
+    else:
+        DOWNSAMPLE = 5
+        print(f"Duży zbiór danych - pobieranie co {DOWNSAMPLE} próbki.")
+
+    # Pobranie danych (kolumny 1 i 2)
+    signal_raw = df.iloc[::DOWNSAMPLE, 1:3].values
+    
 except FileNotFoundError:
-    print("BŁĄD: Brak pliku foo.csv")
+    print("Błąd: Brak pliku foo.csv")
     exit()
 
-# Wizualizacja wejścia
-plt.figure(figsize=(12, 5))
-plt.plot(time_vals[:1000], signal[:1000, 0], 'b', label='V(v1) [ChL]')
-plt.plot(time_vals[:1000], signal[:1000, 1], 'g', label='V(v2) [ChR]')
-plt.title('Podgląd danych wejściowych')
-plt.legend()
-plt.grid(True)
-print("Wyświetlam dane wejściowe. Okno pozostanie otwarte w tle.")
-plt.show(block=False)  
-plt.pause(3)         
+# Skalowanie
+scaler = MinMaxScaler(feature_range=(-1, 1))
+signal_scaled = scaler.fit_transform(signal_raw)
 
-# --- PRZYGOTOWANIE DANYCH DO TRENINGU GAN ---
-gan_seq_len = PREDICT_STEPS 
-signal_norm = signal 
-required_len = gan_seq_len + (BATCH_SIZE * 50)
-temp_signal = signal_norm
+X, y = [], []
+for i in range(len(signal_scaled) - SEQ_LEN):
+    X.append(signal_scaled[i : i + SEQ_LEN])
+    y.append(signal_scaled[i + SEQ_LEN])
 
-# Powielanie danych jeśli plik jest za krótki
-while len(temp_signal) < required_len:
-    print(f"Dane są za krótkie ({len(temp_signal)}). Powielam je...")
-    temp_signal = np.concatenate([temp_signal, signal_norm])
+X = np.array(X).astype(np.float32)
+y = np.array(y).astype(np.float32)
 
-signal_train = temp_signal
+if len(X) < BATCH_SIZE: BATCH_SIZE = len(X)
 
-# Tworzenie zbioru treningowego dla GAN
-X_gan_train = []
-step = 50 
-for i in range(0, len(signal_train) - gan_seq_len, step):
-    X_gan_train.append(signal_train[i : i + gan_seq_len])
-
-X_gan_train = np.array(X_gan_train)
-
-# Dopasowanie do Batch Size
-if len(X_gan_train) < BATCH_SIZE:
-    repeat_count = (BATCH_SIZE // len(X_gan_train)) + 1
-    X_gan_train = np.concatenate([X_gan_train] * repeat_count)
-
-train_len = (len(X_gan_train) // BATCH_SIZE) * BATCH_SIZE
-X_gan_train = X_gan_train[:train_len]
-
-print(f"Dane treningowe gotowe. Liczba sekwencji: {len(X_gan_train)}")
-
-# --- BUDOWA SIECI ---
-
+# 3. MODELE
 def build_generator():
-    inp = Input(shape=(NOISE_DIM,))
-    x = Dense(PREDICT_STEPS * 2)(inp) # Używamy PREDICT_STEPS
-    x = Reshape((PREDICT_STEPS, 2))(x)
-    x = Dense(2, activation='tanh')(x)
-    return Model(inp, x)
-
-def build_discriminator():
-    inp = Input(shape=(PREDICT_STEPS, 2))
-    x = LSTM(50, return_sequences=False)(inp)
-    out = Dense(1, activation='sigmoid')(x)
+    inp = Input(shape=(SEQ_LEN, 2))
+    x = GaussianNoise(0.05)(inp)
+    x = LSTM(128, return_sequences=True)(x)
+    x = LeakyReLU(negative_slope=0.2)(x)
+    x = Dropout(0.2)(x)
+    x = LSTM(64)(x)
+    x = LeakyReLU(negative_slope=0.2)(x)
+    out = Dense(2, activation='tanh')(x)
     model = Model(inp, out)
-    model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.0002, beta_1=0.5))
     return model
 
-discriminator = build_discriminator()
+def build_discriminator():
+    inp_seq = Input(shape=(SEQ_LEN, 2))
+    inp_next = Input(shape=(2,))
+    x = LSTM(64)(inp_seq)
+    x = LeakyReLU(negative_slope=0.2)(x)
+    combined = Concatenate()([x, inp_next])
+    c = Dense(32)(combined)
+    c = LeakyReLU(negative_slope=0.2)(c)
+    out = Dense(1, activation='sigmoid')(c)
+    model = Model([inp_seq, inp_next], out)
+    return model
+
 generator = build_generator()
+discriminator = build_discriminator()
 
-discriminator.trainable = False  
-generator.trainable = True       
+g_optimizer = Adam(learning_rate=0.0002, beta_1=0.5)
+d_optimizer = Adam(learning_rate=0.0001, beta_1=0.5)
 
-gan_input = Input(shape=(NOISE_DIM,))
-fake_signal = generator(gan_input)
-gan_output = discriminator(fake_signal)
+# 4. TRENING (Hybrid Loss)
+@tf.function
+def train_step(real_seq, real_next):
+    with tf.GradientTape() as tape_d:
+        generated_next = generator(real_seq, training=True)
+        pred_real = discriminator([real_seq, real_next], training=True)
+        pred_fake = discriminator([real_seq, generated_next], training=True)
+        d_loss = tf.reduce_mean(tf.keras.losses.binary_crossentropy(tf.ones_like(pred_real), pred_real) + 
+                                tf.keras.losses.binary_crossentropy(tf.zeros_like(pred_fake), pred_fake))
 
-gan = Model(gan_input, gan_output)
-gan.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.0002, beta_1=0.5))
+    grads_d = tape_d.gradient(d_loss, discriminator.trainable_variables)
+    d_optimizer.apply_gradients(zip(grads_d, discriminator.trainable_variables))
+    
+    with tf.GradientTape() as tape_g:
+        generated_next = generator(real_seq, training=True)
+        pred_fake = discriminator([real_seq, generated_next], training=True)
+        g_adv_loss = tf.keras.losses.binary_crossentropy(tf.ones_like(pred_fake), pred_fake)
+        g_mae_loss = tf.reduce_mean(tf.abs(real_next - generated_next))
+        total_g_loss = tf.reduce_mean(g_adv_loss) + 100.0 * g_mae_loss
 
-# Trening
-print("\nStart Treningu...")
-real_labels = np.ones((BATCH_SIZE, 1))
-fake_labels = np.zeros((BATCH_SIZE, 1))
+    grads_g = tape_g.gradient(total_g_loss, generator.trainable_variables)
+    g_optimizer.apply_gradients(zip(grads_g, generator.trainable_variables))
+    return d_loss, total_g_loss
+
+print("Start treningu...")
+dataset = tf.data.Dataset.from_tensor_slices((X, y)).shuffle(1000).batch(BATCH_SIZE, drop_remainder=True)
 
 for epoch in range(EPOCHS):
-    idx = np.random.randint(0, X_gan_train.shape[0], BATCH_SIZE)
-    real_seqs = X_gan_train[idx]
-    
-    noise = np.random.normal(0, 1, (BATCH_SIZE, NOISE_DIM))
-    gen_seqs = generator.predict(noise, verbose=0)
-    
-    discriminator.train_on_batch(real_seqs, real_labels)
-    discriminator.train_on_batch(gen_seqs, fake_labels)
-    
-    noise = np.random.normal(0, 1, (BATCH_SIZE, NOISE_DIM))
-    g_loss = gan.train_on_batch(noise, real_labels)
-    
-    if epoch % 100 == 0:
-        loss_val = g_loss[0] if isinstance(g_loss, list) else g_loss
-        print(f"Runda {epoch}/{EPOCHS} | Strata Generatora: {loss_val:.4f}")
+    d_losses, g_losses = [], []
+    for seq, nxt in dataset:
+        d, g = train_step(seq, nxt)
+        d_losses.append(d)
+        g_losses.append(g)
+    if (epoch+1) % 10 == 0:
+        print(f"Epoka {epoch+1}/{EPOCHS} | D: {np.mean(d_losses):.4f} | G: {np.mean(g_losses):.4f}")
 
-# Prognozowanie
-print("\nGenerowanie przebiegu...")
-noise = np.random.normal(0, 1, (1, NOISE_DIM))
-generated_norm = generator.predict(noise, verbose=0)[0]
-predictions = generated_norm
+# 5. GENEROWANIE
+print("Generowanie przebiegu...")
+curr_seq = X[-1].reshape(1, SEQ_LEN, 2) 
+history_seq = curr_seq.copy()           
 
-X_train = [signal[:SEQ_LEN]] 
-X_train = np.array(X_train) 
+preds = []
+for i in range(PREDICT_STEPS):
+    next_point = generator.predict(curr_seq, verbose=0)
+    preds.append(next_point[0])
+    curr_seq = np.concatenate([curr_seq[:, 1:, :], next_point.reshape(1, 1, 2)], axis=1)
+    if i % 100 == 0: print(f"Krok {i}/{PREDICT_STEPS}")
 
-# Wykres
+preds = np.array(preds)
+preds_inv = scaler.inverse_transform(preds)
+hist_inv = scaler.inverse_transform(history_seq[0])
+
+ts = datetime.datetime.now().strftime("%H%M%S")
+
+# 6. WIZUALIZACJA
+
+# WYKRES 1: ATRAKTOR
+plt.figure(figsize=(12, 6))
+plt.subplot(1, 2, 1)
+plt.plot(signal_raw[:PREDICT_STEPS, 0], signal_raw[:PREDICT_STEPS, 1], 'b', alpha=0.3, lw=0.5)
+plt.title("Oryginał")
+plt.xlabel("V1 [-1, 1]")
+plt.ylabel("V2 [-1, 1]")
+plt.grid(True)
+
+plt.subplot(1, 2, 2)
+plt.plot(preds_inv[:, 0], preds_inv[:, 1], 'r', alpha=0.6, lw=0.5)
+plt.title("Prognoza GAN")
+plt.xlabel("V1 [-1, 1]")
+plt.ylabel("V2 [-1, 1]")
+plt.grid(True)
+plt.savefig(os.path.join(folder_name, f"Atraktor_{ts}.png"))
+plt.pause(3)
+plt.close()
+
+# WYKRES 2: PRZEBIEG CZASOWY 
 plt.figure(figsize=(15, 6))
 t_hist = np.arange(SEQ_LEN) * TIMESTEP
 t_pred = np.arange(SEQ_LEN, SEQ_LEN + PREDICT_STEPS) * TIMESTEP
 
-plt.plot(t_hist, X_train[-1][:, 0], 'b', label='Otrzymany przebieg V(v1) [ChL]')
-plt.plot(t_hist, X_train[-1][:, 1], 'g', label='Otrzymany przebieg V(v2) [ChR]')
-plt.plot(t_pred, predictions[:, 0], 'r--', label='Prognoza V(v1) [ChL]')
-plt.plot(t_pred, predictions[:, 1], 'm--', label='Prognoza V(v2) [ChR]')
+plt.plot(t_hist, hist_inv[:, 0], 'b', label='Historia V1')
+plt.plot(t_hist, hist_inv[:, 1], 'g', label='Historia V2')
+plt.plot(t_pred, preds_inv[:, 0], 'r', alpha=0.8, label='Prognoza V1')
+plt.plot(t_pred, preds_inv[:, 1], 'm', alpha=0.8, label='Prognoza V2')
 
-plt.axvline(x=SEQ_LEN * TIMESTEP, color='k', linestyle=':', label='Start prognozy')
+plt.axvline(x=SEQ_LEN*TIMESTEP, color='k', ls='--', label='Start Generacji')
 
-# --- PUNKT 0.003s ---
-target_time = 0.003
-idx = (np.abs(t_pred - target_time)).argmin()
-val_L = predictions[idx, 0]
-val_R = predictions[idx, 1]
-time_point = t_pred[idx]
+plt.title("Przebieg czasowy sygnałów")
+plt.xlabel("Czas [ms]")
+plt.ylabel("Amplituda [-1, 1]")
 
-print(f"\nPunkt kontrolny dla czasu {target_time}s:")
-print(f"Czas: {time_point:.6f} s")
-print(f"Współrzędna Y (Lewy): {val_L:.6f}")
-print(f"Współrzędna Y (Prawy): {val_R:.6f}")
-
-plt.plot(time_point, val_L, 'ro', markersize=8)
-plt.text(time_point, val_L, f'  Y={val_L:.5f}', color='black', fontweight='bold', verticalalignment='bottom')
-
-plt.plot(time_point, val_R, 'mo', markersize=8)
-plt.text(time_point, val_R, f'  Y={val_R:.5f}', color='black', fontweight='bold', verticalalignment='top')
-
-plt.title(f'Prognoza przebiegu chaotycznego')
-plt.legend()
+plt.legend(loc='upper right')
 plt.grid(True)
-plt.show()
+plt.savefig(os.path.join(folder_name, f"Sygnal_{ts}.png"))
+plt.pause(3)
+plt.close()
+
+print(f"\nGotowe! Wyniki zapisane w folderze: {folder_name}")

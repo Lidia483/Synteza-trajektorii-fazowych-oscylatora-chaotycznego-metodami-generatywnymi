@@ -1,0 +1,544 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{amit2021}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=015e95e7d0fd77d384edef10364853ab}{%
+           family={Amit},
+           familyi={A\bibinitperiod},
+           given={Saha},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wydawnictwo Helion}%
+      }
+      \strng{namehash}{015e95e7d0fd77d384edef10364853ab}
+      \strng{fullhash}{015e95e7d0fd77d384edef10364853ab}
+      \strng{fullhashraw}{015e95e7d0fd77d384edef10364853ab}
+      \strng{bibnamehash}{015e95e7d0fd77d384edef10364853ab}
+      \strng{authorbibnamehash}{015e95e7d0fd77d384edef10364853ab}
+      \strng{authornamehash}{015e95e7d0fd77d384edef10364853ab}
+      \strng{authorfullhash}{015e95e7d0fd77d384edef10364853ab}
+      \strng{authorfullhashraw}{015e95e7d0fd77d384edef10364853ab}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9788328374935}
+      \field{title}{Matematyka w Pythonie. Algebra, statystyka, analiza matematyczna i inne dziedziny}
+      \field{year}{2021}
+    \endentry
+    \entry{bartoszewicz1989}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=330674d844ce02ab7d9cdb637ecbba5a}{%
+           family={Bartoszewicz},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wydawnictwo Naukowe PWN}%
+      }
+      \strng{namehash}{330674d844ce02ab7d9cdb637ecbba5a}
+      \strng{fullhash}{330674d844ce02ab7d9cdb637ecbba5a}
+      \strng{fullhashraw}{330674d844ce02ab7d9cdb637ecbba5a}
+      \strng{bibnamehash}{330674d844ce02ab7d9cdb637ecbba5a}
+      \strng{authorbibnamehash}{330674d844ce02ab7d9cdb637ecbba5a}
+      \strng{authornamehash}{330674d844ce02ab7d9cdb637ecbba5a}
+      \strng{authorfullhash}{330674d844ce02ab7d9cdb637ecbba5a}
+      \strng{authorfullhashraw}{330674d844ce02ab7d9cdb637ecbba5a}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{8301120959}
+      \field{title}{Wykłady ze statystyki matematycznej}
+      \field{year}{1989}
+    \endentry
+    \entry{zahra2024}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ba3e24c9ee7e8e63b56252001f937cb3}{%
+           family={Behdani},
+           familyi={B\bibinitperiod},
+           given={Zahra},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba3e24c9ee7e8e63b56252001f937cb3}
+      \strng{fullhash}{ba3e24c9ee7e8e63b56252001f937cb3}
+      \strng{fullhashraw}{ba3e24c9ee7e8e63b56252001f937cb3}
+      \strng{bibnamehash}{ba3e24c9ee7e8e63b56252001f937cb3}
+      \strng{authorbibnamehash}{ba3e24c9ee7e8e63b56252001f937cb3}
+      \strng{authornamehash}{ba3e24c9ee7e8e63b56252001f937cb3}
+      \strng{authorfullhash}{ba3e24c9ee7e8e63b56252001f937cb3}
+      \strng{authorfullhashraw}{ba3e24c9ee7e8e63b56252001f937cb3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Behbahan Khatam Alanbia university of technology}
+      \field{note}{https://doi.org/10.22111/ijfs.2024.48443.8535 dostęp uzyskano 2025-01-10}
+      \field{title}{Theil-Sen Estimators for fuzzy regression model}
+      \field{year}{2024}
+    \endentry
+    \entry{hristo2019}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1824b4bda802756a6a964beeaea57538}{%
+           family={{Chervenkov}},
+           familyi={C\bibinitperiod}}}%
+        {{hash=c5ac4ba4202ee0773781f05473830e70}{%
+           family={{Hristo}},
+           familyi={H\bibinitperiod}}}%
+        {{hash=470638076c0a6a529ff596a53748be39}{%
+           family={{Kiril Slavov}},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3a921d520f922ccb78e454371f31c85}
+      \strng{fullhash}{6239e554b1c2f6a5434b9a1a39ea155f}
+      \strng{fullhashraw}{6239e554b1c2f6a5434b9a1a39ea155f}
+      \strng{bibnamehash}{6239e554b1c2f6a5434b9a1a39ea155f}
+      \strng{authorbibnamehash}{6239e554b1c2f6a5434b9a1a39ea155f}
+      \strng{authornamehash}{b3a921d520f922ccb78e454371f31c85}
+      \strng{authorfullhash}{6239e554b1c2f6a5434b9a1a39ea155f}
+      \strng{authorfullhashraw}{6239e554b1c2f6a5434b9a1a39ea155f}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Comptes rendus de l’Acade'mie bulgare des Sciences}
+      \field{note}{http://dx.doi.org/10.7546/CRABS.2019.01.06 dostęp uzyskano 2025-01-10}
+      \field{number}{72}
+      \field{title}{Theil-Sen estimator vs. ordinary least squares–trend analysis for selected ETCCDI climate indices}
+      \field{year}{2019}
+      \field{pages}{47\bibrangedash 54}
+      \range{pages}{8}
+    \endentry
+    \entry{francuz2015}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=d3c3ed0f75ebc66cb231042fa598a9cc}{%
+           family={Francuz},
+           familyi={F\bibinitperiod},
+           given={Tomasz},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wydawnictwo Helion}%
+      }
+      \strng{namehash}{d3c3ed0f75ebc66cb231042fa598a9cc}
+      \strng{fullhash}{d3c3ed0f75ebc66cb231042fa598a9cc}
+      \strng{fullhashraw}{d3c3ed0f75ebc66cb231042fa598a9cc}
+      \strng{bibnamehash}{d3c3ed0f75ebc66cb231042fa598a9cc}
+      \strng{authorbibnamehash}{d3c3ed0f75ebc66cb231042fa598a9cc}
+      \strng{authornamehash}{d3c3ed0f75ebc66cb231042fa598a9cc}
+      \strng{authorfullhash}{d3c3ed0f75ebc66cb231042fa598a9cc}
+      \strng{authorfullhashraw}{d3c3ed0f75ebc66cb231042fa598a9cc}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-83-246-3064-6}
+      \field{title}{Język C dla mikrokontrolerów AVR. Od podstaw do zaawansowanych aplikacji. Wydanie II}
+      \field{year}{2015}
+    \endentry
+    \entry{UM1727}{manual}{}{}
+      \list{organization}{1}{%
+        {STM32CubeIDE}%
+      }
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{note}{UM1727}
+      \field{title}{Getting started with STM32 Nucleo board software development tools}
+      \field{year}{2020}
+    \endentry
+    \entry{luciano2015}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=12b30d9577648d4fdc0710d5b067bf19}{%
+           family={Luciano},
+           familyi={L\bibinitperiod},
+           given={Ramalho},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APN Promise}%
+      }
+      \strng{namehash}{12b30d9577648d4fdc0710d5b067bf19}
+      \strng{fullhash}{12b30d9577648d4fdc0710d5b067bf19}
+      \strng{fullhashraw}{12b30d9577648d4fdc0710d5b067bf19}
+      \strng{bibnamehash}{12b30d9577648d4fdc0710d5b067bf19}
+      \strng{authorbibnamehash}{12b30d9577648d4fdc0710d5b067bf19}
+      \strng{authornamehash}{12b30d9577648d4fdc0710d5b067bf19}
+      \strng{authorfullhash}{12b30d9577648d4fdc0710d5b067bf19}
+      \strng{authorfullhashraw}{12b30d9577648d4fdc0710d5b067bf19}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-8375412239}
+      \field{title}{Zaawansowany Python. Jasne, zwięzłe i efektywne programowanie}
+      \field{year}{2015}
+    \endentry
+    \entry{mark2022}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=741e19c560cbf4f4e40fb41e26b8e783}{%
+           family={Mark},
+           familyi={M\bibinitperiod},
+           given={Lutz},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wydawnictwo Helion}%
+      }
+      \strng{namehash}{741e19c560cbf4f4e40fb41e26b8e783}
+      \strng{fullhash}{741e19c560cbf4f4e40fb41e26b8e783}
+      \strng{fullhashraw}{741e19c560cbf4f4e40fb41e26b8e783}
+      \strng{bibnamehash}{741e19c560cbf4f4e40fb41e26b8e783}
+      \strng{authorbibnamehash}{741e19c560cbf4f4e40fb41e26b8e783}
+      \strng{authornamehash}{741e19c560cbf4f4e40fb41e26b8e783}
+      \strng{authorfullhash}{741e19c560cbf4f4e40fb41e26b8e783}
+      \strng{authorfullhashraw}{741e19c560cbf4f4e40fb41e26b8e783}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-83-283-9170-3}
+      \field{title}{Python. Wprowadzenie}
+      \field{year}{2022}
+    \endentry
+    \entry{james2015}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1704dc0dc0dbd3d65e48ff5868048647}{%
+           family={{Ohlson}},
+           familyi={O\bibinitperiod}}}%
+        {{hash=e4aabf487ed50bbe6483cd88a75b14de}{%
+           family={{James }},
+           familyi={J\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=53cb763d63d8189ca8cf55ae2d0b5db3}{%
+           family={{Seil Kim}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{2cb494373a29bb845be38c56b0730b98}
+      \strng{fullhash}{de249f3f7268bc00cc49b4d0441ecfe5}
+      \strng{fullhashraw}{de249f3f7268bc00cc49b4d0441ecfe5}
+      \strng{bibnamehash}{de249f3f7268bc00cc49b4d0441ecfe5}
+      \strng{authorbibnamehash}{de249f3f7268bc00cc49b4d0441ecfe5}
+      \strng{authornamehash}{2cb494373a29bb845be38c56b0730b98}
+      \strng{authorfullhash}{de249f3f7268bc00cc49b4d0441ecfe5}
+      \strng{authorfullhashraw}{de249f3f7268bc00cc49b4d0441ecfe5}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1380-6653}
+      \field{journaltitle}{Review of Accounting Studies}
+      \field{note}{https://doi.org/10.1007/s11142-014-9300-0 dostęp uzyskano 2025-01-10}
+      \field{title}{Linear valuation without OLS: the Theil-Sen estimation approach}
+      \field{year}{2015}
+      \field{pages}{395\bibrangedash 435}
+      \range{pages}{41}
+    \endentry
+    \entry{jacko2019}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=a74d2e5ffa1f3f877921d2f7c66f4ea8}{%
+           family={{P. Jacko}},
+           familyi={P\bibinitperiod}}}%
+        {{hash=905d4c9f068e4045b672d2f68f2169d2}{%
+           family={{O. Kravets}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{ad7602b73b7d02857aa1ba8d01813039}
+      \strng{fullhash}{ad7602b73b7d02857aa1ba8d01813039}
+      \strng{fullhashraw}{ad7602b73b7d02857aa1ba8d01813039}
+      \strng{bibnamehash}{ad7602b73b7d02857aa1ba8d01813039}
+      \strng{authorbibnamehash}{ad7602b73b7d02857aa1ba8d01813039}
+      \strng{authornamehash}{ad7602b73b7d02857aa1ba8d01813039}
+      \strng{authorfullhash}{ad7602b73b7d02857aa1ba8d01813039}
+      \strng{authorfullhashraw}{ad7602b73b7d02857aa1ba8d01813039}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2019 IEEE International Conference on Modern Electrical and Energy Systems (MEES)}
+      \field{note}{http://dx.doi.org/10.1109/MEES.2019.8896545 dostęp uzyskano 2025-01-10}
+      \field{title}{Spectral Analysis by STM32 Microcontroller of the Mixed Signal}
+      \field{year}{2019}
+      \field{pages}{342\bibrangedash 345}
+      \range{pages}{4}
+    \endentry
+    \entry{parandowski1992}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=8bd6eaec2bbcec5c3beef8013f86c16e}{%
+           family={Parandowski},
+           familyi={P\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Puls}%
+      }
+      \strng{namehash}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \strng{fullhash}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \strng{fullhashraw}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \strng{bibnamehash}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \strng{authorbibnamehash}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \strng{authornamehash}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \strng{authorfullhash}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \strng{authorfullhashraw}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mitologia}
+      \field{year}{1992}
+    \endentry
+    \entry{prata2016}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=2e43717be9d8e6bab9397ad4f022a306}{%
+           family={Prata},
+           familyi={P\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wydawnictwo Helion}%
+      }
+      \strng{namehash}{2e43717be9d8e6bab9397ad4f022a306}
+      \strng{fullhash}{2e43717be9d8e6bab9397ad4f022a306}
+      \strng{fullhashraw}{2e43717be9d8e6bab9397ad4f022a306}
+      \strng{bibnamehash}{2e43717be9d8e6bab9397ad4f022a306}
+      \strng{authorbibnamehash}{2e43717be9d8e6bab9397ad4f022a306}
+      \strng{authornamehash}{2e43717be9d8e6bab9397ad4f022a306}
+      \strng{authorfullhash}{2e43717be9d8e6bab9397ad4f022a306}
+      \strng{authorfullhashraw}{2e43717be9d8e6bab9397ad4f022a306}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-83-283-1470-2}
+      \field{title}{Język C. Szkoła programowania}
+      \field{year}{2016}
+    \endentry
+    \entry{chudamani2006}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=c861847b422fa8c8faa21671fbb039d2}{%
+           family={{R. Chudamani}},
+           familyi={R\bibinitperiod}}}%
+        {{hash=7090b639521e58e4ed63cff1e1bd9f81}{%
+           family={{K. Vasudevan}},
+           familyi={K\bibinitperiod}}}%
+        {{hash=1098e804bb18a447fe72e72c4de6da4a}{%
+           family={{C. S. Ramalingam}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{eba6c9a851ee83e1ffc8ac58094b682d}
+      \strng{fullhash}{6d45ffb4c83de45bf3f38b126f495214}
+      \strng{fullhashraw}{6d45ffb4c83de45bf3f38b126f495214}
+      \strng{bibnamehash}{6d45ffb4c83de45bf3f38b126f495214}
+      \strng{authorbibnamehash}{6d45ffb4c83de45bf3f38b126f495214}
+      \strng{authornamehash}{eba6c9a851ee83e1ffc8ac58094b682d}
+      \strng{authorfullhash}{6d45ffb4c83de45bf3f38b126f495214}
+      \strng{authorfullhashraw}{6d45ffb4c83de45bf3f38b126f495214}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Conference on Power Electronic}
+      \field{note}{doi: 10.1109/PEDES.2006.344228 dostęp uzyskano 2025-01-10}
+      \field{title}{Simulation Study of a Shunt Active Power Filter Using Nonlinear Least Squares Harmonic Extraction Technique}
+      \field{year}{2006}
+      \field{pages}{1\bibrangedash 5}
+      \range{pages}{5}
+    \endentry
+    \entry{bitcoin2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=62b0a5475bd1bc7c9b9d08b84f9e85fb}{%
+           family={Shankhdhar},
+           familyi={S\bibinitperiod},
+           given={Ashutosh},
+           giveni={A\bibinitperiod}}}%
+        {{hash=161ce5cc6813a25620f47a684b094bfa}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Akhilesh\bibnamedelima Kumar},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=a48437bdf727baf38791037b4fa964d4}{%
+           family={Naugraiya},
+           familyi={N\bibinitperiod},
+           given={Suryansh},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6d531ded9291b60aa3208d139f169c48}{%
+           family={Saini},
+           familyi={S\bibinitperiod},
+           given={Prathmesh\bibnamedelima Kumar},
+           giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{0fdd9bd89fbc2320a3a0636c68d08c80}
+      \strng{fullhash}{8394aadb2b9d26adf701388b460828d4}
+      \strng{fullhashraw}{8394aadb2b9d26adf701388b460828d4}
+      \strng{bibnamehash}{8394aadb2b9d26adf701388b460828d4}
+      \strng{authorbibnamehash}{8394aadb2b9d26adf701388b460828d4}
+      \strng{authornamehash}{0fdd9bd89fbc2320a3a0636c68d08c80}
+      \strng{authorfullhash}{8394aadb2b9d26adf701388b460828d4}
+      \strng{authorfullhashraw}{8394aadb2b9d26adf701388b460828d4}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IOP Conference Series: Materials Science and Engineering}
+      \field{month}{4}
+      \field{number}{1}
+      \field{title}{Bitcoin Price Alert and Prediction System using various Models}
+      \field{volume}{1131}
+      \field{year}{2021}
+      \field{pages}{012009}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1757-899X/1131/1/012009
+      \endverb
+      \verb{urlraw}
+      \verb https://dx.doi.org/10.1088/1757-899X/1131/1/012009
+      \endverb
+      \verb{url}
+      \verb https://dx.doi.org/10.1088/1757-899X/1131/1/012009
+      \endverb
+    \endentry
+    \entry{ionescu2020}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=644aeebce663e60324831fb8b0bf91c0}{%
+           family={{V. M. Ionescu}},
+           familyi={V\bibinitperiod}}}%
+        {{hash=377000860f4f05e933b2932071f59cc7}{%
+           family={{F. M. Enescu}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \strng{fullhash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \strng{fullhashraw}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \strng{bibnamehash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \strng{authorbibnamehash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \strng{authornamehash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \strng{authorfullhash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \strng{authorfullhashraw}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2020 IEEE 26th International Symposium for Design and Technology in Electronic Packaging (SIITME)}
+      \field{note}{https://doi.org/10.1109/SIITME50350.2020.9292199 dostęp uzyskano 2025-01-10}
+      \field{title}{Investigating the performance of MicroPython and C on ESP32 and STM32 microcontrollers}
+      \field{year}{2020}
+      \field{pages}{234\bibrangedash 237}
+      \range{pages}{4}
+    \endentry
+    \entry{rand2010}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=c60f0f1d9f63f3fe3c0acca3eb3d148e}{%
+           family={Wilcox},
+           familyi={W\bibinitperiod},
+           given={Rand\bibnamedelima R.},
+           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \strng{fullhash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \strng{fullhashraw}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \strng{bibnamehash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \strng{authorbibnamehash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \strng{authornamehash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \strng{authorfullhash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \strng{authorfullhashraw}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4419-5524-1}
+      \field{title}{Fundamentals of Modern Statistical Methods}
+      \field{year}{2010}
+    \endentry
+    \entry{wang2005}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=a4d194c44314ea54a07a87a40825b411}{%
+           family={{X Wang}},
+           familyi={X\bibinitperiod}}}%
+        {{hash=809fd5d73402969418baaf044a466904}{%
+           family={{Q Yu}},
+           familyi={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{a4360091a77533541c7b8004d92ac77b}
+      \strng{fullhash}{a4360091a77533541c7b8004d92ac77b}
+      \strng{fullhashraw}{a4360091a77533541c7b8004d92ac77b}
+      \strng{bibnamehash}{a4360091a77533541c7b8004d92ac77b}
+      \strng{authorbibnamehash}{a4360091a77533541c7b8004d92ac77b}
+      \strng{authornamehash}{a4360091a77533541c7b8004d92ac77b}
+      \strng{authorfullhash}{a4360091a77533541c7b8004d92ac77b}
+      \strng{authorfullhashraw}{a4360091a77533541c7b8004d92ac77b}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Nonparametric Statistics}
+      \field{month}{6}
+      \field{note}{https://doi.org/10.1080/10485250500039452 dostęp uzyskano 2025-01-10}
+      \field{number}{17}
+      \field{title}{Unbiasedness of the Theil–Sen estimator}
+      \field{year}{2005}
+      \field{pages}{685\bibrangedash 695}
+      \range{pages}{11}
+    \endentry
+    \entry{zieliński1990}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=6ba99bc5556ba49f43a8619ce409b528}{%
+           family={Zieliński},
+           familyi={Z\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wydawnictwo Naukowe PWN}%
+      }
+      \strng{namehash}{6ba99bc5556ba49f43a8619ce409b528}
+      \strng{fullhash}{6ba99bc5556ba49f43a8619ce409b528}
+      \strng{fullhashraw}{6ba99bc5556ba49f43a8619ce409b528}
+      \strng{bibnamehash}{6ba99bc5556ba49f43a8619ce409b528}
+      \strng{authorbibnamehash}{6ba99bc5556ba49f43a8619ce409b528}
+      \strng{authornamehash}{6ba99bc5556ba49f43a8619ce409b528}
+      \strng{authorfullhash}{6ba99bc5556ba49f43a8619ce409b528}
+      \strng{authorfullhashraw}{6ba99bc5556ba49f43a8619ce409b528}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9788301104412}
+      \field{title}{Siedem wykładów wprowadzających do statystyki matematycznej}
+      \field{year}{1990}
+    \endentry
+  \enddatalist
+  \missing{linnik1962}
+\endrefsection
+\endinput
+

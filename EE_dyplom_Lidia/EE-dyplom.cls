@@ -100,12 +100,11 @@
 %\RequirePackage[version=4]{mhchem}
 \ifXeTeX
     \RequirePackage{mathspec} % wczytuje również fontspec
-    \setmainfont{Latin Modern Roman}
-    \setromanfont{Latin Modern Roman}
-    \setsansfont{Latin Modern Sans}
-    \setmonofont{Latin Modern Mono}
-    \setmathrm{Latin Modern Math}
-    \setmathfont(Digits,Latin)[Scale=MatchLowercase]{Latin Modern Math}
+    % Use Times instead of Latin Modern for better compatibility
+    \setmainfont{Times New Roman}
+    \setromanfont{Times New Roman}
+    \setsansfont{Helvetica}
+    \setmonofont{Courier New}
 \else
     \RequirePackage{lmodern}
     \renewcommand*\familydefault{\sfdefault}
