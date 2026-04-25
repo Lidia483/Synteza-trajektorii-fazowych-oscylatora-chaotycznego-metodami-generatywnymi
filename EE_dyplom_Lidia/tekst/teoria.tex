@@ -1,111 +1,365 @@
-Na początku był Chaos. Któż zdoła powiedzieć dokładnie, co to był Chaos? 
+Na początku był Chaos. Któż zdoła powiedzieć dokładnie, co to był Chaos?  
 Niejedni widzieli w nim jakąś istotę boską, ale bez określonego kształtu. 
 Inni – a takich było najwięcej – mówili, że to wielka otchłań, pełna siły 
-twórczej i boskich nasieni, jakby jedna masa nieuporządkowana, ciężka i 
-ciemna, mieszanina ziemi, wody, ognia i powietrza \cite{parandowski1992}
- 
- kazdym wytłumaczeniu czym jest chaos z
- najdziemy przywołania do mityczynch czasów powstania świata. 
+twórczej i boskich nasieni, jakby jedna masa nieuporządkowana, ciężka i ciemna, 
+mieszanina ziemi, wody, ognia i powietrza~\cite{parandowski1992}.
 
 
-\section{Henri Theil}
-Henri Theil urodził się w Holandii w 1925 roku. Swoją pracę naukową rozpoczynał jako student matematyki i fizyki na Uniwersytecie Utrecht w Amsterdamie.Theil jest najbardziej znany z ulepszenia metody najmniejszych kwadratów w dwóch etapach (2SLS) z 1953 roku.
-\begin{figure}[h!]
-\centering \includegraphics[width=0.5\linewidth]{prof_dr_H_Theil_1966.jpg}
-\caption{Prof. dr. Henri Theil, autor Gemeente Rotterdam , r. 1966}
-\label{rys:prof_dr_H_Theil_1966}
-\end{figure}
+Pojęcie chaosu, choć pierwotnie kojarzone z boską istotą pozbawioną formy 
+lub bezkresną otchłanią, we współczesnej nauce zyskało nową i 
+bardziej precyzyjną definicję. Obecnie zjawisko to bada się w różnych 
+dziedzinach, takich jak biologia, gdzie opisuje się za jego pomocą  
+złożone ekosystemy, czy informatyka, w której odnosi się ono do systemów 
+wysoce nieprzewidywalnych i trudnych do sterowania. Największe znaczenie 
+termin ten posiada jednak w fizyce oraz matematyce, gdzie  
+wiąże się z nieliniowymi układami dynamicznymi. Układy te charakteryzują 
+się ogromną wrażliwością na warunki początkowe, co oznacza, że nawet 
+najmniejsze zmiany parametrów startowych prowadzą do uzyskania 
+innych wyników końcowych. Zjawisko to jest powszechnie znane pod nazwą 
+efektu motyla~\cite{motyl2}. Ze względu na skomplikowaną naturę zjawisk 
+chaotycznych, do ich dokładnego badania i modelowania niezbędne jest 
+wykorzystanie odpowiednich narzędzi analitycznych. Z tego powodu poniżej 
+przedstawiono podstawy teoretyczne, które pozwalają na zrozumienie metod pomiaru 
+nieuporządkowania badanych układów oraz sposobów ich symulowania za pomocą 
+algorytmów uczenia maszynowego.
 
-Technika ta znacznie uprościła szacowanie modeli równań w ekonomii i stała się powszechnie stosowana. W tym samym roku został mianowany profesorem ekonometrii w Niderlandzkiej Szkole Ekonomii. W kolejnych latach założył tam między innymi Instytut Ekonometrii, który prężnie rozwijał się pod jego opieką. W 1966 roku przeniósł się do Stanów Zjednoczonych, na Uniwersytet w Chicago, gdzie kontynuował swoją pracę naukową. Zmarł 20 sierpnia 2000 roku w wieku 75 lat.
-
-
-
-
-\section{Pranab Kumar Sen}
-Pranab Kumar Sen urodził się w Kalkucie 7 listopada 1937 roku. Jest on autorem i współautorem wielu książek na temat statystyki. Znany jest głównie z opracowania estymatora Theil-Sen, był również członkiem Instytutu Statystyki Matematycznej oraz Amerykańskiego Towarzystwa Statystycznego (ASA). W 2010 roku stowarzyszenie przyznało mu nagrodę Wilks Memorial Award „za wybitne osiągnięcia w badaniach statystycznych, szczególnie w statystyce nieparametrycznej i biostatystyce oraz za wyjątkową służbę jako mentor dla doktorantów". Sen zmarł w Chapel Hill, w Karolinie Północnej 31 grudnia 2023 roku w wieku 86 lat.
-
-\begin{figure}[h!]
-\centering \includegraphics[width=0.45\linewidth]{rysunki/sen_now.jpg}
-\caption{Prof. dr. Pranab Kumar Sen, autor Tom Fuldner, r. 2011}
-\label{rys:Pranab_K_Sen}
-\end{figure}
-
-\section{Metoda Theil-Sen}
-Metoda Theil-Sen, nazwana również estymatorem Theil-Sen, to technika dopasowywania prostej linii regresji na podstawie mediany nachyleń wszystkich linii przechodzących przez pary punktów istniejących w danym zbiorze.
-
-Niech $x_i, x_j, \ldots, x_n$ oraz $y_i, y_j, \ldots, y_n$ będą niezależnymi punktami należącymi do zbioru liczb rzeczywistych.
-
-Nachylenia wszystkich linii przechodzących przez pary punktów:
-
-\[m_{ij} = \frac{y_j - y_i}{x_j - x_i}\]
-Mediana nachyleń:
-\[m = {mediana}\ \ m_{ij}\]
-Obliczenie wyrazu wolnego (b) jako medianę wartości (yi - mxi):
-\
-\[b = {mediana}\ (y_i -mx_i)\]
-Ostateczna linia regresji ma postać:
-\[y=mx+b\]
-
-
+\section{Entropia Shannona}
+W 1948 roku ujrzał światło dzienne artykuł zatytułowany „A Mathematical Theory of Communication”~\cite{shannon1948mathematical} napisany przez amerykańskiego matematyka i inżyniera Claude E. Shannon’a, gdzie zaprezentowano podstawy nowej dziedziny zwaną teorią informacji. Wprowadzono tam po raz pierwszy matematyczny sposób mierzenia ilości informacji, określaną jako entropia informacyjna, powszechnie znaną dziś pod nazwą entropii Shannona. 
 
 \begin{figure}[h!]
-\centering
-\includegraphics[width=0.8\linewidth]{theil2.png}
-\caption{Wykres metody Theil-Sen}
-\label{fig:enter-label}
+\centering \includegraphics[width= 0.8\linewidth]{SHAHHONA.png}
+\caption{Schemat ogólnego sytemu komunikacji}
+\label{rys:SHAHHONA}
 \end{figure}
-Metoda ta jest szczególnie przydatna, gdy chcemy znaleźć linie ternu, ale występuje możliwość, że kilka nietypowych wartości zniekształci wynik.
 
-Metoda Theil-Sen ma szerokie zastosowania w statystyce nieparametrycznej wymagającej założeń dotyczących rozkładu błędów, szerzej opisanych w artykule „Unbiasedness of the Theil–Sen estimator” z 2005 roku~\cite{wang2005}.
+\subsection{Zasada działania}
+Entropia jest miarą stopnia nieuporządkowania systemu. Im wyższa jest jej wartość, tym bardziej chaotyczny
+jest układ. Entropia Shannona określa, jak trudno jest przewidzieć kolejną wartość w badanym zbiorze danych.
+Wartość ta zależy bezpośrednio od częstości występowania każdego z elementów. Do obliczenia entropii 
+wymagana jest znajomość całego zbioru oraz rozkładu prawdopodobieństwa~\cite{entropiaShannona1}~\cite{entropiaShannona2}.
+Podczas analizy sygnałów, w pierwszej kolejności dzieli się zebrane dane na równe przedziały, 
+najczęściej przy pomocy histogramu. Następnie wyznacza się prawdopodobieństwo $P(x)$, określające 
+szansę trafienia wartości do poszczególnych przedziałów~\cite{entropiaShannona3}~\cite{entropiaShannona8}.
 
-\section{Metoda najmniejszych kwadratów}
-
-Metoda najmniejszych kwadratów ~\cite{linnik1962}~\cite{rand2010}(z angielskiego Method of Least Squares OLS) jest techniką stosowaną w statystyce, polegającą na dopasowaniu linii prostych (lub krzywych) do zbioru danych~\cite{bartoszewicz1989}~\cite{zieliński1990}. Jej celem jest wyznaczenie linii regresji, która najlepiej dopasuje się do danych punktów. Przedstawia się ją jako prostą y = ax + b, gdzie "a" to nachylenie, "b" to punkt przecięcia z osią y.
-
-Dla zbioru danych $(x_1,y_1),(x_2,y_2)\ldots(x_n,y_n)$, szukana jest prosta $y=ax+b$, dla której suma kwadratów odchyleń między rzeczywistymi wartościami a wartościami przewidywanymi przez linię $y_i=ax_i+b$ była minimalna.
-
-Suma z reszty kwadratów
-\begin{equation*}
-S(a,b) = \sum (y_i - (ax _i+b))^2
-\end{equation*}
+Gdy badany sygnał nie zmienia się i wszystkie odczyty wpadają do tego samego przedziału, kolejny wynik
+ jest znany. W takiej sytuacji nie występuje żadna losowość, co oznacza, że entropia wynosi zero. 
+W przypadku układów o dużej zmienności, odczyty trafiają do wielu różnych przedziałów. Im bardziej 
+równomiernie dane wypełniają przedziały, tym trudniej jest przewidzieć następną wartość, co oznacza, 
+że  wartości entropii rośnie. Osiąga ona swoją maksymalną wartość wtedy, gdy rozkład danych jest 
+całkowicie równomierny~\cite{entropiaShannona7}.
 
 
-Aby znaleźć wartości dla, a i b, należy zminimalizować funkcję S(a,b). By to osiągnąć, należy zróżniczkować funkcję S względem, a i b, a następnie przyrównać te pochodne do zera.
+Dla zmiennej losowej przyjmującej $n$ różnych wartości, z których każda występuje z pewnym 
+prawdopodobieństwem $p_i$, entropię $H$ opisuje się następującym równaniem:
 
-Dla a:
+\[H = -\sum_{i=1}^{n} p_i \log_b(p_i)\]
 
-\begin{equation*}
-\frac{\partial S}{\partial a} = -2 \sum^n_{i=1} x_i (y_i - (ax _i+b))=0
-\end{equation*}
-
-Dla b:
-
-\begin{equation*}
-\frac{\partial S}{\partial b} = -2 \sum^n_{i=1} (y_i - (ax _i+b))=0
-\end{equation*}
-
-Metoda najmniejszych kwadratów  jest kluczowym narzędziem w analizie regresji, stosowanym w przeróżnych przypadkach. Dzięki efektywności obliczeniowej znajduje zastosowanie w takich dziedzinach jak analiza sygnałów, optymalizacja procesów technologicznych czy prognozowanie ekonomiczne.
-
-Jednym z przykładów zastosowania tej metody jest artykuł z 2006 roku, w którym wykorzystano ją do identyfikacji oraz separacji składowych harmonicznych prądu obciążenia w aktywnych filtrach mocy, co umożliwiło skuteczną kompensację zakłóceń i poprawę jakości energii elektrycznej ~\cite{chudamani2006}. 
-
+Gdzie:
+\begin{itemize}
+    \item $p_i$ to prawdopodobieństwo zajścia $i$-tego zdarzenia,
+    \item suma wszystkich prawdopodobieństw $p_i$ dla całego układu wynosi zawsze 1
+    \item $b$ to podstawa logarytmu, która bezpośrednio określa jednostkę miary informacji.
+\end{itemize}
 
 \begin{figure}[h!]
-\centering
-\includegraphics[width=0.77\linewidth]{kwadrat1.png}
-\caption{Wykres metody najmniejszych kwadratów}
-\label{rys:enter-label}
+\centering \includegraphics[width= 0.8\linewidth]{Entropia_wynik.png}
+\caption{Entropia Shannona}
+\label{rys:Entropia_wynik}
 \end{figure}
 
-\section{Porównanie metody}
+Sumowanie przeprowadza się wyłącznie dla przedziałów, które nie są puste.
+Użycie logarytmu o podstawie dwa sprawia, że ostateczny wynik podaje się w bitach.
+Im większa jest uzyskana liczba bitów, tym bardziej złożony i nieprzewidywalny jest 
+układ~\cite{entropiaShannona4}~\cite{entropiaShannona5}~\cite{entropiaShannona6}.
 
-Metoda Theil-Sen i metoda najmniejszych kwadratów to dwa podejścia do wyznaczania linii regresji.
+\section{Korelacja Pearsona}
+Współczynnik korelacji liniowej Pearsona stanowi jedną z najpopularniejszych 
+miar stosoowanych w statystyce do określania poziomu i kierunku zależności 
+liniowej pomiędzy dwiema zmiennymi. Narzędzie to wyznacza się w celu 
+zweryfikowania, czy zmiana jednej wielkości pociąga za sobą proporcjonalną zmianę 
+drugiej.
+
+\subsection{Zasada działania}
+
+Wartość opisywanego wskaźnika mieści się w zamkniętym przedziale od -1 do 1. 
+Dodatni wynik oznacza, że wzrostowi wartości jednej zmiennej odpowiada 
+wzrost wartości drugiej zmiennej. Z kolei ujemna korelacja występuje wtedy, 
+gdy rosnące wartości jednej danej wiążą się ze spadkiem wartości drugiej. 
+Im wartość bezwzględna znajduje się bliżej jedynki, tym silniejsza jest 
+obserwowana relacja liniowa, gdy wynik równy jest zeru oznacza to
+całkowity brak takiego powiązania~\cite{korelacjaPearsona1}~\cite{korelacjaPearsona3}~\cite{korelacjaPearsona4}. Należy jednak uwzględnić fakt, 
+że brak zależności liniowej nie wyklucza całkowicie istnienia związku o 
+charakterze nieliniowym. Prawidłowe zastosowanie tego narzędzia wymaga wcześniejszego 
+upewnienia się, że w badanej próbie nie występują wartości skrajne, a analizowane 
+parametry charakteryzują się rozkładem normalnym.
+
+Współczynnik korelacji pomiędzy dwiema zmiennymi oblicza się, dzieląc kowariancję, 
+czyli matematyczną miarę odchylenia badanych elementów od idealnego 
+trendu liniowego, przez iloczyn odchyleń standardowych tych zmiennych~\cite{korelacjaPearsona2}~\cite{korelacjaPearsona5}. 
+Zależność tę określa się za pomocą następującego równania matematycznego:
+\begin{equation}
+r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}
+\label{eq:korelacja_pearsona}
+\end{equation} 
+
+Gdzie:
+\begin{itemize}
+    \item $x_i$ oraz $y_i$ to poszczególne obserwacje zgromadzone dla badanych zmiennych,
+    \item $\bar{x}$ oraz $\bar{y}$ reprezentują średnie arytmetyczne wyliczone dla badanych zmiennych,
+    \item $n$ określa całkowitą liczność analizowanej próby danych.
+\end{itemize}
+
+\section{Wykładnik Lapunowa}
+Pojęcie wykładnika Lapunowa zostało sformułowane w 1892 roku przez rosyjskiego uczonego 
+Aleksandra Michajłowicza Lapunowa w jego przełomowej rozprawie doktorskiej pod tytułem 
+„The general problem of the stability of motion”~\cite{lyapunov1992}. Autor poszukiwał 
+w niej matematycznych metod pozwalających na precyzyjne określenie stabilności układów 
+nieliniowych, co doprowadziło do zdefiniowania tzw. liczb charakterystycznych, znanych 
+dziś powszechnie jako wykładniki Lapunowa~\cite{wykładnikLaponowa6}~\cite{wykładnikLaponowa8}.
+
+\subsection{Zasada działania}
+Wykładnik Lapunowa pozwala ocenić tempo, w jakim dwie początkowo bardzo bliskie sobie 
+trajektorie zbliżają się do siebie lub oddalają w przestrzeni 
+czasu~\cite{wykładnikLaponowa1}~\cite{wykładnikLaponowa2}~\cite{wykładnikLaponowa7}.
+Dodatni wykładnik Lapunowa wskazuje na obecność chaosu, ponieważ oznacza, że trajektorie 
+oddalają się od siebie w sposób wykładniczy. Zjawisko to opisuje się wzorem:
+
+\begin{equation}
+\Delta_k \approx \Delta_0 e^{\lambda_{\max} k}
+\end{equation}
+
+Gdzie:
+\begin{itemize}
+    \item $\lambda_{\max}$ to największy wykładnik Lapunowa,
+    \item $\Delta_0$ to odległość początkowa między trajektoriami,
+    \item $\Delta_k$ to odległość między trajektoriami po $k$ krokach czasowych.
+\end{itemize}
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        % Odległość początkowa
+        \node at (0, 1.5) {Odległość między dwiema wartościami początkowymi:};
+        \draw (-1.5,0) -- (1.5,0);
+        \draw (-1.5,-0.1) -- (-1.5,0.1);
+        \draw (1.5,-0.1) -- (1.5,0.1);
+        \node[above] at (0,0) {$\varepsilon$};
+        \node[below] at (-1.5,-0.1) {$x_0$};
+        \node[below] at (1.5,-0.1) {$x_0 + \varepsilon$};
+        
+        % Po N iteracjach
+        \node at (0, -2) {Po $N$ iteracjach:};
+        \draw (-2.5,-3.5) -- (2.5,-3.5);
+        \draw (-2.5,-3.6) -- (-2.5,-3.4);
+        \draw (2.5,-3.6) -- (2.5,-3.4);
+        \node[above] at (0,-3.5) {$\varepsilon e^{N\lambda(x_0)}$};
+        \node[below] at (-2.5,-3.6) {$f^N(x_0)$};
+        \node[below] at (2.5,-3.6) {$f^N(x_0 + \varepsilon)$};
+    \end{tikzpicture}
+    \caption{Wizualizacja dywergencji początkowych trajektorii}
+    \label{fig:wykladnik_schemat}
+\end{figure}
+
+Zakłada się, że trajektorie nie mogą oddalić się od siebie bardziej, niż wynosi rozmiar całego
+atraktora. Z tego powodu podany wzór stosuje się tylko dla małych wartości $k$. 
+Po zlogarytmowaniu obu stron uzyskuje się równanie prostej:
+
+\begin{equation}
+\ln \Delta_k = \ln \Delta_0 + k \lambda_{\max}
+\end{equation}
+
+W praktyce największy wykładnik Lapunowa to współczynnik kierunkowy prostej dopasowanej do 
+tego równania~\cite{wykładnikLaponowa3}~\cite{wykładnikLaponowa4}~\cite{wykładnikLaponowa5}. 
+
+\subsection{Algorytm Rosensteina}
+
+Algorytm Rosensteina jest to metoda numeryczna szacowania największego wykładnika Lapunowa ze skończonych szeregów czasowych~\cite{rosensteina}.
+
+Metoda zakłada, że dla wybranego punktu na trajektorii wyszukuje się jego najbliższego sąsiada w przestrzeni i  bada się, w jaki sposób odległość między tymi punktami rośnie w kolejnych dyskretnych krokach czasowych $k$. Rozchodzenie się badanych sąsiadów opisuje funkcja:
+
+\[d_j(k)\approx C_j e^{\lambda_1 k\Delta t}\]
+
+Po zlogarytmowaniu obu stron otrzymuje się zależność liniową:
+
+\[\ln(d_j(k))\approx\ln(C_j)+\lambda_1 k\Delta t\]
+
+Aby uśrednić zakłócenia w danych, oblicza się średnią po wielu zidentyfikowanych parach sąsiadów $M$:
+
+\[y(k)=\frac{1}{M}\sum_{j=1}^M\ln(d_j(k))\approx\lambda_1 k\Delta t+C\]
+
+Największy wykładnik Lapunowa $\lambda_1$ określa się ostatecznie jako nachylenie prostej dopasowanej do wykresu średniego tempa oddalania się punktów $y(k)$ w funkcji czasu~\cite{rosensteina}.
+
+\section{Atraktor Lorenza}
+
+Atraktor Lorenza stanowi powszechnie znany przykład układu chaotycznego, którego odkrycia 
+dokonano w 1963 roku podczas badań nad prognozowaniem pogody. Zjawisko to zostało 
+zaobserwowane przez amerykańskiego meteorologa Edwarda Nortona Lorenza w trakcie 
+prowadzonych symulacji komputerowych. Zauważono wówczas, że minimalna zmiana danych 
+wejściowych, polegająca na zaokrągleniu jednej z liczb, doprowadziła do wygenerowania 
+zupełnie innego wyniku końcowego. Na tej podstawie udowodniono, że w niektórych systemach 
+nawet najmniejsze zmiany rosną w tempie lawinowym, co potocznie określa się jako 
+efekt motyla~\cite{lorenz2000butterfly}~\cite{motyl}.
+
+\subsection{Zasada działania}
+Układ składa się z trzech nieliniowych równań różniczkowych. Zostały one pierwotnie 
+wyprowadzone w celu uproszczonego opisu zjawiska konwekcji termicznej, czyli ruchu płynu 
+podgrzewanego od dołu i chłodzonego z góry. Zależności te prezentują się następująco:
+
+\[ \frac{dx}{dt} = \sigma (y - x) \]
+\[ \frac{dy}{dt} = x (\rho - z) - y \]
+\[ \frac{dz}{dt} = xy - \beta z \]
+
+Gdzie:
+\begin{itemize}
+    \item zmienne $x$, $y$ oraz $z$ określają aktualny stan w przestrzeni,
+    \item parametry $\sigma$, $\rho$ oraz $\beta$ to stałe liczbowe, odpowiadające za właściwości fizyczne badanego środowiska.
+\end{itemize}
+
+Wartości tych parametrów mają kluczowe znaczenie dla zachowania układu.
+Najczęściej stosowane są następujące wartości: $\sigma = 10$, $\rho = 28$ oraz 
+$\beta = 8/3$. Przy tych wartościach system wykazuje chaotyczne zachowanie~\cite{atraktorLorenza5}~\cite{atraktorLorenza4}.
 
 \begin{figure}[h!]
-\centering
-\includegraphics[width=0.75\linewidth]{kwathe1.png}
-\caption{Wykres obu metod}
-\label{fig:enter-label}
+\centering \includegraphics[width=0.7\linewidth]{Atraktor_wynik.png}
+\caption{Wykres przedstawiający atraktor Lorenza}
+\label{rys:Atraktor_wynik}
 \end{figure}
- 
-Metoda najmniejszych kwadratów minimalizuje sumę kwadratów odchyleń między przewidywanymi a rzeczywistymi wartościami.
-Co sprawia, że jest szybsza, bardziej wydajna obliczeniowo oraz lepiej radzi sobie przy dużych zbiorach danych. Z kolei estymator Theil-Sen wyznacza nachylenie jako medianę nachyleń wyliczoną ze wszystkich możliwych par punktów, co czyni go dużo bardziej odpornym na wartości odstające. Fakt ten oznacza, że jest lepszą metodą w sytuacjach, gdzie istnieją dane o odstających wartościach i czas obliczeń nie jest istotny. Obie metody znajdują zastosowanie w analizie finansowej. W artykule z 2015 roku omówiono wykorzystanie metody najmniejszych kwadratów do prognozowania przyszłych wyników finansowych oraz przeprowadzono porównanie z metodą Theil-Sen. Analiza wykazała, że metoda Theil-Sen lepiej radzi sobie z wartościami odstającymi, zapewniając bardziej wiarygodne wyniki w porównaniu do metody najmniejszych kwadratów~\cite{james2015}.
+
+Po naniesieniu zmiennych na trójwymiarowy wykres przestrzeni fazowej powstaje 
+bardzo charakterystyczny wzór. Rysowana ścieżka płynnie przeskakuje z jednej pętli na drugą, 
+co wizualnie przypomina rozłożone skrzydła motyla. Punkt obrazujący stan układu porusza się w 
+tej przestrzeni w nieskończoność, jednak wytyczana przez niego linia nigdy nie przecina samej 
+siebie. Co więcej, trajektoria nigdy nie powraca dokładnie w to samo miejsce na wykresie, co 
+oznacza, że zachowanie układu nigdy się nie powtarza~\cite{atraktorLorenza2}~\cite{atraktorLorenza1}.
+Stanowi to przykład atraktora dziwnego, który charakteryzuje się dużą wrażliwością na warunki 
+początkowe. Nawet najmniejsza zmiana parametrów wejściowych powoduje, że nowa ścieżka po 
+krótkim czasie drastycznie odbiega od poprzedniej. Na podstawie analizy takiego obrazu można 
+łatwo określić, czy dany układ jest chaotyczny. Obecność atraktora o tak nieregularnej 
+strukturze jest matematycznym dowodem na występowanie chaosu. Pobliskie 
+trajektorie bardzo szybko się od siebie oddalają, ale jednocześnie pozostają uwięzione w 
+ograniczonej przestrzeni. Dzięki temu wiadomo, że system nie dąży do prostego stanu równowagi 
+ani nie wpada w regularny cykl. Właśnie ta kombinacja ograniczonego obszaru i ciągłego 
+rozbiegania się ścieżek pozwala sklasyfikować układ jako w pełni chaotyczny i nieprzewidywalny 
+w dłuższym czasie~\cite{atraktorLorenza3}.
+
+\section{Sieci GAN}
+
+Koncepcję sieci GAN (Generative Adversarial Networks) opracowano w 2014 roku 
+na Uniwersytecie w Montrealu w Kanadzie. Prace nad modelem prowadzono w zespole 
+badawczym pod kierownictwem Yoshuy Bengio, a największy wkład w ten projekt przypisuje 
+się Ianowi Goodfellowowi. Działanie tej architektury opisano szczegółowo w publikacji 
+naukowej pod tytułem „Generative Adversarial Nets”~\cite{goodfellow2014generative}.
+
+\subsection{Zasada działania}
+Architektura typu GAN składa się z dwóch współpracujących, a zarazem konkurujących ze 
+sobą modeli sieci neuronowych: generatora oraz dyskryminatora. Stanowią one specyficzny
+układ, w którym obie strony wymuszają na sobie nieustanny rozwój. Proces ich uczenia 
+przypomina grę o sumie zerowej. Oznacza to, że każdy sukces jednego modelu jest traktowany 
+jako błąd drugiego, co zmusza je do ciągłej optymalizacji parametrów w trakcie kolejnych epok treningowych.
+Generator tworzy sztuczne dane w celu oszukania dyskryminatora. Z kolei dyskryminator uczy 
+się coraz skuteczniej odróżniać fałszywe próbki od rzeczywistych~\cite{goodfellow2019}~\cite{goodfellow2020}. 
+Ostatecznym celem tej gry jest osiągnięcie stanu równowagi, w którym generowane dane 
+są na tyle wysokiej jakości, że stają się całkowicie nierozróżnialne od rzeczywistych sygnałów.
+
+\begin{figure}[h!]
+\centering \includegraphics[width=0.5\linewidth]{rysunki/GAN.png}
+\caption{Schemat sieci GAN} 
+\label{rys:GAN_wynik}
+\end{figure}
+
+W ujęciu matematycznym proces ten stanowi problem optymalizacji typu minimaks, 
+co zapisuje się za pomocą funkcji wartości $V(G, D)$:
+
+\begin{equation} \min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{\mathrm{data}}(x)} [\log D(x)] + \mathbb{E}_{z \sim p_z(z)} [\log(1 - D(G(z)))] \label{eq:gan_minimax} \end{equation}
+
+
+Gdzie:
+\begin{itemize}
+    \item zmienna $x$ oznacza dane rzeczywiste,
+    \item zmienna $z$ to wektor losowego szumu,
+    \item $G(z)$ to dane wygenerowane sztucznie,
+    \item $D(x)$ to prawdopodobieństwo, że badana próbka jest prawdziwa.
+\end{itemize}
+
+\subsection{Generator i dyskryminator}
+
+Zadaniem generatora jest tworzenie nowych i wysoce realistycznych danych, 
+gdzie głównym celem jest przewidzienie kolejnego punktu. Na samym początku 
+do danych wejściowych dodawany jest szum o niewielkiej amplitudzie, zabieg ten 
+zapobiega ciągłemu generowaniu identycznych wzorców i zapewnia odpowiednią 
+różnorodność uzyskiwanych wyników. Działanie generatora polega na ciągłej 
+poprawie własnych parametrów w taki sposób, aby wygenerowane wyniki były 
+jak najtrudniejsze do odróżnienia od tych prawdziwych~\cite{goodfellow2016}~\cite{GAN}.
+
+Dyskryminator zajmuje się sprawdzaniem i oceną, dlatego na jego wejście podawane są 
+naprzemiennie dane rzeczywiste oraz te utworzone sztucznie. Głównym jego celem jest poprawna 
+klasyfikacja pochodzenia otrzymanej próbki. W trakcie całego procesu uczenia obie sieci 
+aktualizują swoje parametry, co w efekcie prowadzi do stałej poprawy ich skuteczności.
+
+Skutecznie wytrenowany układ dąży do osiągnięcia stanu pełnej równowagi, w której to 
+generator tworzy próbki idealnie naśladujące rzeczywistość, a z kolei dyskryminator 
+traci całkowicie zdolność odróżniania danych sztucznych od prawdziwych, co ostatecznie 
+oznacza, że jego ocena staje się czystym zgadywaniem.
+
+\section{Sieci z pamięcią LSTM}
+Podczas analizy długich szeregów czasowych za pomocą klasycznych sieci neuronowych napotyka 
+się trudności związane z brakiem pamięci. Zauważa się, że w takich modelach dawne informacje 
+szybko zanikają i układ zapomina dane poczatkowe. Zjawisko to nazywa się 
+zanikaniem gradientu.
+
+Aby rozwiązać ten problem, opracowano architekturę LSTM (ang. Long Short-Term Memory). 
+Rozwiązanie to przedstawiono w 1997 roku w publikacji naukowej autorstwa Seppa Hochreitera 
+i Jürgena Schmidhubera pod tytułem „Long Short-Term Memory”~\cite{hochreiter1997long}. 
+Głównym elementem struktury LSTM jest stan komórki, oznaczany jako $C_t$. Traktuje się go jako 
+ścieżkę przesyłową, po której dane przepływają przez kolejne etapy układu z bardzo małymi modyfikacjami. 
+Pozwala to na zachowanie ważnych informacji przez długi czas~\cite{LSTM1}.
+
+
+\subsection{Bramki informacyjne}
+
+Do sterowania przepływem danych wykorzystuje się specjalne mechanizmy zwane bramkami. 
+Wykonuje się w nich operacje mnożenia macierzy i stosuje funkcje matematyczne~\cite{GANLSTM1}~\cite{GANLSTM2}~\cite{GANLSTM3}. Używa 
+się funkcji sigmoidalnej $\sigma$ (zwracającej wartości od 0 do 1) oraz tangensa 
+hiperbolicznego $\tanh$ (zwracającego wartości od -1 do 1). W modelu wyróżnia się 
+następujące elementy:
+
+
+\begin{itemize}
+    \item \textbf{Brama zapominania (forget gate):} W tym miejscu ocenia się, które dane z przeszłości nie są już przydatne. Zbędne informacje usuwa się z pamięci komórki.
+    \begin{equation}
+        f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)
+    \end{equation}
+
+    \item \textbf{Brama wejściowa (input gate):} Decyduje się tu, jakie nowe informacje z obecnego kroku czasowego $x_t$ warto zapisać w systemie. Proces ten dzieli się na dwa etapy.
+     Najpierw określa się wagę nowych danych, a później tworzy się wektor nowych wartości gotowych do zapisu $\tilde{C}_t$.
+    \begin{equation}
+        i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)
+    \end{equation}
+    \begin{equation}
+        \tilde{C}_t = \tanh(W_C \cdot [h_{t-1}, x_t] + b_C)
+    \end{equation}
+
+    \item \textbf{Aktualizacja stanu komórki:} W tej fazie wylicza się ostateczny, nowy stan pamięci $C_t$. Łączy się w nim to, co zachowano z poprzedniego kroku, z zupełnie nowymi danymi wejściowymi.
+    \begin{equation}
+        C_t = f_t \cdot C_{t-1} + i_t \cdot \tilde{C}_t
+    \end{equation}
+
+    \item \textbf{Brama wyjściowa (output gate):} Na podstawie przefiltrowanego stanu komórki ustala się ostateczny wynik. 
+    Oblicza się stan ukryty $h_t$, który przekazuje się do następnego kroku czasowego i wyrzuca jako wynik pracy całej warstwy.
+    \begin{equation}
+        o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)
+    \end{equation}
+    \begin{equation}
+        h_t = o_t \cdot \tanh(C_t)
+    \end{equation}
+\end{itemize}
+
+\subsection{Jednowymiarowe sieci splotowe Conv1D}
+
+W analizie sygnałów i szeregów czasowych często stosuje się również jednowymiarowe sieci splotowe. 
+Ich działanie polega na przesuwaniu małego filtra nad analizowanym zbiorem danych.
+Służy to do wykrywania lokalnych wzorców, na przykład nagłych skoków amplitudy. 
+Takie działanie pozwala na szybkie odrzucenie szumu i przygotowanie czystszego sygnału dla warstw 
+z pamięcią, takich jak LSTM~\cite{goodfellow2016deep}~\cite{Conv1DLSTM2}~\cite{Conv1DLSTM}.
+

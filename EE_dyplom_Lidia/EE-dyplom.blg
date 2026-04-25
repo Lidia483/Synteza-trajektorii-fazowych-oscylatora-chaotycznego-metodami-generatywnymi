@@ -1,18 +1,14 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'EE-dyplom.blg'
-[43] biber:342> INFO - === Mon Feb 16, 2026, 13:52:48
-[53] Biber.pm:421> INFO - Reading 'EE-dyplom.bcf'
-[93] Biber.pm:1002> INFO - Found 19 citekeys in bib section 0
-[102] Biber.pm:4487> INFO - Processing section 0
-[106] Biber.pm:4678> INFO - Looking for bibtex file 'EE-dyplom.bib' for section 0
-[107] bibtex.pm:1713> INFO - LaTeX decoding ...
-[116] bibtex.pm:1519> INFO - Found BibTeX data source 'EE-dyplom.bib'
-[198] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[198] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[198] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'pl-PL'
-[210] bbl.pm:676> INFO - Writing 'EE-dyplom.bbl' with encoding 'UTF-8'
-[213] bbl.pm:779> INFO - Output to EE-dyplom.bbl
-[213] Biber.pm:132> WARN - legacy month field 'apr' in entry 'bitcoin2021' is not an integer - this will probably not sort properly.
-[213] Biber.pm:132> WARN - BibTeX subsystem: /var/folders/cb/nvrvd9l12d147zpp5z0pjyp80000gn/T/biber_tmp_XAz0/f31067a540d1b7908498e6a39ae077b2_20874.utf8, line 131, warning: 8 characters of junk seen at toplevel
-[213] Biber.pm:132> WARN - I didn't find a database entry for 'linnik1962' (section 0)
-[213] Biber.pm:134> INFO - WARNINGS: 3
+[33] biber:342> INFO - === Sat Apr 25, 2026, 19:59:58
+[40] Biber.pm:421> INFO - Reading 'EE-dyplom.bcf'
+[76] Biber.pm:1002> INFO - Found 46 citekeys in bib section 0
+[83] Biber.pm:4487> INFO - Processing section 0
+[87] Biber.pm:4678> INFO - Looking for bibtex file 'EE-dyplom.bib' for section 0
+[88] bibtex.pm:1713> INFO - LaTeX decoding ...
+[107] bibtex.pm:1519> INFO - Found BibTeX data source 'EE-dyplom.bib'
+[236] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[236] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[236] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'pl-PL'
+[255] bbl.pm:676> INFO - Writing 'EE-dyplom.bbl' with encoding 'UTF-8'
+[262] bbl.pm:779> INFO - Output to EE-dyplom.bbl

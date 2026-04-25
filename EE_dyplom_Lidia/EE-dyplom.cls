@@ -147,6 +147,9 @@
     \RequirePackage[utf8]{inputenc}
     \DeclareUnicodeCharacter{00B0}{$^{\circ}$}
     \DeclareUnicodeCharacter{00D7}{x}
+    \DeclareUnicodeCharacter{03B5}{$\varepsilon$}
+    \DeclareUnicodeCharacter{03BB}{$\lambda$}
+    \DeclareUnicodeCharacter{200B}{}
 \fi
 
 % -------------------------------------------------------------------

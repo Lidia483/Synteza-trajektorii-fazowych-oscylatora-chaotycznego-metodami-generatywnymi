@@ -1,17 +1,17 @@
 pdflatex : clean
-	pdflatex EE-dyplom
+	pdflatex -interaction=nonstopmode EE-dyplom
 	biber EE-dyplom
 	makeglossaries EE-dyplom
-	pdflatex EE-dyplom
-	pdflatex EE-dyplom
+	pdflatex -interaction=nonstopmode EE-dyplom
+	pdflatex -interaction=nonstopmode EE-dyplom
 
 	
 xelatex : clean
-	xelatex EE-dyplom
+	xelatex -interaction=nonstopmode EE-dyplom
 	biber EE-dyplom
 	makeglossaries EE-dyplom
-	xelatex EE-dyplom
-	xelatex EE-dyplom
+	xelatex -interaction=nonstopmode EE-dyplom
+	xelatex -interaction=nonstopmode EE-dyplom
 
 clean :
 	-rm *.acn *.app *.aux *.bbl *.blg *.bcf *.glo *.ist *.lof *.log *.lot *.out *.pdf *.run.xml *.slo *.toc

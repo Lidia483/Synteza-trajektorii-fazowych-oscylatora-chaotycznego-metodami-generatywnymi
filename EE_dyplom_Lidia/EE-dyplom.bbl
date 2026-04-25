@@ -19,271 +19,1080 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
-    \entry{amit2021}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=015e95e7d0fd77d384edef10364853ab}{%
-           family={Amit},
+    \entry{wykładnikLaponowa7}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=e7d947e0b0565401dc9a9f97f12dc444}{%
+           family={Abarbanel},
            familyi={A\bibinitperiod},
-           given={Saha},
-           giveni={S\bibinitperiod}}}%
+           given={Henry\bibnamedelima DI},
+           giveni={H\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=cb32160a2e947fe98465baf718eb64da}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Reggie},
+           giveni={R\bibinitperiod}}}%
+        {{hash=6fa84783d2102fcf6a63fdb3f819852c}{%
+           family={Kennel},
+           familyi={K\bibinitperiod},
+           given={Matthew\bibnamedelima B},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Wydawnictwo Helion}%
+        {Springer}%
       }
-      \strng{namehash}{015e95e7d0fd77d384edef10364853ab}
-      \strng{fullhash}{015e95e7d0fd77d384edef10364853ab}
-      \strng{fullhashraw}{015e95e7d0fd77d384edef10364853ab}
-      \strng{bibnamehash}{015e95e7d0fd77d384edef10364853ab}
-      \strng{authorbibnamehash}{015e95e7d0fd77d384edef10364853ab}
-      \strng{authornamehash}{015e95e7d0fd77d384edef10364853ab}
-      \strng{authorfullhash}{015e95e7d0fd77d384edef10364853ab}
-      \strng{authorfullhashraw}{015e95e7d0fd77d384edef10364853ab}
+      \strng{namehash}{1b6a60afd2706090bf3df3249ea65ecc}
+      \strng{fullhash}{4ce1fde9d97d9a666997cfd7aac4cb7b}
+      \strng{fullhashraw}{4ce1fde9d97d9a666997cfd7aac4cb7b}
+      \strng{bibnamehash}{4ce1fde9d97d9a666997cfd7aac4cb7b}
+      \strng{authorbibnamehash}{4ce1fde9d97d9a666997cfd7aac4cb7b}
+      \strng{authornamehash}{1b6a60afd2706090bf3df3249ea65ecc}
+      \strng{authorfullhash}{4ce1fde9d97d9a666997cfd7aac4cb7b}
+      \strng{authorfullhashraw}{4ce1fde9d97d9a666997cfd7aac4cb7b}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{9788328374935}
-      \field{title}{Matematyka w Pythonie. Algebra, statystyka, analiza matematyczna i inne dziedziny}
-      \field{year}{2021}
+      \field{journaltitle}{Journal of Nonlinear Science}
+      \field{number}{3}
+      \field{title}{Local Lyapunov exponents computed from observed data}
+      \field{volume}{2}
+      \field{year}{1992}
+      \field{pages}{343\bibrangedash 365}
+      \range{pages}{23}
     \endentry
-    \entry{bartoszewicz1989}{book}{}{}
+    \entry{entropiaShannona3}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=330674d844ce02ab7d9cdb637ecbba5a}{%
-           family={Bartoszewicz},
+        {{hash=dd4a35fb305f112906f0063f6f5f4dd1}{%
+           family={Andrzej\bibnamedelima Czajka},
+           familyi={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Adam\bibnamedelimb G.\bibnamedelimi Polak},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd4a35fb305f112906f0063f6f5f4dd1}
+      \strng{fullhash}{dd4a35fb305f112906f0063f6f5f4dd1}
+      \strng{fullhashraw}{dd4a35fb305f112906f0063f6f5f4dd1}
+      \strng{bibnamehash}{dd4a35fb305f112906f0063f6f5f4dd1}
+      \strng{authorbibnamehash}{dd4a35fb305f112906f0063f6f5f4dd1}
+      \strng{authornamehash}{dd4a35fb305f112906f0063f6f5f4dd1}
+      \strng{authorfullhash}{dd4a35fb305f112906f0063f6f5f4dd1}
+      \strng{authorfullhashraw}{dd4a35fb305f112906f0063f6f5f4dd1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Przegląd Elektrotechniczny}
+      \field{title}{Złożoność danych pomiarowych i metody jej określania}
+    \endentry
+    \entry{korelacjaPearsona2}{incollection}{}{}
+      \name{author}{4}{}{%
+        {{hash=50f152a58e4a694e44bf07fc68be4636}{%
+           family={Benesty},
            familyi={B\bibinitperiod},
-           given={J.},
+           given={Jacob},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2aae4b4c7393fb9f6759452b6fdc2450}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Jingdong},
+           giveni={J\bibinitperiod}}}%
+        {{hash=52dcfb9fb5586fb1e1f28728a03e76b8}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yiteng},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=337aeb8e99db97b81dd25238d81428eb}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Israel},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{bb2ea65cf4f5fd6771934e45257eda1a}
+      \strng{fullhash}{8dfb102d8f52801e4d53d77553f99e41}
+      \strng{fullhashraw}{8dfb102d8f52801e4d53d77553f99e41}
+      \strng{bibnamehash}{8dfb102d8f52801e4d53d77553f99e41}
+      \strng{authorbibnamehash}{8dfb102d8f52801e4d53d77553f99e41}
+      \strng{authornamehash}{bb2ea65cf4f5fd6771934e45257eda1a}
+      \strng{authorfullhash}{8dfb102d8f52801e4d53d77553f99e41}
+      \strng{authorfullhashraw}{8dfb102d8f52801e4d53d77553f99e41}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Noise reduction in speech processing}
+      \field{title}{Pearson correlation coefficient}
+      \field{year}{2009}
+      \field{pages}{1\bibrangedash 4}
+      \range{pages}{4}
+    \endentry
+    \entry{entropiaShannona1}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=2db9097985e9c10610e57ba3c5b8c3e0}{%
+           family={Borowska},
+           familyi={B\bibinitperiod},
+           given={Marta},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Politechnika Białostocka}%
+      }
+      \strng{namehash}{2db9097985e9c10610e57ba3c5b8c3e0}
+      \strng{fullhash}{2db9097985e9c10610e57ba3c5b8c3e0}
+      \strng{fullhashraw}{2db9097985e9c10610e57ba3c5b8c3e0}
+      \strng{bibnamehash}{2db9097985e9c10610e57ba3c5b8c3e0}
+      \strng{authorbibnamehash}{2db9097985e9c10610e57ba3c5b8c3e0}
+      \strng{authornamehash}{2db9097985e9c10610e57ba3c5b8c3e0}
+      \strng{authorfullhash}{2db9097985e9c10610e57ba3c5b8c3e0}
+      \strng{authorfullhashraw}{2db9097985e9c10610e57ba3c5b8c3e0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Wprowadzenie do zastosowania entropii w analizie sygnałów i obrazów biomedycznych oraz jej aplikacje w medycynie i weterynarii}
+      \field{year}{2023}
+    \endentry
+    \entry{entropiaShannona4}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=568736e86a08f9f03acf39ef250f833f}{%
+           family={Bromiley},
+           familyi={B\bibinitperiod},
+           given={PA},
+           giveni={P\bibinitperiod}}}%
+        {{hash=42e99af30cead7225c40534e5e7afc72}{%
+           family={Thacker},
+           familyi={T\bibinitperiod},
+           given={NA},
+           giveni={N\bibinitperiod}}}%
+        {{hash=942880f0dc3ae30c30cc935f529fcf3f}{%
+           family={Bouhova-Thacker},
+           familyi={B\bibinithyphendelim T\bibinitperiod},
+           given={E},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6ce652cef51b02df94a142ff77cb80f}
+      \strng{fullhash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{fullhashraw}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{bibnamehash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{authorbibnamehash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{authornamehash}{d6ce652cef51b02df94a142ff77cb80f}
+      \strng{authorfullhash}{228222019c883d9a7d8f7834f37d56a0}
+      \strng{authorfullhashraw}{228222019c883d9a7d8f7834f37d56a0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Statistics and Inf. Series (2004-004)}
+      \field{number}{2004}
+      \field{title}{Shannon entropy, Renyi entropy, and information}
+      \field{volume}{9}
+      \field{year}{2004}
+      \field{pages}{2\bibrangedash 8}
+      \range{pages}{7}
+    \endentry
+    \entry{wykładnikLaponowa6}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=104606bbcc21bbe33f87d5a90003bead}{%
+           family={De\bibnamedelima Souza},
+           familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Silvio\bibnamedelima LT},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=02206b4a48d39fa8e54b568dd7125bcf}{%
+           family={Caldas},
+           familyi={C\bibinitperiod},
+           given={Ibere\bibnamedelima L},
+           giveni={I\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{66954c757976a617041e0053332e15b5}
+      \strng{fullhash}{66954c757976a617041e0053332e15b5}
+      \strng{fullhashraw}{66954c757976a617041e0053332e15b5}
+      \strng{bibnamehash}{66954c757976a617041e0053332e15b5}
+      \strng{authorbibnamehash}{66954c757976a617041e0053332e15b5}
+      \strng{authornamehash}{66954c757976a617041e0053332e15b5}
+      \strng{authorfullhash}{66954c757976a617041e0053332e15b5}
+      \strng{authorfullhashraw}{66954c757976a617041e0053332e15b5}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Chaos, Solitons \& Fractals}
+      \field{number}{3}
+      \field{title}{Calculation of Lyapunov exponents in systems with impacts}
+      \field{volume}{19}
+      \field{year}{2004}
+      \field{pages}{569\bibrangedash 579}
+      \range{pages}{11}
+    \endentry
+    \entry{wykładnikLaponowa4}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=bd10fbd8f5efbd602549ad7ceef37983}{%
+           family={Dingwell},
+           familyi={D\bibinitperiod},
+           given={Jonathan\bibnamedelima B},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{bd10fbd8f5efbd602549ad7ceef37983}
+      \strng{fullhash}{bd10fbd8f5efbd602549ad7ceef37983}
+      \strng{fullhashraw}{bd10fbd8f5efbd602549ad7ceef37983}
+      \strng{bibnamehash}{bd10fbd8f5efbd602549ad7ceef37983}
+      \strng{authorbibnamehash}{bd10fbd8f5efbd602549ad7ceef37983}
+      \strng{authornamehash}{bd10fbd8f5efbd602549ad7ceef37983}
+      \strng{authorfullhash}{bd10fbd8f5efbd602549ad7ceef37983}
+      \strng{authorfullhashraw}{bd10fbd8f5efbd602549ad7ceef37983}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Wiley encyclopedia of biomedical engineering}
+      \field{title}{Lyapunov exponents}
+      \field{year}{2006}
+    \endentry
+    \entry{korelacjaPearsona4}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ce1928f48ad2bc793ed2d9d8d5bc5f58}{%
+           family={Dufera},
+           familyi={D\bibinitperiod},
+           given={Abdisa\bibnamedelima G},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=a1811d0a49a7ae8b95fb589b483dae1c}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Tiantian},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c192742f19141562ab08b13a0d9cf23a}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Jin},
            giveni={J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Wydawnictwo Naukowe PWN}%
+        {Taylor \& Francis}%
       }
-      \strng{namehash}{330674d844ce02ab7d9cdb637ecbba5a}
-      \strng{fullhash}{330674d844ce02ab7d9cdb637ecbba5a}
-      \strng{fullhashraw}{330674d844ce02ab7d9cdb637ecbba5a}
-      \strng{bibnamehash}{330674d844ce02ab7d9cdb637ecbba5a}
-      \strng{authorbibnamehash}{330674d844ce02ab7d9cdb637ecbba5a}
-      \strng{authornamehash}{330674d844ce02ab7d9cdb637ecbba5a}
-      \strng{authorfullhash}{330674d844ce02ab7d9cdb637ecbba5a}
-      \strng{authorfullhashraw}{330674d844ce02ab7d9cdb637ecbba5a}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \strng{namehash}{0b42d85004e01325936cdb773566fe18}
+      \strng{fullhash}{72800fc1d7f224d4b62e7671697d12b2}
+      \strng{fullhashraw}{72800fc1d7f224d4b62e7671697d12b2}
+      \strng{bibnamehash}{72800fc1d7f224d4b62e7671697d12b2}
+      \strng{authorbibnamehash}{72800fc1d7f224d4b62e7671697d12b2}
+      \strng{authornamehash}{0b42d85004e01325936cdb773566fe18}
+      \strng{authorfullhash}{72800fc1d7f224d4b62e7671697d12b2}
+      \strng{authorfullhashraw}{72800fc1d7f224d4b62e7671697d12b2}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{8301120959}
-      \field{title}{Wykłady ze statystyki matematycznej}
-      \field{year}{1989}
+      \field{journaltitle}{Statistical Theory and Related Fields}
+      \field{number}{2}
+      \field{title}{Regression models of Pearson correlation coefficient}
+      \field{volume}{7}
+      \field{year}{2023}
+      \field{pages}{97\bibrangedash 106}
+      \range{pages}{10}
     \endentry
-    \entry{zahra2024}{article}{}{}
+    \entry{entropiaShannona6}{misc}{}{}
       \name{author}{1}{}{%
-        {{hash=ba3e24c9ee7e8e63b56252001f937cb3}{%
-           family={Behdani},
-           familyi={B\bibinitperiod},
-           given={Zahra},
-           giveni={Z\bibinitperiod}}}%
-      }
-      \strng{namehash}{ba3e24c9ee7e8e63b56252001f937cb3}
-      \strng{fullhash}{ba3e24c9ee7e8e63b56252001f937cb3}
-      \strng{fullhashraw}{ba3e24c9ee7e8e63b56252001f937cb3}
-      \strng{bibnamehash}{ba3e24c9ee7e8e63b56252001f937cb3}
-      \strng{authorbibnamehash}{ba3e24c9ee7e8e63b56252001f937cb3}
-      \strng{authornamehash}{ba3e24c9ee7e8e63b56252001f937cb3}
-      \strng{authorfullhash}{ba3e24c9ee7e8e63b56252001f937cb3}
-      \strng{authorfullhashraw}{ba3e24c9ee7e8e63b56252001f937cb3}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Behbahan Khatam Alanbia university of technology}
-      \field{note}{https://doi.org/10.22111/ijfs.2024.48443.8535 dostęp uzyskano 2025-01-10}
-      \field{title}{Theil-Sen Estimators for fuzzy regression model}
-      \field{year}{2024}
-    \endentry
-    \entry{hristo2019}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=1824b4bda802756a6a964beeaea57538}{%
-           family={{Chervenkov}},
-           familyi={C\bibinitperiod}}}%
-        {{hash=c5ac4ba4202ee0773781f05473830e70}{%
-           family={{Hristo}},
-           familyi={H\bibinitperiod}}}%
-        {{hash=470638076c0a6a529ff596a53748be39}{%
-           family={{Kiril Slavov}},
-           familyi={K\bibinitperiod}}}%
-      }
-      \strng{namehash}{b3a921d520f922ccb78e454371f31c85}
-      \strng{fullhash}{6239e554b1c2f6a5434b9a1a39ea155f}
-      \strng{fullhashraw}{6239e554b1c2f6a5434b9a1a39ea155f}
-      \strng{bibnamehash}{6239e554b1c2f6a5434b9a1a39ea155f}
-      \strng{authorbibnamehash}{6239e554b1c2f6a5434b9a1a39ea155f}
-      \strng{authornamehash}{b3a921d520f922ccb78e454371f31c85}
-      \strng{authorfullhash}{6239e554b1c2f6a5434b9a1a39ea155f}
-      \strng{authorfullhashraw}{6239e554b1c2f6a5434b9a1a39ea155f}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Comptes rendus de l’Acade'mie bulgare des Sciences}
-      \field{note}{http://dx.doi.org/10.7546/CRABS.2019.01.06 dostęp uzyskano 2025-01-10}
-      \field{number}{72}
-      \field{title}{Theil-Sen estimator vs. ordinary least squares–trend analysis for selected ETCCDI climate indices}
-      \field{year}{2019}
-      \field{pages}{47\bibrangedash 54}
-      \range{pages}{8}
-    \endentry
-    \entry{francuz2015}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=d3c3ed0f75ebc66cb231042fa598a9cc}{%
-           family={Francuz},
-           familyi={F\bibinitperiod},
-           given={Tomasz},
-           giveni={T\bibinitperiod}}}%
+        {{hash=29162cdd5d0ae90308aad976a26d769a}{%
+           family={Ellerman},
+           familyi={E\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Wydawnictwo Helion}%
+        {World Scientific}%
       }
-      \strng{namehash}{d3c3ed0f75ebc66cb231042fa598a9cc}
-      \strng{fullhash}{d3c3ed0f75ebc66cb231042fa598a9cc}
-      \strng{fullhashraw}{d3c3ed0f75ebc66cb231042fa598a9cc}
-      \strng{bibnamehash}{d3c3ed0f75ebc66cb231042fa598a9cc}
-      \strng{authorbibnamehash}{d3c3ed0f75ebc66cb231042fa598a9cc}
-      \strng{authornamehash}{d3c3ed0f75ebc66cb231042fa598a9cc}
-      \strng{authorfullhash}{d3c3ed0f75ebc66cb231042fa598a9cc}
-      \strng{authorfullhashraw}{d3c3ed0f75ebc66cb231042fa598a9cc}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \strng{namehash}{29162cdd5d0ae90308aad976a26d769a}
+      \strng{fullhash}{29162cdd5d0ae90308aad976a26d769a}
+      \strng{fullhashraw}{29162cdd5d0ae90308aad976a26d769a}
+      \strng{bibnamehash}{29162cdd5d0ae90308aad976a26d769a}
+      \strng{authorbibnamehash}{29162cdd5d0ae90308aad976a26d769a}
+      \strng{authornamehash}{29162cdd5d0ae90308aad976a26d769a}
+      \strng{authorfullhash}{29162cdd5d0ae90308aad976a26d769a}
+      \strng{authorfullhashraw}{29162cdd5d0ae90308aad976a26d769a}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{978-83-246-3064-6}
-      \field{title}{Język C dla mikrokontrolerów AVR. Od podstaw do zaawansowanych aplikacji. Wydanie II}
-      \field{year}{2015}
+      \field{journaltitle}{International Journal of Semantic Computing}
+      \field{number}{02}
+      \field{title}{An introduction to logical entropy and its relation to Shannon entropy}
+      \field{volume}{7}
+      \field{year}{2013}
+      \field{pages}{121\bibrangedash 145}
+      \range{pages}{25}
     \endentry
-    \entry{UM1727}{manual}{}{}
-      \list{organization}{1}{%
-        {STM32CubeIDE}%
+    \entry{entropiaShannona5}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=85a7073ecabb953f2158068becce3b8a}{%
+           family={Eskov},
+           familyi={E\bibinitperiod},
+           given={VM},
+           giveni={V\bibinitperiod}}}%
+        {{hash=428e8e82adf6c1b3df707b9a2b913a27}{%
+           family={Eskov},
+           familyi={E\bibinitperiod},
+           given={VV},
+           giveni={V\bibinitperiod}}}%
+        {{hash=796a7a3f8c3e41b34c89657845aab42d}{%
+           family={Vochmina},
+           familyi={V\bibinitperiod},
+           given={Yu\bibnamedelima V},
+           giveni={Y\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=d68670a57032c21e252dcce51e08e606}{%
+           family={Gorbunov},
+           familyi={G\bibinitperiod},
+           given={DV},
+           giveni={D\bibinitperiod}}}%
+        {{hash=816e557d214f574f147cb9eee1d1a4c1}{%
+           family={Ilyashenko},
+           familyi={I\bibinitperiod},
+           given={LK},
+           giveni={L\bibinitperiod}}}%
       }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{bafe5866a55db49bf3b72a552e704d2c}
+      \strng{fullhash}{64faa1db304681f71b5d71fe836be223}
+      \strng{fullhashraw}{64faa1db304681f71b5d71fe836be223}
+      \strng{bibnamehash}{64faa1db304681f71b5d71fe836be223}
+      \strng{authorbibnamehash}{64faa1db304681f71b5d71fe836be223}
+      \strng{authornamehash}{bafe5866a55db49bf3b72a552e704d2c}
+      \strng{authorfullhash}{64faa1db304681f71b5d71fe836be223}
+      \strng{authorfullhashraw}{64faa1db304681f71b5d71fe836be223}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Moscow university physics bulletin}
+      \field{number}{3}
+      \field{title}{Shannon entropy in the research on stationary regimes and the evolution of complexity}
+      \field{volume}{72}
+      \field{year}{2017}
+      \field{pages}{309\bibrangedash 317}
+      \range{pages}{9}
+    \endentry
+    \entry{atraktorLorenza2}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=664c9ae32360d15089a51e40abbd8c7b}{%
+           family={Galias},
+           familyi={G\bibinitperiod},
+           given={Z},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=7b3d313665d0ec95a92625b811262a46}{%
+           family={Zgliczyński},
+           familyi={Z\bibinitperiod},
+           given={P},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{3c138a5b8341f78a4a598624582cf212}
+      \strng{fullhash}{3c138a5b8341f78a4a598624582cf212}
+      \strng{fullhashraw}{3c138a5b8341f78a4a598624582cf212}
+      \strng{bibnamehash}{3c138a5b8341f78a4a598624582cf212}
+      \strng{authorbibnamehash}{3c138a5b8341f78a4a598624582cf212}
+      \strng{authornamehash}{3c138a5b8341f78a4a598624582cf212}
+      \strng{authorfullhash}{3c138a5b8341f78a4a598624582cf212}
+      \strng{authorfullhashraw}{3c138a5b8341f78a4a598624582cf212}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{1}
-      \field{note}{UM1727}
-      \field{title}{Getting started with STM32 Nucleo board software development tools}
-      \field{year}{2020}
+      \field{journaltitle}{Physica D: Nonlinear Phenomena}
+      \field{number}{3-4}
+      \field{title}{Computer assisted proof of chaos in the Lorenz equations}
+      \field{volume}{115}
+      \field{year}{1998}
+      \field{pages}{165\bibrangedash 188}
+      \range{pages}{24}
     \endentry
-    \entry{luciano2015}{book}{}{}
+    \entry{goodfellow2016}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=12b30d9577648d4fdc0710d5b067bf19}{%
-           family={Luciano},
-           familyi={L\bibinitperiod},
-           given={Ramalho},
-           giveni={R\bibinitperiod}}}%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{5d2585c11210cf1d4512e6e0a03ec315}
+      \strng{fullhash}{5d2585c11210cf1d4512e6e0a03ec315}
+      \strng{fullhashraw}{5d2585c11210cf1d4512e6e0a03ec315}
+      \strng{bibnamehash}{5d2585c11210cf1d4512e6e0a03ec315}
+      \strng{authorbibnamehash}{5d2585c11210cf1d4512e6e0a03ec315}
+      \strng{authornamehash}{5d2585c11210cf1d4512e6e0a03ec315}
+      \strng{authorfullhash}{5d2585c11210cf1d4512e6e0a03ec315}
+      \strng{authorfullhashraw}{5d2585c11210cf1d4512e6e0a03ec315}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1701.00160}
+      \field{title}{Nips 2016 tutorial: Generative adversarial networks}
+      \field{year}{2016}
+    \endentry
+    \entry{goodfellow2016deep}{book}{}{}
+      \name{author}{4}{}{%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {APN Promise}%
+        {MIT press Cambridge}%
       }
-      \strng{namehash}{12b30d9577648d4fdc0710d5b067bf19}
-      \strng{fullhash}{12b30d9577648d4fdc0710d5b067bf19}
-      \strng{fullhashraw}{12b30d9577648d4fdc0710d5b067bf19}
-      \strng{bibnamehash}{12b30d9577648d4fdc0710d5b067bf19}
-      \strng{authorbibnamehash}{12b30d9577648d4fdc0710d5b067bf19}
-      \strng{authornamehash}{12b30d9577648d4fdc0710d5b067bf19}
-      \strng{authorfullhash}{12b30d9577648d4fdc0710d5b067bf19}
-      \strng{authorfullhashraw}{12b30d9577648d4fdc0710d5b067bf19}
+      \strng{namehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{fullhash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{fullhashraw}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{bibnamehash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{authorbibnamehash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorfullhash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{authorfullhashraw}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{2}
+      \field{title}{Deep learning}
+      \field{volume}{1}
+      \field{year}{2016}
+    \endentry
+    \entry{goodfellow2020}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=a341d25f80a8118cdbb90b272adc8b4f}{%
+           family={Pouget-Abadie},
+           familyi={P\bibinithyphendelim A\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9e80f4779b032f68a6106e1424345450}{%
+           family={Mirza},
+           familyi={M\bibinitperiod},
+           given={Mehdi},
+           giveni={M\bibinitperiod}}}%
+        {{hash=743dd6cdaa6639320289d219d351d7b7}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Bing},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e8151f1b8f85a048cacb34f374ec922b}{%
+           family={Warde-Farley},
+           familyi={W\bibinithyphendelim F\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9ca00ffd7cc35f7cfb8f698aa9239c76}{%
+           family={Ozair},
+           familyi={O\bibinitperiod},
+           given={Sherjil},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY, USA}%
+      }
+      \strng{namehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{fullhash}{fa2b4fb373e75fcf07b4b987e4507545}
+      \strng{fullhashraw}{fa2b4fb373e75fcf07b4b987e4507545}
+      \strng{bibnamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorbibnamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorfullhash}{fa2b4fb373e75fcf07b4b987e4507545}
+      \strng{authorfullhashraw}{fa2b4fb373e75fcf07b4b987e4507545}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications of the ACM}
+      \field{number}{11}
+      \field{title}{Generative adversarial networks}
+      \field{volume}{63}
+      \field{year}{2020}
+      \field{pages}{139\bibrangedash 144}
+      \range{pages}{6}
+    \endentry
+    \entry{goodfellow2014generative}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=d4f74ef4c79f3bb1e51e378184d8850e}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian\bibnamedelima J},
+           giveni={I\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=a341d25f80a8118cdbb90b272adc8b4f}{%
+           family={Pouget-Abadie},
+           familyi={P\bibinithyphendelim A\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9e80f4779b032f68a6106e1424345450}{%
+           family={Mirza},
+           familyi={M\bibinitperiod},
+           given={Mehdi},
+           giveni={M\bibinitperiod}}}%
+        {{hash=743dd6cdaa6639320289d219d351d7b7}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Bing},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e8151f1b8f85a048cacb34f374ec922b}{%
+           family={Warde-Farley},
+           familyi={W\bibinithyphendelim F\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9ca00ffd7cc35f7cfb8f698aa9239c76}{%
+           family={Ozair},
+           familyi={O\bibinitperiod},
+           given={Sherjil},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b5c7065f4df4f81627df9460343f166}
+      \strng{fullhash}{5afe3eb3246d0b46f32cdc5ff3e9d6b8}
+      \strng{fullhashraw}{5afe3eb3246d0b46f32cdc5ff3e9d6b8}
+      \strng{bibnamehash}{8b5c7065f4df4f81627df9460343f166}
+      \strng{authorbibnamehash}{8b5c7065f4df4f81627df9460343f166}
+      \strng{authornamehash}{8b5c7065f4df4f81627df9460343f166}
+      \strng{authorfullhash}{5afe3eb3246d0b46f32cdc5ff3e9d6b8}
+      \strng{authorfullhashraw}{5afe3eb3246d0b46f32cdc5ff3e9d6b8}
+      \field{extraname}{3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Generative adversarial nets}
+      \field{volume}{27}
+      \field{year}{2014}
+    \endentry
+    \entry{rosensteina}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=1e205e70ab60b00e490fe11c0adb6963}{%
+           family={Hallmann},
+           familyi={H\bibinitperiod},
+           given={Damian},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6dc0db60b15eaa2ca13e059ad6567d8d}{%
+           family={Jankowski},
+           familyi={J\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Uniwersytet Morski w Gdyni. Wydawnictwo Uniwersytetu Morskiego w Gdyni}%
+      }
+      \strng{namehash}{62daead7a098f09f0ffc2b3fb52ed1d2}
+      \strng{fullhash}{62daead7a098f09f0ffc2b3fb52ed1d2}
+      \strng{fullhashraw}{62daead7a098f09f0ffc2b3fb52ed1d2}
+      \strng{bibnamehash}{62daead7a098f09f0ffc2b3fb52ed1d2}
+      \strng{authorbibnamehash}{62daead7a098f09f0ffc2b3fb52ed1d2}
+      \strng{authornamehash}{62daead7a098f09f0ffc2b3fb52ed1d2}
+      \strng{authorfullhash}{62daead7a098f09f0ffc2b3fb52ed1d2}
+      \strng{authorfullhashraw}{62daead7a098f09f0ffc2b3fb52ed1d2}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Zeszyty Naukowe Akademii Morskiej w Gdyni}
+      \field{number}{103}
+      \field{title}{Badanie przydatności procedur Rosensteina i Eckmanna do identyfikacji chaotycznych szeregów czasowych}
+      \field{year}{2018}
+      \field{pages}{120\bibrangedash 136}
+      \range{pages}{17}
+    \endentry
+    \entry{hochreiter1997long}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod}}}%
+        {{hash=288bdbcfe1b91ad7484d7a24f74f99ed}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhashraw}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{bibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorbibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authornamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhashraw}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural computation}
+      \field{number}{8}
+      \field{title}{Long short-term memory}
+      \field{volume}{9}
+      \field{year}{1997}
+      \field{pages}{1735\bibrangedash 1780}
+      \range{pages}{46}
+    \endentry
+    \entry{GAN}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=fef2e8dca5196ceff55d068034c0e640}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Feifeng},
+           giveni={F\bibinitperiod}}}%
+        {{hash=70d98ba727cc8114a6e494cf39de84a7}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2fcaca2e257eb76c088a53c88e567556}{%
+           family={Webster},
+           familyi={W\bibinitperiod},
+           given={Christopher\bibnamedelima John},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=9974d6382df9a9870c97dad6837bcf62}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xiao},
+           giveni={X\bibinitperiod}}}%
+        {{hash=643129fb2414655f6bcfc1235ffb51b3}{%
+           family={Gan},
+           familyi={G\bibinitperiod},
+           given={Vincent\bibnamedelima JL},
+           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{14758bb94b11d6b9a2b0ed89a0ef26a1}
+      \strng{fullhash}{617cf4a79f4034beeb19e5cbfad2b4b6}
+      \strng{fullhashraw}{617cf4a79f4034beeb19e5cbfad2b4b6}
+      \strng{bibnamehash}{617cf4a79f4034beeb19e5cbfad2b4b6}
+      \strng{authorbibnamehash}{617cf4a79f4034beeb19e5cbfad2b4b6}
+      \strng{authornamehash}{14758bb94b11d6b9a2b0ed89a0ef26a1}
+      \strng{authorfullhash}{617cf4a79f4034beeb19e5cbfad2b4b6}
+      \strng{authorfullhashraw}{617cf4a79f4034beeb19e5cbfad2b4b6}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Automation in construction}
+      \field{title}{Building layout generation using site-embedded GAN model}
+      \field{volume}{151}
+      \field{year}{2023}
+      \field{pages}{104888}
+      \range{pages}{1}
+    \endentry
+    \entry{lorenz2000butterfly}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=0e3296d4ad2820047a9c3ef4711904e9}{%
+           family={Lorenz},
+           familyi={L\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World Scientific}%
+      }
+      \strng{namehash}{0e3296d4ad2820047a9c3ef4711904e9}
+      \strng{fullhash}{0e3296d4ad2820047a9c3ef4711904e9}
+      \strng{fullhashraw}{0e3296d4ad2820047a9c3ef4711904e9}
+      \strng{bibnamehash}{0e3296d4ad2820047a9c3ef4711904e9}
+      \strng{authorbibnamehash}{0e3296d4ad2820047a9c3ef4711904e9}
+      \strng{authornamehash}{0e3296d4ad2820047a9c3ef4711904e9}
+      \strng{authorfullhash}{0e3296d4ad2820047a9c3ef4711904e9}
+      \strng{authorfullhashraw}{0e3296d4ad2820047a9c3ef4711904e9}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{978-8375412239}
-      \field{title}{Zaawansowany Python. Jasne, zwięzłe i efektywne programowanie}
-      \field{year}{2015}
+      \field{booktitle}{The chaos avant-garde: Memories of the early days of chaos theory}
+      \field{title}{The butterfly effect}
+      \field{year}{2000}
+      \field{pages}{91\bibrangedash 94}
+      \range{pages}{4}
     \endentry
-    \entry{mark2022}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=741e19c560cbf4f4e40fb41e26b8e783}{%
-           family={Mark},
-           familyi={M\bibinitperiod},
-           given={Lutz},
-           giveni={L\bibinitperiod}}}%
+    \entry{atraktorLorenza4}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=b3eeab11b971bbf5ed269c4f19465b91}{%
+           family={Lorenz},
+           familyi={L\bibinitperiod},
+           given={Edward\bibnamedelima N},
+           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=dd18db5450f869d2cae028856981012e}{%
+           family={Haman},
+           familyi={H\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Wydawnictwo Helion}%
+        {Basel, Birkhauser Verlag}%
       }
-      \strng{namehash}{741e19c560cbf4f4e40fb41e26b8e783}
-      \strng{fullhash}{741e19c560cbf4f4e40fb41e26b8e783}
-      \strng{fullhashraw}{741e19c560cbf4f4e40fb41e26b8e783}
-      \strng{bibnamehash}{741e19c560cbf4f4e40fb41e26b8e783}
-      \strng{authorbibnamehash}{741e19c560cbf4f4e40fb41e26b8e783}
-      \strng{authornamehash}{741e19c560cbf4f4e40fb41e26b8e783}
-      \strng{authorfullhash}{741e19c560cbf4f4e40fb41e26b8e783}
-      \strng{authorfullhashraw}{741e19c560cbf4f4e40fb41e26b8e783}
+      \strng{namehash}{226419819c9acea65765fb896d1c0c31}
+      \strng{fullhash}{226419819c9acea65765fb896d1c0c31}
+      \strng{fullhashraw}{226419819c9acea65765fb896d1c0c31}
+      \strng{bibnamehash}{226419819c9acea65765fb896d1c0c31}
+      \strng{authorbibnamehash}{226419819c9acea65765fb896d1c0c31}
+      \strng{authornamehash}{226419819c9acea65765fb896d1c0c31}
+      \strng{authorfullhash}{226419819c9acea65765fb896d1c0c31}
+      \strng{authorfullhashraw}{226419819c9acea65765fb896d1c0c31}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pure and Applied Geophysics}
+      \field{number}{3}
+      \field{title}{The essence of chaos}
+      \field{volume}{147}
+      \field{year}{1996}
+      \field{pages}{598\bibrangedash 599}
+      \range{pages}{2}
+    \endentry
+    \entry{korelacjaPearsona5}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=fadcc505110d0da79ce959353f11fc5b}{%
+           family={Ly},
+           familyi={L\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6105f9ec8431b1deba2f1991e1dec47b}{%
+           family={Marsman},
+           familyi={M\bibinitperiod},
+           given={Maarten},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d0127560e030afe2fdab5e2b35378c37}{%
+           family={Wagenmakers},
+           familyi={W\bibinitperiod},
+           given={Eric-Jan},
+           giveni={E\bibinithyphendelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{7d7406cd1606940040cb65d84fa4c41a}
+      \strng{fullhash}{6d95670942372c7156cc41de51d417c6}
+      \strng{fullhashraw}{6d95670942372c7156cc41de51d417c6}
+      \strng{bibnamehash}{6d95670942372c7156cc41de51d417c6}
+      \strng{authorbibnamehash}{6d95670942372c7156cc41de51d417c6}
+      \strng{authornamehash}{7d7406cd1606940040cb65d84fa4c41a}
+      \strng{authorfullhash}{6d95670942372c7156cc41de51d417c6}
+      \strng{authorfullhashraw}{6d95670942372c7156cc41de51d417c6}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Statistica Neerlandica}
+      \field{number}{1}
+      \field{title}{Analytic posteriors for Pearson's correlation coefficient}
+      \field{volume}{72}
+      \field{year}{2018}
+      \field{pages}{4\bibrangedash 13}
+      \range{pages}{10}
+    \endentry
+    \entry{lyapunov1992}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=7814e82f44c358239bdab72eaff4ff12}{%
+           family={Lyapunov},
+           familyi={L\bibinitperiod},
+           given={Aleksandr\bibnamedelima Mikhailovich},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{7814e82f44c358239bdab72eaff4ff12}
+      \strng{fullhash}{7814e82f44c358239bdab72eaff4ff12}
+      \strng{fullhashraw}{7814e82f44c358239bdab72eaff4ff12}
+      \strng{bibnamehash}{7814e82f44c358239bdab72eaff4ff12}
+      \strng{authorbibnamehash}{7814e82f44c358239bdab72eaff4ff12}
+      \strng{authornamehash}{7814e82f44c358239bdab72eaff4ff12}
+      \strng{authorfullhash}{7814e82f44c358239bdab72eaff4ff12}
+      \strng{authorfullhashraw}{7814e82f44c358239bdab72eaff4ff12}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International journal of control}
+      \field{number}{3}
+      \field{title}{The general problem of the stability of motion}
+      \field{volume}{55}
+      \field{year}{1992}
+      \field{pages}{531\bibrangedash 534}
+      \range{pages}{4}
+    \endentry
+    \entry{LSTM1}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=1ffa27a08ce4a4a8aecc71368eaa3832}{%
+           family={Madondo},
+           familyi={M\bibinitperiod},
+           given={Malvern},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c1351552688508d7669953e696aaa99c}{%
+           family={Gibbons},
+           familyi={G\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{4508f9db703f11ad94aa4e8a91d8ebc1}
+      \strng{fullhash}{4508f9db703f11ad94aa4e8a91d8ebc1}
+      \strng{fullhashraw}{4508f9db703f11ad94aa4e8a91d8ebc1}
+      \strng{bibnamehash}{4508f9db703f11ad94aa4e8a91d8ebc1}
+      \strng{authorbibnamehash}{4508f9db703f11ad94aa4e8a91d8ebc1}
+      \strng{authornamehash}{4508f9db703f11ad94aa4e8a91d8ebc1}
+      \strng{authorfullhash}{4508f9db703f11ad94aa4e8a91d8ebc1}
+      \strng{authorfullhashraw}{4508f9db703f11ad94aa4e8a91d8ebc1}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{978-83-283-9170-3}
-      \field{title}{Python. Wprowadzenie}
-      \field{year}{2022}
+      \field{booktitle}{Proceedings of the midwest instruction and computing symposium, duluth, minnesota}
+      \field{title}{Learning and modeling chaos using lstm recurrent neural networks}
+      \field{year}{2018}
+      \field{pages}{6\bibrangedash 7}
+      \range{pages}{2}
     \endentry
-    \entry{james2015}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=1704dc0dc0dbd3d65e48ff5868048647}{%
-           family={{Ohlson}},
-           familyi={O\bibinitperiod}}}%
-        {{hash=e4aabf487ed50bbe6483cd88a75b14de}{%
-           family={{James }},
-           familyi={J\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=53cb763d63d8189ca8cf55ae2d0b5db3}{%
-           family={{Seil Kim}},
-           familyi={S\bibinitperiod}}}%
+    \entry{atraktorLorenza3}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=d11814522a0686c1b24ab9291e66523b}{%
+           family={Mischaikow},
+           familyi={M\bibinitperiod},
+           given={Konstantin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=1397e2fbf7cb153d8facc217c9f8d39f}{%
+           family={Mrozek},
+           familyi={M\bibinitperiod},
+           given={Marian},
+           giveni={M\bibinitperiod}}}%
       }
-      \strng{namehash}{2cb494373a29bb845be38c56b0730b98}
-      \strng{fullhash}{de249f3f7268bc00cc49b4d0441ecfe5}
-      \strng{fullhashraw}{de249f3f7268bc00cc49b4d0441ecfe5}
-      \strng{bibnamehash}{de249f3f7268bc00cc49b4d0441ecfe5}
-      \strng{authorbibnamehash}{de249f3f7268bc00cc49b4d0441ecfe5}
-      \strng{authornamehash}{2cb494373a29bb845be38c56b0730b98}
-      \strng{authorfullhash}{de249f3f7268bc00cc49b4d0441ecfe5}
-      \strng{authorfullhashraw}{de249f3f7268bc00cc49b4d0441ecfe5}
+      \strng{namehash}{4eb27b594993b00487eb1ad300b72316}
+      \strng{fullhash}{4eb27b594993b00487eb1ad300b72316}
+      \strng{fullhashraw}{4eb27b594993b00487eb1ad300b72316}
+      \strng{bibnamehash}{4eb27b594993b00487eb1ad300b72316}
+      \strng{authorbibnamehash}{4eb27b594993b00487eb1ad300b72316}
+      \strng{authornamehash}{4eb27b594993b00487eb1ad300b72316}
+      \strng{authorfullhash}{4eb27b594993b00487eb1ad300b72316}
+      \strng{authorfullhashraw}{4eb27b594993b00487eb1ad300b72316}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bulletin of the American Mathematical Society}
+      \field{number}{1}
+      \field{title}{Chaos in the Lorenz equations: a computer-assisted proof}
+      \field{volume}{32}
+      \field{year}{1995}
+      \field{pages}{66\bibrangedash 72}
+      \range{pages}{7}
+    \endentry
+    \entry{atraktorLorenza1}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=d11814522a0686c1b24ab9291e66523b}{%
+           family={Mischaikow},
+           familyi={M\bibinitperiod},
+           given={Konstantin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=1397e2fbf7cb153d8facc217c9f8d39f}{%
+           family={Mrozek},
+           familyi={M\bibinitperiod},
+           given={Marian},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ddc23050898c231c3763e7377143a553}{%
+           family={Szymczak},
+           familyi={S\bibinitperiod},
+           given={Andrzej},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Science}%
+      }
+      \strng{namehash}{699a86029ac6451a1298d6c70d49c2ed}
+      \strng{fullhash}{7113ed0a80277cdad5ec27d049dea1cc}
+      \strng{fullhashraw}{7113ed0a80277cdad5ec27d049dea1cc}
+      \strng{bibnamehash}{7113ed0a80277cdad5ec27d049dea1cc}
+      \strng{authorbibnamehash}{7113ed0a80277cdad5ec27d049dea1cc}
+      \strng{authornamehash}{699a86029ac6451a1298d6c70d49c2ed}
+      \strng{authorfullhash}{7113ed0a80277cdad5ec27d049dea1cc}
+      \strng{authorfullhashraw}{7113ed0a80277cdad5ec27d049dea1cc}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Differential Equations}
+      \field{number}{1}
+      \field{title}{Chaos in the lorenz equations: A computer assisted proof part iii: Classical parameter values}
+      \field{volume}{169}
+      \field{year}{2001}
+      \field{pages}{17\bibrangedash 56}
+      \range{pages}{40}
+    \endentry
+    \entry{wykładnikLaponowa3}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6760d16d11bc9af932c9135a93a0d386}{%
+           family={Miśkiewicz},
+           familyi={M\bibinitperiod},
+           given={Monika},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6760d16d11bc9af932c9135a93a0d386}
+      \strng{fullhash}{6760d16d11bc9af932c9135a93a0d386}
+      \strng{fullhashraw}{6760d16d11bc9af932c9135a93a0d386}
+      \strng{bibnamehash}{6760d16d11bc9af932c9135a93a0d386}
+      \strng{authorbibnamehash}{6760d16d11bc9af932c9135a93a0d386}
+      \strng{authornamehash}{6760d16d11bc9af932c9135a93a0d386}
+      \strng{authorfullhash}{6760d16d11bc9af932c9135a93a0d386}
+      \strng{authorfullhashraw}{6760d16d11bc9af932c9135a93a0d386}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Prace naukowe Akademii Ekonomicznej we Wroc{ł}awiu. Zastosowanie Metod Ilościowych}
+      \field{title}{Zastosowanie wyk{ł}adników Lapunowa do prognozowania zjawisk ekonomicznych opisanych za pomocą szeregów czasowych}
+      \field{volume}{1189}
+      \field{year}{2007}
+      \field{pages}{211\bibrangedash 223}
+      \range{pages}{13}
+    \endentry
+    \entry{wykładnikLaponowa1}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6c121336b9715e83f1599bba167f050b}{%
+           family={Miśkiewicz-Nawrocka},
+           familyi={M\bibinithyphendelim N\bibinitperiod},
+           given={Monika},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Uniwersytet Ekonomiczny w Katowicach}%
+      }
+      \strng{namehash}{6c121336b9715e83f1599bba167f050b}
+      \strng{fullhash}{6c121336b9715e83f1599bba167f050b}
+      \strng{fullhashraw}{6c121336b9715e83f1599bba167f050b}
+      \strng{bibnamehash}{6c121336b9715e83f1599bba167f050b}
+      \strng{authorbibnamehash}{6c121336b9715e83f1599bba167f050b}
+      \strng{authornamehash}{6c121336b9715e83f1599bba167f050b}
+      \strng{authorfullhash}{6c121336b9715e83f1599bba167f050b}
+      \strng{authorfullhashraw}{6c121336b9715e83f1599bba167f050b}
+      \field{extraname}{1}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Studia Ekonomiczne}
+      \field{number}{159}
+      \field{title}{Wp{ł}yw redukcji szumu losowego metodą najbliższych sąsiadów na wyniki prognoz otrzymanych za pomocą największego wyk{ł}adnika Lapunowa}
+      \field{year}{2013}
+      \field{pages}{82\bibrangedash 98}
+      \range{pages}{17}
+    \endentry
+    \entry{wykładnikLaponowa2}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6c121336b9715e83f1599bba167f050b}{%
+           family={Miśkiewicz-Nawrocka},
+           familyi={M\bibinithyphendelim N\bibinitperiod},
+           given={Monika},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Uniwersytet Ekonomiczny w Katowicach}%
+      }
+      \strng{namehash}{6c121336b9715e83f1599bba167f050b}
+      \strng{fullhash}{6c121336b9715e83f1599bba167f050b}
+      \strng{fullhashraw}{6c121336b9715e83f1599bba167f050b}
+      \strng{bibnamehash}{6c121336b9715e83f1599bba167f050b}
+      \strng{authorbibnamehash}{6c121336b9715e83f1599bba167f050b}
+      \strng{authornamehash}{6c121336b9715e83f1599bba167f050b}
+      \strng{authorfullhash}{6c121336b9715e83f1599bba167f050b}
+      \strng{authorfullhashraw}{6c121336b9715e83f1599bba167f050b}
+      \field{extraname}{2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Studia Ekonomiczne}
+      \field{title}{Wp{ł}yw redukcji szumu losowego metodą najbliższych sąsiadów na stabilność największego wyk{ł}adnika Lapunowa w ekonomicznych szeregach czasowych}
+      \field{volume}{203}
+      \field{year}{2014}
+      \field{pages}{101\bibrangedash 113}
+      \range{pages}{13}
+    \endentry
+    \entry{korelacjaPearsona3}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=e36989434a0a3cab3463df7902319cb0}{%
+           family={Obilor},
+           familyi={O\bibinitperiod},
+           given={Esezi\bibnamedelima Isaac},
+           giveni={E\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=1e1dbe38e6a8cda77e36ce2144eb91cc}{%
+           family={Amadi},
+           familyi={A\bibinitperiod},
+           given={Eric\bibnamedelima Chikweru},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{9f5841f5552a6f86021c5206d73f5149}
+      \strng{fullhash}{9f5841f5552a6f86021c5206d73f5149}
+      \strng{fullhashraw}{9f5841f5552a6f86021c5206d73f5149}
+      \strng{bibnamehash}{9f5841f5552a6f86021c5206d73f5149}
+      \strng{authorbibnamehash}{9f5841f5552a6f86021c5206d73f5149}
+      \strng{authornamehash}{9f5841f5552a6f86021c5206d73f5149}
+      \strng{authorfullhash}{9f5841f5552a6f86021c5206d73f5149}
+      \strng{authorfullhashraw}{9f5841f5552a6f86021c5206d73f5149}
       \field{sortinit}{O}
       \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{1380-6653}
-      \field{journaltitle}{Review of Accounting Studies}
-      \field{note}{https://doi.org/10.1007/s11142-014-9300-0 dostęp uzyskano 2025-01-10}
-      \field{title}{Linear valuation without OLS: the Theil-Sen estimation approach}
-      \field{year}{2015}
-      \field{pages}{395\bibrangedash 435}
-      \range{pages}{41}
-    \endentry
-    \entry{jacko2019}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=a74d2e5ffa1f3f877921d2f7c66f4ea8}{%
-           family={{P. Jacko}},
-           familyi={P\bibinitperiod}}}%
-        {{hash=905d4c9f068e4045b672d2f68f2169d2}{%
-           family={{O. Kravets}},
-           familyi={O\bibinitperiod}}}%
-      }
-      \strng{namehash}{ad7602b73b7d02857aa1ba8d01813039}
-      \strng{fullhash}{ad7602b73b7d02857aa1ba8d01813039}
-      \strng{fullhashraw}{ad7602b73b7d02857aa1ba8d01813039}
-      \strng{bibnamehash}{ad7602b73b7d02857aa1ba8d01813039}
-      \strng{authorbibnamehash}{ad7602b73b7d02857aa1ba8d01813039}
-      \strng{authornamehash}{ad7602b73b7d02857aa1ba8d01813039}
-      \strng{authorfullhash}{ad7602b73b7d02857aa1ba8d01813039}
-      \strng{authorfullhashraw}{ad7602b73b7d02857aa1ba8d01813039}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{2019 IEEE International Conference on Modern Electrical and Energy Systems (MEES)}
-      \field{note}{http://dx.doi.org/10.1109/MEES.2019.8896545 dostęp uzyskano 2025-01-10}
-      \field{title}{Spectral Analysis by STM32 Microcontroller of the Mixed Signal}
-      \field{year}{2019}
-      \field{pages}{342\bibrangedash 345}
-      \range{pages}{4}
+      \field{journaltitle}{International Journal of Innovative Mathematics, Statistics \& Energy Policies}
+      \field{number}{1}
+      \field{title}{Test for significance of Pearson’s correlation coefficient}
+      \field{volume}{6}
+      \field{year}{2018}
+      \field{pages}{11\bibrangedash 23}
+      \range{pages}{13}
     \endentry
     \entry{parandowski1992}{book}{}{}
       \name{author}{1}{}{%
@@ -311,234 +1120,584 @@
       \field{title}{Mitologia}
       \field{year}{1992}
     \endentry
-    \entry{prata2016}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=2e43717be9d8e6bab9397ad4f022a306}{%
-           family={Prata},
+    \entry{Conv1DLSTM}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=9484fddb2be7ac0b23dee7143cb3a404}{%
+           family={Phiphitphatphaisit},
            familyi={P\bibinitperiod},
-           given={Stephen},
+           given={Sirawan},
            giveni={S\bibinitperiod}}}%
+        {{hash=0d7eb9f660c1f40fb27eb2ce0a59e2ea}{%
+           family={Surinta},
+           familyi={S\bibinitperiod},
+           given={Olarik},
+           giveni={O\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Wydawnictwo Helion}%
-      }
-      \strng{namehash}{2e43717be9d8e6bab9397ad4f022a306}
-      \strng{fullhash}{2e43717be9d8e6bab9397ad4f022a306}
-      \strng{fullhashraw}{2e43717be9d8e6bab9397ad4f022a306}
-      \strng{bibnamehash}{2e43717be9d8e6bab9397ad4f022a306}
-      \strng{authorbibnamehash}{2e43717be9d8e6bab9397ad4f022a306}
-      \strng{authornamehash}{2e43717be9d8e6bab9397ad4f022a306}
-      \strng{authorfullhash}{2e43717be9d8e6bab9397ad4f022a306}
-      \strng{authorfullhashraw}{2e43717be9d8e6bab9397ad4f022a306}
+      \strng{namehash}{b608dfdb55a2b8156424354a867e5cfb}
+      \strng{fullhash}{b608dfdb55a2b8156424354a867e5cfb}
+      \strng{fullhashraw}{b608dfdb55a2b8156424354a867e5cfb}
+      \strng{bibnamehash}{b608dfdb55a2b8156424354a867e5cfb}
+      \strng{authorbibnamehash}{b608dfdb55a2b8156424354a867e5cfb}
+      \strng{authornamehash}{b608dfdb55a2b8156424354a867e5cfb}
+      \strng{authorfullhash}{b608dfdb55a2b8156424354a867e5cfb}
+      \strng{authorfullhashraw}{b608dfdb55a2b8156424354a867e5cfb}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{978-83-283-1470-2}
-      \field{title}{Język C. Szkoła programowania}
-      \field{year}{2016}
+      \field{journaltitle}{Engineering and Applied Science Research}
+      \field{number}{5}
+      \field{title}{Deep feature extraction technique based on Conv1D and LSTM network for food image recognition}
+      \field{volume}{48}
+      \field{year}{2021}
+      \field{pages}{581\bibrangedash 592}
+      \range{pages}{12}
     \endentry
-    \entry{chudamani2006}{article}{}{}
+    \entry{entropiaShannona7}{article}{}{}
       \name{author}{3}{}{%
-        {{hash=c861847b422fa8c8faa21671fbb039d2}{%
-           family={{R. Chudamani}},
-           familyi={R\bibinitperiod}}}%
-        {{hash=7090b639521e58e4ed63cff1e1bd9f81}{%
-           family={{K. Vasudevan}},
-           familyi={K\bibinitperiod}}}%
-        {{hash=1098e804bb18a447fe72e72c4de6da4a}{%
-           family={{C. S. Ramalingam}},
-           familyi={C\bibinitperiod}}}%
+        {{hash=7950d5e0ad47ff92801e51b31b22eac4}{%
+           family={Rajaram},
+           familyi={R\bibinitperiod},
+           given={Rajeev},
+           giveni={R\bibinitperiod}}}%
+        {{hash=27de0b480756f8c664a18a68756e7040}{%
+           family={Castellani},
+           familyi={C\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=ffef37e45d8f8bcde953a6ce92fa2ed7}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={AN},
+           giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{eba6c9a851ee83e1ffc8ac58094b682d}
-      \strng{fullhash}{6d45ffb4c83de45bf3f38b126f495214}
-      \strng{fullhashraw}{6d45ffb4c83de45bf3f38b126f495214}
-      \strng{bibnamehash}{6d45ffb4c83de45bf3f38b126f495214}
-      \strng{authorbibnamehash}{6d45ffb4c83de45bf3f38b126f495214}
-      \strng{authornamehash}{eba6c9a851ee83e1ffc8ac58094b682d}
-      \strng{authorfullhash}{6d45ffb4c83de45bf3f38b126f495214}
-      \strng{authorfullhashraw}{6d45ffb4c83de45bf3f38b126f495214}
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{f20f31dc0d17ae9cba960fdbb4c25ba4}
+      \strng{fullhash}{beb87439418e8373e909dd13a5ff4bf5}
+      \strng{fullhashraw}{beb87439418e8373e909dd13a5ff4bf5}
+      \strng{bibnamehash}{beb87439418e8373e909dd13a5ff4bf5}
+      \strng{authorbibnamehash}{beb87439418e8373e909dd13a5ff4bf5}
+      \strng{authornamehash}{f20f31dc0d17ae9cba960fdbb4c25ba4}
+      \strng{authorfullhash}{beb87439418e8373e909dd13a5ff4bf5}
+      \strng{authorfullhashraw}{beb87439418e8373e909dd13a5ff4bf5}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{International Conference on Power Electronic}
-      \field{note}{doi: 10.1109/PEDES.2006.344228 dostęp uzyskano 2025-01-10}
-      \field{title}{Simulation Study of a Shunt Active Power Filter Using Nonlinear Least Squares Harmonic Extraction Technique}
-      \field{year}{2006}
-      \field{pages}{1\bibrangedash 5}
-      \range{pages}{5}
+      \field{journaltitle}{Complexity}
+      \field{number}{1}
+      \field{title}{Advancing Shannon entropy for measuring diversity in systems}
+      \field{volume}{2017}
+      \field{year}{2017}
+      \field{pages}{8715605}
+      \range{pages}{1}
     \endentry
-    \entry{bitcoin2021}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=62b0a5475bd1bc7c9b9d08b84f9e85fb}{%
-           family={Shankhdhar},
-           familyi={S\bibinitperiod},
-           given={Ashutosh},
-           giveni={A\bibinitperiod}}}%
-        {{hash=161ce5cc6813a25620f47a684b094bfa}{%
-           family={Singh},
-           familyi={S\bibinitperiod},
-           given={Akhilesh\bibnamedelima Kumar},
-           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
-        {{hash=a48437bdf727baf38791037b4fa964d4}{%
-           family={Naugraiya},
-           familyi={N\bibinitperiod},
-           given={Suryansh},
-           giveni={S\bibinitperiod}}}%
-        {{hash=6d531ded9291b60aa3208d139f169c48}{%
-           family={Saini},
-           familyi={S\bibinitperiod},
-           given={Prathmesh\bibnamedelima Kumar},
-           giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+    \entry{GANLSTM2}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=510092d097e6ba2c878401424b51f8ca}{%
+           family={Rasheed},
+           familyi={R\bibinitperiod},
+           given={Iftikhar},
+           giveni={I\bibinitperiod}}}%
+        {{hash=966cac38a4f1eda9a862523a5d08da2c}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Fei},
+           giveni={F\bibinitperiod}}}%
+        {{hash=3a1f1a0016bb4e33e52e9bd0f48cfd33}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Lin},
+           giveni={L\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {IOP Publishing}%
+        {Elsevier}%
       }
-      \strng{namehash}{0fdd9bd89fbc2320a3a0636c68d08c80}
-      \strng{fullhash}{8394aadb2b9d26adf701388b460828d4}
-      \strng{fullhashraw}{8394aadb2b9d26adf701388b460828d4}
-      \strng{bibnamehash}{8394aadb2b9d26adf701388b460828d4}
-      \strng{authorbibnamehash}{8394aadb2b9d26adf701388b460828d4}
-      \strng{authornamehash}{0fdd9bd89fbc2320a3a0636c68d08c80}
-      \strng{authorfullhash}{8394aadb2b9d26adf701388b460828d4}
-      \strng{authorfullhashraw}{8394aadb2b9d26adf701388b460828d4}
+      \strng{namehash}{84700f17c4a9d2b87141ffc96208ab33}
+      \strng{fullhash}{003a575ef2097258db5957477dacdd89}
+      \strng{fullhashraw}{003a575ef2097258db5957477dacdd89}
+      \strng{bibnamehash}{003a575ef2097258db5957477dacdd89}
+      \strng{authorbibnamehash}{003a575ef2097258db5957477dacdd89}
+      \strng{authornamehash}{84700f17c4a9d2b87141ffc96208ab33}
+      \strng{authorfullhash}{003a575ef2097258db5957477dacdd89}
+      \strng{authorfullhashraw}{003a575ef2097258db5957477dacdd89}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Vehicular Communications}
+      \field{title}{Deep reinforcement learning approach for autonomous vehicle systems for maintaining security and safety using LSTM-GAN}
+      \field{volume}{26}
+      \field{year}{2020}
+      \field{pages}{100266}
+      \range{pages}{1}
+    \endentry
+    \entry{Conv1DLSTM2}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=e0053e4466b7059d65a7b271ba978871}{%
+           family={Rastogi},
+           familyi={R\bibinitperiod},
+           given={Mitanshi},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5b56a56b2d1f46b897a6212a395d92d7}{%
+           family={Vijarania},
+           familyi={V\bibinitperiod},
+           given={Meenu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bd131cc58733250f973908d3476834ee}{%
+           family={Goel},
+           familyi={G\bibinitperiod},
+           given={Neha},
+           giveni={N\bibinitperiod}}}%
+        {{hash=2c87b130eda00acfd9cf7bc25278ad76}{%
+           family={Agrawal},
+           familyi={A\bibinitperiod},
+           given={Akshat},
+           giveni={A\bibinitperiod}}}%
+        {{hash=18b0a96f52ec5d46eb0fc8f51709cbb1}{%
+           family={Biamba},
+           familyi={B\bibinitperiod},
+           given={Cresantus\bibnamedelima N},
+           giveni={C\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=4667baddc938e0ffa498176846a42ccc}{%
+           family={Iwendi},
+           familyi={I\bibinitperiod},
+           given={Celestine},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{755146027e391d8071a75edb65390da0}
+      \strng{fullhash}{a1e6c1f8aa85cc367c1f61e830b0503f}
+      \strng{fullhashraw}{a1e6c1f8aa85cc367c1f61e830b0503f}
+      \strng{bibnamehash}{a1e6c1f8aa85cc367c1f61e830b0503f}
+      \strng{authorbibnamehash}{a1e6c1f8aa85cc367c1f61e830b0503f}
+      \strng{authornamehash}{755146027e391d8071a75edb65390da0}
+      \strng{authorfullhash}{a1e6c1f8aa85cc367c1f61e830b0503f}
+      \strng{authorfullhashraw}{a1e6c1f8aa85cc367c1f61e830b0503f}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE access}
+      \field{title}{Conv1d-LSTM: Autonomous breast cancer detection using a one-dimensional convolutional neural network with long short-term memory}
+      \field{volume}{12}
+      \field{year}{2024}
+      \field{pages}{187722\bibrangedash 187740}
+      \range{pages}{19}
+    \endentry
+    \entry{shannon1948mathematical}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e930d560748b00dab7e3d19806c848ba}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={Claude\bibnamedelima Elwood},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nokia Bell Labs}%
+      }
+      \strng{namehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{fullhash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{fullhashraw}{e930d560748b00dab7e3d19806c848ba}
+      \strng{bibnamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorbibnamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authornamehash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorfullhash}{e930d560748b00dab7e3d19806c848ba}
+      \strng{authorfullhashraw}{e930d560748b00dab7e3d19806c848ba}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IOP Conference Series: Materials Science and Engineering}
-      \field{month}{4}
-      \field{number}{1}
-      \field{title}{Bitcoin Price Alert and Prediction System using various Models}
-      \field{volume}{1131}
-      \field{year}{2021}
-      \field{pages}{012009}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1088/1757-899X/1131/1/012009
-      \endverb
-      \verb{urlraw}
-      \verb https://dx.doi.org/10.1088/1757-899X/1131/1/012009
-      \endverb
-      \verb{url}
-      \verb https://dx.doi.org/10.1088/1757-899X/1131/1/012009
-      \endverb
+      \field{journaltitle}{The Bell system technical journal}
+      \field{number}{3}
+      \field{title}{A mathematical theory of communication}
+      \field{volume}{27}
+      \field{year}{1948}
+      \field{pages}{379\bibrangedash 423}
+      \range{pages}{45}
     \endentry
-    \entry{ionescu2020}{article}{}{}
+    \entry{motyl}{article}{}{}
       \name{author}{2}{}{%
-        {{hash=644aeebce663e60324831fb8b0bf91c0}{%
-           family={{V. M. Ionescu}},
-           familyi={V\bibinitperiod}}}%
-        {{hash=377000860f4f05e933b2932071f59cc7}{%
-           family={{F. M. Enescu}},
-           familyi={F\bibinitperiod}}}%
+        {{hash=cfef3ddb9d98edc5b538dd94a8db6bc0}{%
+           family={Shenker},
+           familyi={S\bibinitperiod},
+           given={Stephen\bibnamedelima H},
+           giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e4990c1de0430bbef862867f2a4a3db7}{%
+           family={Stanford},
+           familyi={S\bibinitperiod},
+           given={Douglas},
+           giveni={D\bibinitperiod}}}%
       }
-      \strng{namehash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
-      \strng{fullhash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
-      \strng{fullhashraw}{26d4b8bc9b07545ffe90e4ac79a01cb3}
-      \strng{bibnamehash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
-      \strng{authorbibnamehash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
-      \strng{authornamehash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
-      \strng{authorfullhash}{26d4b8bc9b07545ffe90e4ac79a01cb3}
-      \strng{authorfullhashraw}{26d4b8bc9b07545ffe90e4ac79a01cb3}
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{149be072326e231cdfd2be8861d37cf0}
+      \strng{fullhash}{149be072326e231cdfd2be8861d37cf0}
+      \strng{fullhashraw}{149be072326e231cdfd2be8861d37cf0}
+      \strng{bibnamehash}{149be072326e231cdfd2be8861d37cf0}
+      \strng{authorbibnamehash}{149be072326e231cdfd2be8861d37cf0}
+      \strng{authornamehash}{149be072326e231cdfd2be8861d37cf0}
+      \strng{authorfullhash}{149be072326e231cdfd2be8861d37cf0}
+      \strng{authorfullhashraw}{149be072326e231cdfd2be8861d37cf0}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of High Energy Physics}
+      \field{number}{3}
+      \field{title}{Black holes and the butterfly effect}
+      \field{volume}{2014}
+      \field{year}{2014}
+      \field{pages}{1\bibrangedash 25}
+      \range{pages}{25}
+    \endentry
+    \entry{entropiaShannona8}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e6fc59890f8b31bc519ede4ddaf26280}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Malin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=703e87bc8efd29503a398968f8974eb2}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Qingyuan},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=f81ffb0375f83e772e76e46d8b4ee923}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a768a9aaeaebedc08ee171053dcbaaf4}{%
+           family={Gonzalez},
+           familyi={G\bibinitperiod},
+           given={Ernesto\bibnamedelimb DR\bibnamedelima Santibanez},
+           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{45029cf559481c4caba8c68a2db292d5}
+      \strng{fullhash}{7405056c85e3980c414b9b58fdfd4b91}
+      \strng{fullhashraw}{7405056c85e3980c414b9b58fdfd4b91}
+      \strng{bibnamehash}{7405056c85e3980c414b9b58fdfd4b91}
+      \strng{authorbibnamehash}{7405056c85e3980c414b9b58fdfd4b91}
+      \strng{authornamehash}{45029cf559481c4caba8c68a2db292d5}
+      \strng{authorfullhash}{7405056c85e3980c414b9b58fdfd4b91}
+      \strng{authorfullhashraw}{7405056c85e3980c414b9b58fdfd4b91}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& Industrial Engineering}
+      \field{title}{Improving the evaluation of cross efficiencies: A method based on Shannon entropy weight}
+      \field{volume}{112}
+      \field{year}{2017}
+      \field{pages}{99\bibrangedash 106}
+      \range{pages}{8}
+    \endentry
+    \entry{atraktorLorenza5}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=5a0ad8310f6afade135d286c551fb600}{%
+           family={Sparrow},
+           familyi={S\bibinitperiod},
+           given={Colin},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{5a0ad8310f6afade135d286c551fb600}
+      \strng{fullhash}{5a0ad8310f6afade135d286c551fb600}
+      \strng{fullhashraw}{5a0ad8310f6afade135d286c551fb600}
+      \strng{bibnamehash}{5a0ad8310f6afade135d286c551fb600}
+      \strng{authorbibnamehash}{5a0ad8310f6afade135d286c551fb600}
+      \strng{authornamehash}{5a0ad8310f6afade135d286c551fb600}
+      \strng{authorfullhash}{5a0ad8310f6afade135d286c551fb600}
+      \strng{authorfullhashraw}{5a0ad8310f6afade135d286c551fb600}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Lorenz equations: bifurcations, chaos, and strange attractors}
+      \field{year}{2012}
+    \endentry
+    \entry{motyl2}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=b994393d17569df4937897a01cbacecd}{%
+           family={Vernon},
+           familyi={V\bibinitperiod},
+           given={Jamie\bibnamedelima L},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Sigma XI-The Scientific Research Society}%
+      }
+      \strng{namehash}{b994393d17569df4937897a01cbacecd}
+      \strng{fullhash}{b994393d17569df4937897a01cbacecd}
+      \strng{fullhashraw}{b994393d17569df4937897a01cbacecd}
+      \strng{bibnamehash}{b994393d17569df4937897a01cbacecd}
+      \strng{authorbibnamehash}{b994393d17569df4937897a01cbacecd}
+      \strng{authornamehash}{b994393d17569df4937897a01cbacecd}
+      \strng{authorfullhash}{b994393d17569df4937897a01cbacecd}
+      \strng{authorfullhashraw}{b994393d17569df4937897a01cbacecd}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{2020 IEEE 26th International Symposium for Design and Technology in Electronic Packaging (SIITME)}
-      \field{note}{https://doi.org/10.1109/SIITME50350.2020.9292199 dostęp uzyskano 2025-01-10}
-      \field{title}{Investigating the performance of MicroPython and C on ESP32 and STM32 microcontrollers}
-      \field{year}{2020}
-      \field{pages}{234\bibrangedash 237}
-      \range{pages}{4}
+      \field{journaltitle}{American Scientist}
+      \field{number}{3}
+      \field{title}{Understanding the butterfly effect}
+      \field{volume}{105}
+      \field{year}{2017}
+      \field{pages}{130}
+      \range{pages}{1}
     \endentry
-    \entry{rand2010}{book}{}{}
+    \entry{wykładnikLaponowa8}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=c60f0f1d9f63f3fe3c0acca3eb3d148e}{%
-           family={Wilcox},
-           familyi={W\bibinitperiod},
-           given={Rand\bibnamedelima R.},
-           giveni={R\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=2563e4b7a3f84546e7a4b52cc4e2ed9f}{%
+           family={Viana},
+           familyi={V\bibinitperiod},
+           given={Marcelo},
+           giveni={M\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Springer New York}%
+        {Cambridge University Press}%
       }
-      \strng{namehash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
-      \strng{fullhash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
-      \strng{fullhashraw}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
-      \strng{bibnamehash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
-      \strng{authorbibnamehash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
-      \strng{authornamehash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
-      \strng{authorfullhash}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
-      \strng{authorfullhashraw}{c60f0f1d9f63f3fe3c0acca3eb3d148e}
+      \strng{namehash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
+      \strng{fullhash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
+      \strng{fullhashraw}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
+      \strng{bibnamehash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
+      \strng{authorbibnamehash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
+      \strng{authornamehash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
+      \strng{authorfullhash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
+      \strng{authorfullhashraw}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lectures on Lyapunov exponents}
+      \field{volume}{145}
+      \field{year}{2014}
+    \endentry
+    \entry{entropiaShannona2}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=059452e62c51796d3281cee63abadf21}{%
+           family={Wędrowska},
+           familyi={W\bibinitperiod},
+           given={Ewa},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {G{ł}ówny Urząd Statystyczny}%
+      }
+      \strng{namehash}{059452e62c51796d3281cee63abadf21}
+      \strng{fullhash}{059452e62c51796d3281cee63abadf21}
+      \strng{fullhashraw}{059452e62c51796d3281cee63abadf21}
+      \strng{bibnamehash}{059452e62c51796d3281cee63abadf21}
+      \strng{authorbibnamehash}{059452e62c51796d3281cee63abadf21}
+      \strng{authornamehash}{059452e62c51796d3281cee63abadf21}
+      \strng{authorfullhash}{059452e62c51796d3281cee63abadf21}
+      \strng{authorfullhashraw}{059452e62c51796d3281cee63abadf21}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{978-1-4419-5524-1}
-      \field{title}{Fundamentals of Modern Statistical Methods}
+      \field{journaltitle}{Przegląd Statystyczny. Statistical Review}
+      \field{number}{4}
+      \field{title}{Wykorzystanie entropii Shannona i jej uogólnień do badania rozk{ł}adu prawdopodobieństwa zmiennej losowej dyskretnej}
+      \field{volume}{57}
       \field{year}{2010}
+      \field{pages}{39\bibrangedash 53}
+      \range{pages}{15}
     \endentry
-    \entry{wang2005}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=a4d194c44314ea54a07a87a40825b411}{%
-           family={{X Wang}},
-           familyi={X\bibinitperiod}}}%
-        {{hash=809fd5d73402969418baaf044a466904}{%
-           family={{Q Yu}},
-           familyi={Q\bibinitperiod}}}%
+    \entry{korelacjaPearsona1}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e7fdf9b46832a80090de880a09e6f24b}{%
+           family={Wibig},
+           familyi={W\bibinitperiod},
+           given={Joanna},
+           giveni={J\bibinitperiod}}}%
       }
-      \strng{namehash}{a4360091a77533541c7b8004d92ac77b}
-      \strng{fullhash}{a4360091a77533541c7b8004d92ac77b}
-      \strng{fullhashraw}{a4360091a77533541c7b8004d92ac77b}
-      \strng{bibnamehash}{a4360091a77533541c7b8004d92ac77b}
-      \strng{authorbibnamehash}{a4360091a77533541c7b8004d92ac77b}
-      \strng{authornamehash}{a4360091a77533541c7b8004d92ac77b}
-      \strng{authorfullhash}{a4360091a77533541c7b8004d92ac77b}
-      \strng{authorfullhashraw}{a4360091a77533541c7b8004d92ac77b}
-      \field{sortinit}{X}
-      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \strng{namehash}{e7fdf9b46832a80090de880a09e6f24b}
+      \strng{fullhash}{e7fdf9b46832a80090de880a09e6f24b}
+      \strng{fullhashraw}{e7fdf9b46832a80090de880a09e6f24b}
+      \strng{bibnamehash}{e7fdf9b46832a80090de880a09e6f24b}
+      \strng{authorbibnamehash}{e7fdf9b46832a80090de880a09e6f24b}
+      \strng{authornamehash}{e7fdf9b46832a80090de880a09e6f24b}
+      \strng{authorfullhash}{e7fdf9b46832a80090de880a09e6f24b}
+      \strng{authorfullhashraw}{e7fdf9b46832a80090de880a09e6f24b}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Nonparametric Statistics}
-      \field{month}{6}
-      \field{note}{https://doi.org/10.1080/10485250500039452 dostęp uzyskano 2025-01-10}
-      \field{number}{17}
-      \field{title}{Unbiasedness of the Theil–Sen estimator}
-      \field{year}{2005}
-      \field{pages}{685\bibrangedash 695}
-      \range{pages}{11}
+      \field{journaltitle}{W: K. Jarzyna (red.). Zastosowanie metod statystycznych w geografii. Kielce: Instytut Geografii Uniwersytetu Jana Kochanowskiego w Kielcach}
+      \field{title}{O wspó{ł}czynniku korelacji liniowej raz jeszcze}
+      \field{year}{2013}
+      \field{pages}{47\bibrangedash 61}
+      \range{pages}{15}
     \endentry
-    \entry{zieliński1990}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=6ba99bc5556ba49f43a8619ce409b528}{%
-           family={Zieliński},
-           familyi={Z\bibinitperiod},
-           given={R.},
-           giveni={R\bibinitperiod}}}%
+    \entry{GANLSTM3}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=8911a53349f634f059562388979b2cde}{%
+           family={Yazdanian},
+           familyi={Y\bibinitperiod},
+           given={Peyman},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a7df8d967e5de35ededc2ef694a76e1e}{%
+           family={Sharifian},
+           familyi={S\bibinitperiod},
+           given={Saeed},
+           giveni={S\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Wydawnictwo Naukowe PWN}%
+        {Springer}%
       }
-      \strng{namehash}{6ba99bc5556ba49f43a8619ce409b528}
-      \strng{fullhash}{6ba99bc5556ba49f43a8619ce409b528}
-      \strng{fullhashraw}{6ba99bc5556ba49f43a8619ce409b528}
-      \strng{bibnamehash}{6ba99bc5556ba49f43a8619ce409b528}
-      \strng{authorbibnamehash}{6ba99bc5556ba49f43a8619ce409b528}
-      \strng{authornamehash}{6ba99bc5556ba49f43a8619ce409b528}
-      \strng{authorfullhash}{6ba99bc5556ba49f43a8619ce409b528}
-      \strng{authorfullhashraw}{6ba99bc5556ba49f43a8619ce409b528}
+      \strng{namehash}{77f2755dada81df69ec47ea8bb202b1c}
+      \strng{fullhash}{77f2755dada81df69ec47ea8bb202b1c}
+      \strng{fullhashraw}{77f2755dada81df69ec47ea8bb202b1c}
+      \strng{bibnamehash}{77f2755dada81df69ec47ea8bb202b1c}
+      \strng{authorbibnamehash}{77f2755dada81df69ec47ea8bb202b1c}
+      \strng{authornamehash}{77f2755dada81df69ec47ea8bb202b1c}
+      \strng{authorfullhash}{77f2755dada81df69ec47ea8bb202b1c}
+      \strng{authorfullhashraw}{77f2755dada81df69ec47ea8bb202b1c}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Supercomputing}
+      \field{number}{10}
+      \field{title}{E2LG: a multiscale ensemble of LSTM/GAN deep learning architecture for multistep-ahead cloud workload prediction}
+      \field{volume}{77}
+      \field{year}{2021}
+      \field{pages}{11052\bibrangedash 11082}
+      \range{pages}{31}
+    \endentry
+    \entry{wykładnikLaponowa5}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=9b31cdffa836681a5a3f75133178df0a}{%
+           family={Young},
+           familyi={Y\bibinitperiod},
+           given={Lai-Sang},
+           giveni={L\bibinithyphendelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{9b31cdffa836681a5a3f75133178df0a}
+      \strng{fullhash}{9b31cdffa836681a5a3f75133178df0a}
+      \strng{fullhashraw}{9b31cdffa836681a5a3f75133178df0a}
+      \strng{bibnamehash}{9b31cdffa836681a5a3f75133178df0a}
+      \strng{authorbibnamehash}{9b31cdffa836681a5a3f75133178df0a}
+      \strng{authornamehash}{9b31cdffa836681a5a3f75133178df0a}
+      \strng{authorfullhash}{9b31cdffa836681a5a3f75133178df0a}
+      \strng{authorfullhashraw}{9b31cdffa836681a5a3f75133178df0a}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Physics A: Mathematical and Theoretical}
+      \field{number}{25}
+      \field{title}{Mathematical theory of Lyapunov exponents}
+      \field{volume}{46}
+      \field{year}{2013}
+      \field{pages}{254001}
+      \range{pages}{1}
+    \endentry
+    \entry{goodfellow2019}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=e29e2cdbaa50d58d413b689667ace7db}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Han},
+           giveni={H\bibinitperiod}}}%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=46ea3ac4cd400961380ad39adf32ebed}{%
+           family={Metaxas},
+           familyi={M\bibinitperiod},
+           given={Dimitris},
+           giveni={D\bibinitperiod}}}%
+        {{hash=a04932af4057bbbbad95d73521f2d22b}{%
+           family={Odena},
+           familyi={O\bibinitperiod},
+           given={Augustus},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{435720fb71fff6bd0bc5be7059a41b43}
+      \strng{fullhash}{26666edc4bd750155bded002e07cd299}
+      \strng{fullhashraw}{26666edc4bd750155bded002e07cd299}
+      \strng{bibnamehash}{26666edc4bd750155bded002e07cd299}
+      \strng{authorbibnamehash}{26666edc4bd750155bded002e07cd299}
+      \strng{authornamehash}{435720fb71fff6bd0bc5be7059a41b43}
+      \strng{authorfullhash}{26666edc4bd750155bded002e07cd299}
+      \strng{authorfullhashraw}{26666edc4bd750155bded002e07cd299}
       \field{sortinit}{Z}
       \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{9788301104412}
-      \field{title}{Siedem wykładów wprowadzających do statystyki matematycznej}
-      \field{year}{1990}
+      \field{booktitle}{International conference on machine learning}
+      \field{title}{Self-attention generative adversarial networks}
+      \field{year}{2019}
+      \field{pages}{7354\bibrangedash 7363}
+      \range{pages}{10}
+    \endentry
+    \entry{GANLSTM1}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=355a62968342b2c48845bdec9708fc83}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Guangxuan},
+           giveni={G\bibinitperiod}}}%
+        {{hash=38d54d2afd4715d1774796987bcfcc08}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Hongbo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d907382d18b3ae7a52273d8752364ab4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Haoqiang},
+           giveni={H\bibinitperiod}}}%
+        {{hash=665b4c8a9358e5607cf9b62f4b957871}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Hua},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{400841ef7cbc3751edb21393270bde03}
+      \strng{fullhash}{4ff7f151ce5fd04c4166f20d85257273}
+      \strng{fullhashraw}{4ff7f151ce5fd04c4166f20d85257273}
+      \strng{bibnamehash}{4ff7f151ce5fd04c4166f20d85257273}
+      \strng{authorbibnamehash}{4ff7f151ce5fd04c4166f20d85257273}
+      \strng{authornamehash}{400841ef7cbc3751edb21393270bde03}
+      \strng{authorfullhash}{4ff7f151ce5fd04c4166f20d85257273}
+      \strng{authorfullhashraw}{4ff7f151ce5fd04c4166f20d85257273}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 prognostics and system health management conference (PHM-Qingdao)}
+      \field{title}{A novel LSTM-GAN algorithm for time series anomaly detection}
+      \field{year}{2019}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
     \endentry
   \enddatalist
-  \missing{linnik1962}
 \endrefsection
 \endinput
 

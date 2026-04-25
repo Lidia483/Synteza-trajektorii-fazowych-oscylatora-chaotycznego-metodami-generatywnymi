@@ -1,20 +1,44 @@
-\babel@toc {polish}{}\relax 
-\babel@toc {polish}{}\relax 
 \thispagestyle {empty}
+\xpg@aux {}{polish}
 \contentsline {chapter}{\numberline {1}Wstęp}{9}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Metoda Theil-Sen}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Henri Theil}{11}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Pranab Kumar Sen}{11}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Metoda Theil-Sen}{13}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Metoda najmniejszych kwadratów}{14}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Porównanie metody}{14}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Porównanie metod przy użyciu środowiska Python}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Kod źródłowy Theil-Sen}{17}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Kod źródłowy metody najmniejszych kwadratów}{20}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Porównanie metod Thei-Sen i OLS}{21}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Porównanie wyników}{22}{subsection.3.3.1}%
-\contentsline {chapter}{\numberline {4}Implementacja estymatora Theil-Sen w środowisku STM32}{25}{chapter.4}%
-\contentsline {section}{\numberline {4.1}main.c}{25}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{27}{chapter.5}%
-\contentsline {chapter}{Bibliografia}{29}{section*.11}%
-\contentsline {chapter}{Spis rysunk\'ow}{31}{chapter*.13}%
+\contentsline {chapter}{\numberline {2}Teoria chaosu}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Entropia Shannona}{11}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Zasada działania}{12}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Korelacja Pearsona}{13}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Zasada działania}{13}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Wykładnik Lapunowa}{14}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Zasada działania}{14}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Algorytm Rosensteina}{15}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Atraktor Lorenza}{16}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Zasada działania}{16}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Sieci GAN}{17}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Zasada działania}{18}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Generator i dyskryminator}{19}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Sieci z pamięcią LSTM}{19}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Bramki informacyjne}{19}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Jednowymiarowe sieci splotowe Conv1D}{20}{subsection.2.6.2}%
+\contentsline {chapter}{\numberline {3}Generowanie chaosu}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dane wejściowe}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Kod źródłowy}{22}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Importowanie bibliotek}{22}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Inicjalizacja klasy głównej}{22}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Przygotowanie Danych}{23}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Struktura Generatora}{24}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Struktura Dyskryminatora}{25}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Procedura Treningowa}{26}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Pętla Ucząca}{27}{subsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.2.8}Generowanie przebiegów}{28}{subsection.3.2.8}%
+\contentsline {section}{\numberline {3.3}Uzasadnienie wyboru architektury GAN}{28}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Dowód chaosu}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Analiza Chaosu}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Wykładnik Lapunowa}{32}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Analiza wyników}{33}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Analiza entropii}{33}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Analiza wyników}{34}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Badanie korelacji}{35}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Analiza wyników}{35}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}Atraktor Lorenza}{36}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Analiza wyników}{37}{subsection.4.5.1}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{39}{chapter.5}%
+\contentsline {chapter}{Bibliografia}{41}{section*.13}%
+\contentsline {chapter}{Spis rysunków}{45}{chapter*.15}%

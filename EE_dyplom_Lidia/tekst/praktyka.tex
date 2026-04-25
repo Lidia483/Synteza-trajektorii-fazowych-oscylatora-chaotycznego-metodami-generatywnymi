@@ -1,235 +1,249 @@
-W celu obrazowego porównania obu metod należy przygotować program w języku Python, który zmierzy czas wykonywania obliczeń, wyznaczy współczynniki nachylenia i wyrazy wolny dla każdej z metod oraz przedstawi wyniki na wykresie~\cite{amit2021}~\cite{mark2022}~\cite{luciano2015}.
 
+\section{Dane wejściowe}
 
-\section{Kod źródłowy Theil-Sen}
+Jako dane wejściowe wykorzystano rzeczywisty sygnał chaotyczny, który pochodzi z symulacji układu elektronicznego opisanego w artykule naukowym pod tytułem „Evaluation of computational performance of PUF implementation for IoT device authentication” autorstwa dr. Łukasza Makowskiego. Zastosowany w badaniach układ opiera się na nieliniowym oscylatorze, który podczas przeprowadzania symulacji w środowisku LTspice wchodzi w stan chaosu deterministycznego, generując sygnał zawierający naturalny szum elektroniczny. Pozyskane w ten sposób wyniki stanowią odpowiedni materiał uczący dla badanych algorytmów, a sam analizowany zbiór danych składa się z dwóch powiązanych ze sobą przebiegów napięciowych, które oznaczono jako v1 oraz v2.
 
-Program realizuje obliczenia za pomocą algorytmu Theil-Sen, wyznaczając współczynnik nachylenia i wyraz wolny. Następnie generuje wykres, na którym przedstawione są dane wejściowe oraz dopasowana do nich linia regresji, umożliwiając wizualną ocenę działania estymatora.
+ \begin{figure}[h!]
+\centering \includegraphics[width= 0.7\linewidth]{LTspice.png}
+\caption{Przebiegi czasowe napięć v1 oraz v2}
+\label{rys:LTspice}
+\end{figure}
 
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
+Przebieg przedstawia surowe dane symulacyjne wygenerowane w programie LTspice, stanowiące materiał wejściowy dla sieci GAN. Na wykresie zaprezentowano przebiegi czasowe wspomnianych sygnałów napięciowych, w których wyraźnie widać ich oscylacyjną i silnie nieregularną naturę. Przedstawione fale charakteryzują się całkowitym brakiem okresowości oraz ciągłymi, nieprzewidywalnymi zmianami amplitudy, co stanowi bezpośrednie odzwierciedlenie zjawiska chaosu deterministycznego panującego w obwodzie. 
+
+\section{Kod źródłowy}
+Poniżej zamieszczono kod źródłowy, który implementuje architekturę sieci GAN i służy do przeprowadzenia procesu uczenia na podstawie dostarczonych danych wejściowych.
+
+\subsection{Importowanie bibliotek}
+
+Na samym początku zaimportowana potrzebne biblioteki, takie jak \texttt{numpy} i \texttt{pandas} potrzebne do analizy danych numerycznych oraz moduł \texttt{pyplot} do tworzenia wykresów. Do budowy modeli uczenia maszynowego wykorzytano środowisku \texttt{tensorflow}, skąd zaimportowano konkretne warstwy sieci neuronowej, takie jak \texttt{LSTM}, \texttt{Dense} czy \texttt{Conv1D}. Oprócz tego zastosowano narzędzie \texttt{MinMaxScaler} z biblioteki \texttt{scikit-learn}, aby odpowiednio znormalizować wprowadzane dane wejściowe.
+
+\begin{lstlisting}[language=Python]
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_squared_error
-
+import os
+import datetime
+import tensorflow as tf
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import LSTM, Dense, Input, LeakyReLU, Concatenate, GaussianNoise, Dropout, Conv1D
+from tensorflow.keras.optimizers import Adam
+from sklearn.preprocessing import MinMaxScaler
 \end{lstlisting}
 
-Na listingu 1 importowane są potrzebne biblioteki: NumPy do operacji numerycznych, Matplotlib do tworzenia wykresów oraz mean\_squared\_error do obliczania błędu średniokwadratowego (MSE), który jest miarą stosowaną do oceny jakości dopasowania modelu do danych. 
+\subsection{Inicjalizacja klasy głównej}
 
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
-def mediana(tablica):
-tablica_posortowana = np.sort(tablica)
-dlugosc = len(tablica_posortowana)
-if dlugosc % 2 == 0:
-return (tablica_posortowana[dlugosc // 2 - 1] + tablica_posortowana[dlugosc // 2]) / 2.0
+Zdefiniowano główną klasę programu SystemGAN, która zarządza modelem GAN. Wskazano folder do zapisu wyników, a w przypadku jego braku następuje automatyczne utworzenie nowego katalogu. Następnie określono wartości podstawowych hiperparametrów, takich jak długość sekwencji, liczba kroków, ilość epok oraz wielkość paczki przetwarzanej w jednym kroku. Skonfigurowano również narzędzie \texttt{MinMaxScaler}, aby skalowało dane wejściowe do przedziału od -1 do 1. Na koniec wywołano funkcje budujące struktury generatora i dyskryminatora, a dla obu sieci przygotowano algorytmy optymalizacji \texttt{Adam} z odpowiednimi współczynnikami uczenia.
+
+\begin{lstlisting}[language=Python]
+class SystemGAN:
+def __init__(self):
+self.folder_name = "Wyniki_GAN"
+if not os.path.exists(self.folder_name):
+os.makedirs(self.folder_name)
+
+self.seq_len = 64
+self.predict_steps = 2000
+self.epochs = 150
+self.batch_size = 32
+self.timestep = 2.5e-6
+self.dt_eff = self.timestep
+
+self.scaler = MinMaxScaler(feature_range=(-1, 1))
+
+# self.analizator = AnalizaChaosu(self.folder_name)
+self.generator = self.buduj_generator()
+self.discriminator = self.buduj_dyskryminator()
+
+self.g_optimizer = Adam(learning_rate=0.0002, beta_1=0.5)
+self.d_optimizer = Adam(learning_rate=0.0001, beta_1=0.5)
+\end{lstlisting}
+
+
+\subsection{Przygotowanie Danych}
+
+Funkcja wczytuje zbiór danych z pliku w formacie CSV i poddaje go wstępnej obróbce, gdzie po sprawdzeniu poprawności struktury pliku zastosowano mechanizm redukcji próbek polegający na wybieraniu co piątej wartości w przypadku obszernych zbiorów danych w celu zmniejszenia kosztów obliczeniowych. Kolejnym etapem jest normalizacja wyodrębnionego sygnału przy pomocy wyuczonego skalara, sprowadzającego wszystkie wyniki do ujednoliconego i mniejszego przedziału na podstawie wcześniej zapamiętanych wartości skrajnych. Na samym końcu utworzono zbiory uczące poprzez układanie danych w okna przesuwne, dzięki czemu zmienna wyjściowa \texttt{X} zawiera gotowe sekwencje uczące, natomiast zmienna \texttt{y} odpowiada wartościom przewidywanym tuż po zakończeniu każdej z nich.
+
+
+\begin{lstlisting}[language=Python]
+def wczytaj_dane(self, nazwa_pliku):
+print("Wczytywanie danych...")
+try:
+df = pd.read_csv(nazwa_pliku, header=None)
+data_len = len(df)
+
+if df.shape[1] < 3:
+raise ValueError(f"Plik {nazwa_pliku} musi mieć co najmniej 3 kolumny (np. indeks, x, y).")
+
+if data_len < 5000:
+downsample = 1
+print("Maly zbior danych - pobieranie wszystkich probek.")
 else:
-return tablica_posortowana[dlugosc // 2]
+downsample = 5
+print(f"Duzy zbior danych - pobieranie co {downsample} probki.")
 
+self.signal_raw = df.iloc[::downsample, 1:3].values
+self.dt_eff = self.timestep * downsample
+
+except FileNotFoundError:
+print(f"Blad: brak pliku {nazwa_pliku}")
+raise
+except ValueError as e:
+print(f"Blad wczytywania danych: {e}")
+raise
+
+signal_scaled = self.scaler.fit_transform(self.signal_raw)
+
+X, y = [], []
+for i in range(len(signal_scaled) - self.seq_len):
+X.append(signal_scaled[i : i + self.seq_len])
+y.append(signal_scaled[i + self.seq_len])
+
+self.X = np.array(X).astype(np.float32)
+self.y = np.array(y).astype(np.float32)
+
+if len(self.X) < self.batch_size:
+self.batch_size = len(self.X)
 \end{lstlisting}
 
-Funkcja służy do obliczania mediany z tablicy. Na samym początku sortuje dane od najmniejszych do największych, wykorzystując funkcję np.sort(). Następnie zwraca wartości mediany. Jeśli zbiór elementów jest parzysty, funkcja zwraca średnią dwóch środkowych liczb, a jeśli jest nieparzysty, to środkową wartość.
 
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
+\subsection{Struktura Generatora}
 
-def regresja_theil_sen(x, y):
-n = len(x)
-nachylenia = []
-wyrazy_wolne = []
+
+Funkcja odpowiada za utworzenie architektury generatora, którego głównycm zadaniem jest płynne i wiarygodne tworzenie nowych wartości na podstawie ich historii sygnalu. Proces przetwarzania danych zaczyna się od dodania do sygnału wejściowego niewielkiego szumu Gaussa. Zabieg ten wymusza na sieci szukanie ogólnych wzorców, zwiększając stabilność treningu i zapobiegając zjawisku przeuczania. Następnie dane przekazano do warstwy splotowej \texttt{Conv1D}, która ma za zadanie wyodrębnić z sygnału charakterystyczne wahania, po czym zastosowano dwie warstwy z komórkami pamięci \texttt{LSTM} służące do analizowania ogólnych tendencji wahań w dłuższym przedziale czasowym. Pomiędzy wymienionymi warstwami wykorzystano funkcję aktywacji \texttt{LeakyReLU} oraz mechanizm porzucania \texttt{Dropout} chroniący przed nadmiernym dopasowaniem modelu do danych treningowych, a na końcu utworzono warstwę wyjściową z dwoma neuronami i funkcją aktywacji typu tangens hiperboliczny, co ostatecznie gwarantuje utrzymanie wyników w pożądanym przedziale wartości.
+
+
+
+\begin{lstlisting}[language=Python]
+def buduj_generator(self):
+inp = Input(shape=(self.seq_len, 2))
+x = GaussianNoise(0.05)(inp)
+
+x = Conv1D(filters=64, kernel_size=5, padding='same')(x)
+x = LeakyReLU(negative_slope=0.2)(x)
+
+x = LSTM(128, return_sequences=True)(x)
+x = LeakyReLU(negative_slope=0.2)(x)
+x = Dropout(0.2)(x)
+
+x = LSTM(64)(x)
+x = LeakyReLU(negative_slope=0.2)(x)
+
+out = Dense(2, activation='tanh')(x)
+return Model(inp, out)
 \end{lstlisting}
 
-Na Listing 3  zdefiniowana jest funkcja regresja\_theil\_sen, która implementuje estymator Theil-Sen. Funkcja rozpoczyna od obliczenia długości wektora x oraz inicjalizacji dwóch pustych list: nachylenia i wyrazy\_wolne. Listy te będą przechowywać odpowiednio wszystkie obliczone nachylenia i wyrazy wolne.
 
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
-for i in range(n):
-    for j in range(i + 1, n):
-        if x[i] != x[j]: 
-        nachylenie = (y[j] - y[i]) / (x[j] - x[i])
-        nachylenia.append(nachylenie)
- mediana_nachylenia = mediana(nachylenia)
+\subsection{Struktura Dyskryminatora}
+
+Scalone dane przekazuje się następnie do ukrytej warstwy gęstej składającej się z 32 neuronów w celu zbadania logicznych powiązań, by na samym końcu wykorzystać warstwę wyjściową z jednym neuronem o sigmoidalnej funkcji aktywacji. Dzięki takiemu zabiegowi ostateczny wynik zawsze mieści się w przedziale od zera do jeden, precyzyjnie określając prawdopodobieństwo pochodzenia ocenianego punktu z prawdziwego zbioru danych.  
+Zdefiniowano architekturę dyskryminatora posiadającego dwa odrębne wejścia, z których pierwsze przyjmuje historyczną sekwencję danych poddawaną początkowej analizie w warstwie \texttt{LSTM}, natomiast drugie pobiera pojedynczy, nowy punkt w czasie. Wprowadzona historia sygnału trafia do warstwy wstępnej wyposażonej w 64 neurony z funkcją aktywacji zapobiegającą wygasaniu układu, po czym przetworzona historia oraz sprawdzany punkt są łączone w jeden wspólny wektor informacji. Scalone dane przekazuje się następnie do ukrytej warstwy gęstej składającej się z 32 neuronów. W strukturze tej każdy pojedynczy neuron jest bezpośrednio połączony ze wszystkimi elementami warstwy poprzedzającej, co umożliwia bardzo dokładne badanie skomplikowanych powiązań logicznych wewnątrz modelu. Na samym końcu wykorzystano warstwę wyjściową z pojedynczym neuronem o sigmoidalnej funkcji aktywacji, która pełni rolę specjalnego filtra matematycznego ujednoliconego dane. Dzięki temu ostateczny wynik zawsze mieści się w ścisłym przedziale od 0 do 1.
+
+\begin{lstlisting}[language=Python]
+def buduj_dyskryminator(self):
+inp_seq = Input(shape=(self.seq_len, 2))
+inp_next = Input(shape=(2,))
+x = LSTM(64)(inp_seq)
+x = LeakyReLU(negative_slope=0.2)(x)
+combined = Concatenate()([x, inp_next])
+c = Dense(32)(combined)
+c = LeakyReLU(negative_slope=0.2)(c)
+out = Dense(1, activation='sigmoid')(c)
+return Model([inp_seq, inp_next], out)
 \end{lstlisting}
 
-Zostały zdefiniowane pętle for, w których obliczane są nachylenia każdej pary punktów (xi, xj) zgodnie ze wzorem regresji metodą Theil-Sena. Następnie, przy użyciu metody append(), obliczone wartości nachyleń są dodawane do listy. Po zakończeniu pętli, na podstawie zgromadzonych wartości, obliczana jest mediana nachyleń.
 
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
-for i in range(n):
-    wyrazy_wolne.append(y[i] - mediana_nachylenia * x[i])
-mediana_wyrazu = mediana(wyrazy_wolne)
-wynik = {'nachylenie': mediana_nachylenia, 'wyraz_wolny': mediana_wyrazu}
-    return wynik
 
+
+\subsection{Procedura Treningowa}
+
+Zaprezentowany fragment realizuje pojedynczy krok uczenia z wykorzystaniem algorytmu propagacji wstecznej. Działanie to można przyrównać do kontroli jakości na linii produkcyjnej. Najpierw generowany jest ostateczny wynik, a następnie oblicza się wielkość pomyłki w stosunku do założeń idealnych. Aby zapobiec podobnym błędom w przyszłości, informacja o tej pomyłce cofana jest krok po kroku od ostatniego etapu obliczeń aż do samego początku systemu. Taki powrót sygnału pozwala precyzyjnie ustalić, które wewnętrzne parametry matematyczne wymagają poprawy.
+Do optymalizacji działania zastosowano dekorator \texttt{@tf.function}, który zamienia kod na wydajny graf obliczeniowy. W tym podejściu skomplikowane równania dzieli się na mapę prostych zadań. Przed startem obliczeń analizowana jest cała mapa, co pozwala na zignorowanie niepotrzebnych etapów i zgrupowanie działań niezależnych od siebie. Zgrupowane zadania przesyłane są następnie do karty graficznej, gdzie rozwiązuje się je w tym samym czasie, co powoduje ogromną oszczędność zasobów.
+
+Rejestracja operacji matematycznych odbywa się przy pomocy klasy \texttt{GradientTape}. Umożliwia to wyznaczenie pochodnych i aktualizację wag dyskryminatora na podstawie błędów w ocenie próbek prawdziwych oraz wygenerowanych. Po zakończeniu tego etapu rozpoczyna się proces uczenia generatora. Obliczana dla niego funkcja błędu składa się z trzech elementów: karę za zdemaskowanie przez dyskryminator, błąd bezwzględny z przypisaną wagą 100 oraz 
+składnik regularyzacyjny. Ten ostatni element pełni funkcję stabilizującą, nakłada on karę matematyczną za zbyt gwałtowne skoki wartości między nowo tworzonym punktem a końcem aktualnej sekwencji.
+
+\begin{lstlisting}[language=Python]
+@tf.function
+def krok_treningu(self, real_seq, real_next):
+with tf.GradientTape() as tape_d:
+generated_next = self.generator(real_seq, training=True)
+pred_real = self.discriminator([real_seq, real_next], training=True)
+pred_fake = self.discriminator([real_seq, generated_next], training=True)
+d_loss = tf.reduce_mean(tf.keras.losses.binary_crossentropy(tf.ones_like(pred_real), pred_real) +
+tf.keras.losses.binary_crossentropy(tf.zeros_like(pred_fake), pred_fake))
+
+grads_d = tape_d.gradient(d_loss, self.discriminator.trainable_variables)
+self.d_optimizer.apply_gradients(zip(grads_d, self.discriminator.trainable_variables))
+
+with tf.GradientTape() as tape_g:
+generated_next = self.generator(real_seq, training=True)
+pred_fake = self.discriminator([real_seq, generated_next], training=True)
+
+g_adv_loss = tf.keras.losses.binary_crossentropy(tf.ones_like(pred_fake), pred_fake)
+g_mae_loss = tf.reduce_mean(tf.abs(real_next - generated_next))
+
+ostatni_punkt_sekwencji = real_seq[:, -1, :]
+kara_za_skoki = tf.reduce_mean(tf.square(generated_next - ostatni_punkt_sekwencji))
+total_g_loss = tf.reduce_mean(g_adv_loss) + 100.0 * g_mae_loss + 1.0 * kara_za_skoki
+
+grads_g = tape_g.gradient(total_g_loss, self.generator.trainable_variables)
+self.g_optimizer.apply_gradients(zip(grads_g, self.generator.trainable_variables))
+return d_loss, total_g_loss
 \end{lstlisting}
 
-Na tej samej zasadzie obliczany jest wyraz wolny. Zgromadzone wartości wyrazów wolnych są dodawane do listy, a następnie obliczana jest ich mediana. Na koniec zwracany jest wynik zawierający obliczone wartości nachylenia oraz wyrazu wolnego.
 
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
-x = np.random.randn(100, 1)
-y = 3 * x.flatten() + 2 + np.random.randn(100) * 2
+\subsection{Pętla Ucząca}
+
+Zaimplementowano główną pętlę procesu uczenia maszynowego, w której skonstruowano zoptymalizowany strumień danych za pomocą interfejsu \texttt{tf.data.Dataset}, co zapewnia poprawne przetasowanie paczek danych przed każdą epoką. Zdefiniowana wcześniej metoda wykonująca krok trenowania uruchamiana jest dla każdego zestawu danych wejściowych, a obliczone wartości funkcji strat są systematycznie gromadzone i wyświetlane na ekranie co dziesięć epok, co pozwala na ciągłe nadzorowanie zachowania modelu pod kątem występowania ewentualnych nieprawidłowości.
+
+
+\begin{lstlisting}[language=Python]
+def trenuj(self):
+print("Start treningu...")
+dataset = tf.data.Dataset.from_tensor_slices((self.X, self.y)).shuffle(1000).batch(self.batch_size, drop_remainder=True)
+
+for epoch in range(self.epochs):
+d_losses, g_losses = [], []
+for seq, nxt in dataset:
+d, g = self.krok_treningu(seq, nxt)
+d_losses.append(d)
+g_losses.append(g)
+if (epoch+1) % 10 == 0:
+print(f"Epoka {epoch+1}/{self.epochs} | D {np.mean(d_losses):.4f} | G {np.mean(g_losses):.4f}")
 \end{lstlisting}
 
-Ustawienie ziarna losowości zapewnia otrzymanie zawsze takiego samego punktu wyjścia, więc przy każdym uruchomieniu kodu generowane liczby będą identyczne. Co zapewni te same wyniki. Następnie stworzona zostaje tablica x zawierająca 100 losowych liczb w przedziale od 0 do 10 oraz tablica y, której każda z wartości jest wynikiem równania y = 3x + 2 z dodatkiem szumu (losowych odchyłek).
 
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
-wynik = regresja_theil_sen(x, y)  
-y_przewidziane_theil_sen = przewidz(x, wynik)  
-mse = mean_squared_error(y, y_przewidziane_theil_sen)
+\subsection{Generowanie przebiegów}
 
+Sekcja ta ma za zadanie wygenerowanie danych w oparciu o wyuczony już model sieci, wykorzystując do tego tryb iteracyjny, w którym każda nowa próbka sygnału przewidziana przez generator jest dopisywana na koniec okna sekwencji w miejsce jej najstarszego elementu. Procedura ta powtarza się przez ustaloną liczbę kroków wybiegających w przyszłość, po czym na wygenerowanym sztucznie przebiegu wywołuje się funkcję skalera w celu odwrócenia wcześniej wykonanej normalizacji. 
+
+\begin{lstlisting}[language=Python]
+def generuj(self):
+print("Generowanie przebiegu...")
+ts = datetime.datetime.now().strftime("%H%M%S")
+
+idx_start = 0
+if len(self.X) > self.predict_steps:
+idx_start = len(self.X) - self.predict_steps - 1
+
+curr_seq = self.X[idx_start].reshape(1, self.seq_len, 2)
+history_seq = curr_seq.copy()
+
+preds = []
+for i in range(self.predict_steps):
+next_point = self.generator(curr_seq, training=False).numpy()
+preds.append(next_point[0])
+curr_seq = np.concatenate([curr_seq[:, 1:, :], next_point.reshape(1, 1, 2)], axis=1)
+if i % 100 == 0:
+print(f"Krok {i}/{self.predict_steps}")
 \end{lstlisting}
 
-Zmienna wynik zawiera dopasowany model regresji Theil-Sen do danych wejściowych x i y. Na podstawie tego modelu przewidywane są wartości y dla każdego punktu x. Na koniec obliczany jest błąd średniokwadratowy (MSE), który ocenia jakość dopasowania modelu do rzeczywistych danych. Jest on wyrażony jako średnia kwadratów różnic między wartościami rzeczywistymi a wartościami przewidywanymi przez model.
 
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
-print("Metoda Theil-Sena:")
-print(f"Nachylenie (wspolczynnik kierunkowy): {model_theil_sen.coef_[0]:.2f}")
-print(f"Przesuniecie (punkt przeciecia z osia Y): {model_theil_sen.intercept_:.2f}")
-print(f"Blad sredniokwadratowy (MSE): {mse:.2f}")
+\section{Uzasadnienie wyboru architektury GAN}
 
-\end{lstlisting}
-
-Kod wyświetla za pomocą funkcji print wartości współczynników regresji Theil-Sena, w tym nachylenie, przesunięcie oraz obliczony błąd średniokwadratowy (MSE). Wyniki są zaokrąglone do dwóch miejsc po przecinku.
-
-\begin{lstlisting}[language=Python,
-caption={Program Theil-Sen},
-label={lst:hellopy}]
-
-plt.figure(figsize=(10, 6))
-plt.scatter(x, y, color='blue', label='Dane rzeczywiste', alpha=0.6)
-plt.plot(x, y_pred, color='black', label='Regresja Theil-Sen', linewidth=2)
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title('Regresja metoda Theil-Sen')
-plt.legend()
-plt.grid(True)
-plt.show()
-\end{lstlisting}
-
-W fragmencie kodu tworzony jest wykres, na którym przedstawiane są rzeczywiste dane, oraz linia regresji uzyskana za pomocą metody Theil-Sena. Rzeczywiste dane są reprezentowane przez niebieskie punkty, natomiast przewidywana linia regresji Theil-Sena jest zaznaczona czarną linią. Dodatkowo wykres zawiera opisy osi, tytuł oraz podziałkę, co ułatwia interpretację wyników.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.7\linewidth]{theil.png}
-\caption{Wizualizacja metody Theil-Sen}
-\label{rys:Wykres metody Theil-Sen}
-\end{figure}
-
-Po przeprowadzonych obliczeniach metodą Theil-Sen wyświetlany jest wynik nachylenia, wyrazu wolnego oraz błędu średniokwadratowego.
-
-Nachylenie (współczynnik kierunkowy): 2.59
-
-Przesunięcie (punkt przecięcia z osią Y): 2.13
-
-Błąd średniokwadratowy (MSE): 3.81
-
-\section{Kod źródłowy metody najmniejszych kwadratów}
-
-Program realizuje obliczenia linii regresji metodą najmniejszych kwadratów (OLS), dopasowując ją tak, aby minimalizować różnice między danymi a modelem. Następnie generuje wykres, na którym przedstawione są punkty danych i dopasowana linia, co pozwala ocenić działanie metody.
-
-\begin{lstlisting}[language=Python,
-caption={Program metody najmniejszych kwadratów},
-label={lst:hellopy}]
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
-
-\end{lstlisting}
-
-Na Listing 10 przedstawiono wykorzystanie modułu sklearn.linear\_model oraz klasy LinearRegression, która służy do przeprowadzenia regresji liniowej metodą najmniejszych kwadratów. Dodatkowo, do oceny jakości dopasowania modelu zastosowano błąd średniokwadratowy.
-Wszystkie inne kroki w kodzie, takie jak dopasowanie modelu do danych, przewidywanie wartości czy wizualizacja wyników, pozostają bez zmian.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.7\linewidth]{kwadrat1.png}
-\caption{Wizualizacja metody najmniejszych kwadratów}
-\label{rys:enter-label}
-\end{figure}
-Po wykonaniu obliczeń metodą najmniejszych kwadratów wyznaczana jest wartości współczynnika nachylenia, wyrazu wolnego oraz  błędu średniokwadratowego.
-
-Nachylenie (współczynnik kierunkowy): 2.78
-
-Przesunięcie (punkt przecięcia z osią Y): 2.08
-
-Błąd średniokwadratowy (MSE): 4.89
+W analizowanym rozwiązaniu zdecydowano się na wykorzystanie architektury generatywnych sieci przeciwstawnych, ponieważ badane układy dynamiczne charakteryzują się ogromną wrażliwością nawet na najdrobniejsze zmiany warunków początkowych.
+Tradycyjne modele uczenia maszynowego poprzez minimalizację błędu średniokwadratowego mają silną tendencję do uśredniania wyników podczas prognozowania wielokrokowego, co skutkuje szybkim zanikiem naturalnej dynamiki badanego sygnału i generowaniem płaskiej linii dążącej do średniej wartości zbioru.  
+Zastosowana architektura z łatwością eliminuje ten problem, gdyż dzięki wbudowanej obecności modelu dyskryminatora cały układ musi nie tylko wyznaczyć konkretną wartość liczbową, ale również stworzyć próbkę przypominającą swoim zachowaniem i dynamiką autentyczny fragment sygnału. Dyskryminator wymusza w ten sposób na generatorze ciągłe utrzymywanie charakterystycznego kształtu atraktora oraz naturalnej zmienności przebiegu, skutecznie zapobiegając rozmywaniu się predykcji, co stanowi absolutnie kluczowy aspekt przy poprawnym modelowaniu zjawiska chaosu deterministycznego.
 
 
-
-
-
-
-\section{Porównanie metod Thei-Sen i OLS}
-
-\begin{lstlisting}[language=Python,
-caption={Program dla obu metod},
-label={lst:hellopy}]
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import TheilSenRegressor
-from sklearn.metrics import mean_squared_error
-import time
-
-\end{lstlisting}
-
-W tym przypadku zostanie wykorzystana już  gotowa biblioteka Theil-Sen z dodaną biblioteką 'time', która będzie odpowiedzialna za mierzenie czasu, co pozwoli na sprawdzenie, która z metod jest szybsza.
-
-\begin{lstlisting}[language=Python,
-caption={Program dla obu metod},
-label={lst:hellopy}]
-num_outliers = 100
-indices = np.random.choice(range(500), num_outliers, replace=False)
-x[indices] = x[indices] + np.random.uniform(2, 5, (num_outliers, 1))
-y[indices] = y[indices] + np.random.uniform(-10, 10, num_outliers)
-
-\end{lstlisting}
-Użyta tu komenda służy do wyboru losowych punktów odstających oraz zwiększenia wartości x dla punktów.
-
-\begin{lstlisting}[language=Python,
-caption={Program dla obu metod},
-label={lst:hellopy}]
-start_time_theil_sen = time.perf_counter()
-model_theil_sen = TheilSenRegressor()
-model_theil_sen.fit(x, y)
-y_przewidziane_theil_sen = model_theil_sen.predict(X)
-end_time_theil_sen = time.perf_counter()
-time_theil_sen = end_time_theil_sen - start_time_theil_sen
-\end{lstlisting}
-
-Na listingu 13 dokonywany jest pomiar czasu trwania obliczeń dla metody  Theil-Sen. Proces ten polega na zainicjowaniu modelu regresji oraz dopasowaniu go do danych. Zapisujemy czas rozpoczęcia pomiaru, a następnie wykonujemy wszystkie operacje związane z dopasowaniem. Na końcu mierzymy czas zakończenia obliczeń, a różnica między tymi dwoma momentami daje czas trwania obliczeń dla metody.
-
-\subsection{Porównanie wyników}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.7\linewidth]{THKW.png}
-\caption{Wizualizacja obu metod}
-\label{fig:enter-label}
-\end{figure}
-
-\begin{table}[!h]
-\centering
-\begin{tabular}{p{8 cm} |c|c}
-& Theil-Sen & OLS\\\hline
-Nachylenie (współczynnik kierunkowy) & 2.81 & 1.87\\\hline
-Przesunięcie (współczynnik przesunięcia z osią Y) & 1.87 & 1.51\\\hline
-Czas obliczeń [s] & 0.2806 & 0.0003\\\hline
-Błąd średniokwadratowy (MSE) & 4.68 & 4.89\\\hline
-
-\end{tabular}
-\caption{\label{tab:zjawiska2}Porównanie wyników}
-\end{table}
-
-W tym przypadku celowo jest dodane dużo punktów oraz wartości odstającej, by lepiej zaobserwować różnicę w obu metodach. Z tabeli i wykresu można wysnuć wnioski, iż metoda Theil-Sen (linia czerwona) poprawniej dopasowała linię regresji do podanych punktów w porównaniu do metody najmniejszych kwadratów (czarna prosta). Za to w tej drugiej wynik udało się uzyskać w krótszym czasie. Co zgadza się z początkowymi założeniami odnośnie do obu metod~\cite{hristo2019}~\cite{james2015}.
-
-Metoda Theil-Sena posiada szereg zalet, które czynią ją atrakcyjną alternatywą w stosunku do innych technik regresji, szczególnie w kontekście danych zawierających wartości odstające. Dzięki swojej odporności na wpływ punktów odstających metoda ta może zapewniać dokładniejsze wyniki w przypadkach, gdy tradycyjne metody, takie jak regresja najmniejszych kwadratów, mogą być podatne na zniekształcenia wynikające z takich anomalii. Z tego powodu implementacja estymatora Theil-Sena na mikrokontrolerze STM32 może okazać się korzystnym rozwiązaniem, szczególnie w aplikacjach, w których dane wejściowe charakteryzują się dużą zmiennością lub obecnością wartości odstających.
