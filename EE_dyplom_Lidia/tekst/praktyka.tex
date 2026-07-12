@@ -1,249 +1,226 @@
-
 \section{Dane wejściowe}
-
-Jako dane wejściowe wykorzystano rzeczywisty sygnał chaotyczny, który pochodzi z symulacji układu elektronicznego opisanego w artykule naukowym pod tytułem „Evaluation of computational performance of PUF implementation for IoT device authentication” autorstwa dr. Łukasza Makowskiego. Zastosowany w badaniach układ opiera się na nieliniowym oscylatorze, który podczas przeprowadzania symulacji w środowisku LTspice wchodzi w stan chaosu deterministycznego, generując sygnał zawierający naturalny szum elektroniczny. Pozyskane w ten sposób wyniki stanowią odpowiedni materiał uczący dla badanych algorytmów, a sam analizowany zbiór danych składa się z dwóch powiązanych ze sobą przebiegów napięciowych, które oznaczono jako v1 oraz v2.
-
- \begin{figure}[h!]
-\centering \includegraphics[width= 0.7\linewidth]{LTspice.png}
-\caption{Przebiegi czasowe napięć v1 oraz v2}
-\label{rys:LTspice}
+ 
+Jako dane wejściowe do procesu uczenia maszynowego wykorzystano rzeczywiste sygnały pochodzące z numerycznej symulacji elektronicznego oscylatora z przesuwnikiem fazowym. 
+\begin{figure}[h!]
+\centering \includegraphics[width= 0.6\linewidth]{schemat_elektryczny.png}
+\caption{Schemat elektryczny dwutranzystorowego generatora chaosu z zaznaczonymi węzłami pomiarowymi $v1$ i $v2$}
+\label{rys:schemat_obwodu}
 \end{figure}
-
-Przebieg przedstawia surowe dane symulacyjne wygenerowane w programie LTspice, stanowiące materiał wejściowy dla sieci GAN. Na wykresie zaprezentowano przebiegi czasowe wspomnianych sygnałów napięciowych, w których wyraźnie widać ich oscylacyjną i silnie nieregularną naturę. Przedstawione fale charakteryzują się całkowitym brakiem okresowości oraz ciągłymi, nieprzewidywalnymi zmianami amplitudy, co stanowi bezpośrednie odzwierciedlenie zjawiska chaosu deterministycznego panującego w obwodzie. 
-
-\section{Kod źródłowy}
-Poniżej zamieszczono kod źródłowy, który implementuje architekturę sieci GAN i służy do przeprowadzenia procesu uczenia na podstawie dostarczonych danych wejściowych.
-
-\subsection{Importowanie bibliotek}
-
-Na samym początku zaimportowana potrzebne biblioteki, takie jak \texttt{numpy} i \texttt{pandas} potrzebne do analizy danych numerycznych oraz moduł \texttt{pyplot} do tworzenia wykresów. Do budowy modeli uczenia maszynowego wykorzytano środowisku \texttt{tensorflow}, skąd zaimportowano konkretne warstwy sieci neuronowej, takie jak \texttt{LSTM}, \texttt{Dense} czy \texttt{Conv1D}. Oprócz tego zastosowano narzędzie \texttt{MinMaxScaler} z biblioteki \texttt{scikit-learn}, aby odpowiednio znormalizować wprowadzane dane wejściowe.
-
-\begin{lstlisting}[language=Python]
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import os
-import datetime
-import tensorflow as tf
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import LSTM, Dense, Input, LeakyReLU, Concatenate, GaussianNoise, Dropout, Conv1D
-from tensorflow.keras.optimizers import Adam
-from sklearn.preprocessing import MinMaxScaler
-\end{lstlisting}
-
-\subsection{Inicjalizacja klasy głównej}
-
-Zdefiniowano główną klasę programu SystemGAN, która zarządza modelem GAN. Wskazano folder do zapisu wyników, a w przypadku jego braku następuje automatyczne utworzenie nowego katalogu. Następnie określono wartości podstawowych hiperparametrów, takich jak długość sekwencji, liczba kroków, ilość epok oraz wielkość paczki przetwarzanej w jednym kroku. Skonfigurowano również narzędzie \texttt{MinMaxScaler}, aby skalowało dane wejściowe do przedziału od -1 do 1. Na koniec wywołano funkcje budujące struktury generatora i dyskryminatora, a dla obu sieci przygotowano algorytmy optymalizacji \texttt{Adam} z odpowiednimi współczynnikami uczenia.
-
-\begin{lstlisting}[language=Python]
-class SystemGAN:
-def __init__(self):
-self.folder_name = "Wyniki_GAN"
-if not os.path.exists(self.folder_name):
-os.makedirs(self.folder_name)
-
-self.seq_len = 64
-self.predict_steps = 2000
-self.epochs = 150
-self.batch_size = 32
-self.timestep = 2.5e-6
-self.dt_eff = self.timestep
-
-self.scaler = MinMaxScaler(feature_range=(-1, 1))
-
-# self.analizator = AnalizaChaosu(self.folder_name)
-self.generator = self.buduj_generator()
-self.discriminator = self.buduj_dyskryminator()
-
-self.g_optimizer = Adam(learning_rate=0.0002, beta_1=0.5)
-self.d_optimizer = Adam(learning_rate=0.0001, beta_1=0.5)
-\end{lstlisting}
-
-
-\subsection{Przygotowanie Danych}
-
-Funkcja wczytuje zbiór danych z pliku w formacie CSV i poddaje go wstępnej obróbce, gdzie po sprawdzeniu poprawności struktury pliku zastosowano mechanizm redukcji próbek polegający na wybieraniu co piątej wartości w przypadku obszernych zbiorów danych w celu zmniejszenia kosztów obliczeniowych. Kolejnym etapem jest normalizacja wyodrębnionego sygnału przy pomocy wyuczonego skalara, sprowadzającego wszystkie wyniki do ujednoliconego i mniejszego przedziału na podstawie wcześniej zapamiętanych wartości skrajnych. Na samym końcu utworzono zbiory uczące poprzez układanie danych w okna przesuwne, dzięki czemu zmienna wyjściowa \texttt{X} zawiera gotowe sekwencje uczące, natomiast zmienna \texttt{y} odpowiada wartościom przewidywanym tuż po zakończeniu każdej z nich.
-
-
-\begin{lstlisting}[language=Python]
-def wczytaj_dane(self, nazwa_pliku):
-print("Wczytywanie danych...")
-try:
-df = pd.read_csv(nazwa_pliku, header=None)
-data_len = len(df)
-
-if df.shape[1] < 3:
-raise ValueError(f"Plik {nazwa_pliku} musi mieć co najmniej 3 kolumny (np. indeks, x, y).")
-
-if data_len < 5000:
-downsample = 1
-print("Maly zbior danych - pobieranie wszystkich probek.")
-else:
-downsample = 5
-print(f"Duzy zbior danych - pobieranie co {downsample} probki.")
-
-self.signal_raw = df.iloc[::downsample, 1:3].values
-self.dt_eff = self.timestep * downsample
-
-except FileNotFoundError:
-print(f"Blad: brak pliku {nazwa_pliku}")
-raise
-except ValueError as e:
-print(f"Blad wczytywania danych: {e}")
-raise
-
-signal_scaled = self.scaler.fit_transform(self.signal_raw)
-
-X, y = [], []
-for i in range(len(signal_scaled) - self.seq_len):
-X.append(signal_scaled[i : i + self.seq_len])
-y.append(signal_scaled[i + self.seq_len])
-
-self.X = np.array(X).astype(np.float32)
-self.y = np.array(y).astype(np.float32)
-
-if len(self.X) < self.batch_size:
-self.batch_size = len(self.X)
-\end{lstlisting}
-
-
-\subsection{Struktura Generatora}
-
-
-Funkcja odpowiada za utworzenie architektury generatora, którego głównycm zadaniem jest płynne i wiarygodne tworzenie nowych wartości na podstawie ich historii sygnalu. Proces przetwarzania danych zaczyna się od dodania do sygnału wejściowego niewielkiego szumu Gaussa. Zabieg ten wymusza na sieci szukanie ogólnych wzorców, zwiększając stabilność treningu i zapobiegając zjawisku przeuczania. Następnie dane przekazano do warstwy splotowej \texttt{Conv1D}, która ma za zadanie wyodrębnić z sygnału charakterystyczne wahania, po czym zastosowano dwie warstwy z komórkami pamięci \texttt{LSTM} służące do analizowania ogólnych tendencji wahań w dłuższym przedziale czasowym. Pomiędzy wymienionymi warstwami wykorzystano funkcję aktywacji \texttt{LeakyReLU} oraz mechanizm porzucania \texttt{Dropout} chroniący przed nadmiernym dopasowaniem modelu do danych treningowych, a na końcu utworzono warstwę wyjściową z dwoma neuronami i funkcją aktywacji typu tangens hiperboliczny, co ostatecznie gwarantuje utrzymanie wyników w pożądanym przedziale wartości.
-
-
-
-\begin{lstlisting}[language=Python]
-def buduj_generator(self):
-inp = Input(shape=(self.seq_len, 2))
-x = GaussianNoise(0.05)(inp)
-
-x = Conv1D(filters=64, kernel_size=5, padding='same')(x)
-x = LeakyReLU(negative_slope=0.2)(x)
-
-x = LSTM(128, return_sequences=True)(x)
-x = LeakyReLU(negative_slope=0.2)(x)
-x = Dropout(0.2)(x)
-
-x = LSTM(64)(x)
-x = LeakyReLU(negative_slope=0.2)(x)
-
-out = Dense(2, activation='tanh')(x)
-return Model(inp, out)
-\end{lstlisting}
-
-
-\subsection{Struktura Dyskryminatora}
-
-Scalone dane przekazuje się następnie do ukrytej warstwy gęstej składającej się z 32 neuronów w celu zbadania logicznych powiązań, by na samym końcu wykorzystać warstwę wyjściową z jednym neuronem o sigmoidalnej funkcji aktywacji. Dzięki takiemu zabiegowi ostateczny wynik zawsze mieści się w przedziale od zera do jeden, precyzyjnie określając prawdopodobieństwo pochodzenia ocenianego punktu z prawdziwego zbioru danych.  
-Zdefiniowano architekturę dyskryminatora posiadającego dwa odrębne wejścia, z których pierwsze przyjmuje historyczną sekwencję danych poddawaną początkowej analizie w warstwie \texttt{LSTM}, natomiast drugie pobiera pojedynczy, nowy punkt w czasie. Wprowadzona historia sygnału trafia do warstwy wstępnej wyposażonej w 64 neurony z funkcją aktywacji zapobiegającą wygasaniu układu, po czym przetworzona historia oraz sprawdzany punkt są łączone w jeden wspólny wektor informacji. Scalone dane przekazuje się następnie do ukrytej warstwy gęstej składającej się z 32 neuronów. W strukturze tej każdy pojedynczy neuron jest bezpośrednio połączony ze wszystkimi elementami warstwy poprzedzającej, co umożliwia bardzo dokładne badanie skomplikowanych powiązań logicznych wewnątrz modelu. Na samym końcu wykorzystano warstwę wyjściową z pojedynczym neuronem o sigmoidalnej funkcji aktywacji, która pełni rolę specjalnego filtra matematycznego ujednoliconego dane. Dzięki temu ostateczny wynik zawsze mieści się w ścisłym przedziale od 0 do 1.
-
-\begin{lstlisting}[language=Python]
-def buduj_dyskryminator(self):
-inp_seq = Input(shape=(self.seq_len, 2))
-inp_next = Input(shape=(2,))
-x = LSTM(64)(inp_seq)
-x = LeakyReLU(negative_slope=0.2)(x)
-combined = Concatenate()([x, inp_next])
-c = Dense(32)(combined)
-c = LeakyReLU(negative_slope=0.2)(c)
-out = Dense(1, activation='sigmoid')(c)
-return Model([inp_seq, inp_next], out)
-\end{lstlisting}
-
-
-
-
-\subsection{Procedura Treningowa}
-
-Zaprezentowany fragment realizuje pojedynczy krok uczenia z wykorzystaniem algorytmu propagacji wstecznej. Działanie to można przyrównać do kontroli jakości na linii produkcyjnej. Najpierw generowany jest ostateczny wynik, a następnie oblicza się wielkość pomyłki w stosunku do założeń idealnych. Aby zapobiec podobnym błędom w przyszłości, informacja o tej pomyłce cofana jest krok po kroku od ostatniego etapu obliczeń aż do samego początku systemu. Taki powrót sygnału pozwala precyzyjnie ustalić, które wewnętrzne parametry matematyczne wymagają poprawy.
-Do optymalizacji działania zastosowano dekorator \texttt{@tf.function}, który zamienia kod na wydajny graf obliczeniowy. W tym podejściu skomplikowane równania dzieli się na mapę prostych zadań. Przed startem obliczeń analizowana jest cała mapa, co pozwala na zignorowanie niepotrzebnych etapów i zgrupowanie działań niezależnych od siebie. Zgrupowane zadania przesyłane są następnie do karty graficznej, gdzie rozwiązuje się je w tym samym czasie, co powoduje ogromną oszczędność zasobów.
-
-Rejestracja operacji matematycznych odbywa się przy pomocy klasy \texttt{GradientTape}. Umożliwia to wyznaczenie pochodnych i aktualizację wag dyskryminatora na podstawie błędów w ocenie próbek prawdziwych oraz wygenerowanych. Po zakończeniu tego etapu rozpoczyna się proces uczenia generatora. Obliczana dla niego funkcja błędu składa się z trzech elementów: karę za zdemaskowanie przez dyskryminator, błąd bezwzględny z przypisaną wagą 100 oraz 
-składnik regularyzacyjny. Ten ostatni element pełni funkcję stabilizującą, nakłada on karę matematyczną za zbyt gwałtowne skoki wartości między nowo tworzonym punktem a końcem aktualnej sekwencji.
-
-\begin{lstlisting}[language=Python]
-@tf.function
-def krok_treningu(self, real_seq, real_next):
-with tf.GradientTape() as tape_d:
-generated_next = self.generator(real_seq, training=True)
-pred_real = self.discriminator([real_seq, real_next], training=True)
-pred_fake = self.discriminator([real_seq, generated_next], training=True)
-d_loss = tf.reduce_mean(tf.keras.losses.binary_crossentropy(tf.ones_like(pred_real), pred_real) +
-tf.keras.losses.binary_crossentropy(tf.zeros_like(pred_fake), pred_fake))
-
-grads_d = tape_d.gradient(d_loss, self.discriminator.trainable_variables)
-self.d_optimizer.apply_gradients(zip(grads_d, self.discriminator.trainable_variables))
-
-with tf.GradientTape() as tape_g:
-generated_next = self.generator(real_seq, training=True)
-pred_fake = self.discriminator([real_seq, generated_next], training=True)
-
-g_adv_loss = tf.keras.losses.binary_crossentropy(tf.ones_like(pred_fake), pred_fake)
-g_mae_loss = tf.reduce_mean(tf.abs(real_next - generated_next))
-
-ostatni_punkt_sekwencji = real_seq[:, -1, :]
-kara_za_skoki = tf.reduce_mean(tf.square(generated_next - ostatni_punkt_sekwencji))
-total_g_loss = tf.reduce_mean(g_adv_loss) + 100.0 * g_mae_loss + 1.0 * kara_za_skoki
-
-grads_g = tape_g.gradient(total_g_loss, self.generator.trainable_variables)
-self.g_optimizer.apply_gradients(zip(grads_g, self.generator.trainable_variables))
-return d_loss, total_g_loss
-\end{lstlisting}
-
-
-\subsection{Pętla Ucząca}
-
-Zaimplementowano główną pętlę procesu uczenia maszynowego, w której skonstruowano zoptymalizowany strumień danych za pomocą interfejsu \texttt{tf.data.Dataset}, co zapewnia poprawne przetasowanie paczek danych przed każdą epoką. Zdefiniowana wcześniej metoda wykonująca krok trenowania uruchamiana jest dla każdego zestawu danych wejściowych, a obliczone wartości funkcji strat są systematycznie gromadzone i wyświetlane na ekranie co dziesięć epok, co pozwala na ciągłe nadzorowanie zachowania modelu pod kątem występowania ewentualnych nieprawidłowości.
-
-
-\begin{lstlisting}[language=Python]
-def trenuj(self):
-print("Start treningu...")
-dataset = tf.data.Dataset.from_tensor_slices((self.X, self.y)).shuffle(1000).batch(self.batch_size, drop_remainder=True)
-
-for epoch in range(self.epochs):
-d_losses, g_losses = [], []
-for seq, nxt in dataset:
-d, g = self.krok_treningu(seq, nxt)
-d_losses.append(d)
-g_losses.append(g)
-if (epoch+1) % 10 == 0:
-print(f"Epoka {epoch+1}/{self.epochs} | D {np.mean(d_losses):.4f} | G {np.mean(g_losses):.4f}")
-\end{lstlisting}
-
-
-\subsection{Generowanie przebiegów}
-
-Sekcja ta ma za zadanie wygenerowanie danych w oparciu o wyuczony już model sieci, wykorzystując do tego tryb iteracyjny, w którym każda nowa próbka sygnału przewidziana przez generator jest dopisywana na koniec okna sekwencji w miejsce jej najstarszego elementu. Procedura ta powtarza się przez ustaloną liczbę kroków wybiegających w przyszłość, po czym na wygenerowanym sztucznie przebiegu wywołuje się funkcję skalera w celu odwrócenia wcześniej wykonanej normalizacji. 
-
-\begin{lstlisting}[language=Python]
-def generuj(self):
-print("Generowanie przebiegu...")
-ts = datetime.datetime.now().strftime("%H%M%S")
-
-idx_start = 0
-if len(self.X) > self.predict_steps:
-idx_start = len(self.X) - self.predict_steps - 1
-
-curr_seq = self.X[idx_start].reshape(1, self.seq_len, 2)
-history_seq = curr_seq.copy()
-
-preds = []
-for i in range(self.predict_steps):
-next_point = self.generator(curr_seq, training=False).numpy()
-preds.append(next_point[0])
-curr_seq = np.concatenate([curr_seq[:, 1:, :], next_point.reshape(1, 1, 2)], axis=1)
-if i % 100 == 0:
-print(f"Krok {i}/{self.predict_steps}")
-\end{lstlisting}
-
-
+ 
+Zastosowany układ opiera się na architekturze z dwoma tranzystorami bipolarnymi, którą oryginalnie zaproponowano w pracy J. Keunickxa~\cite{ keunickx2014}. Schemat elektryczny rozpatrywanego generatora zaprezentowano na rysunku~\ref{rys:schemat_obwodu}, a sam obwód składa się ze źródła zasilania oraz pętli sprzężenia zwrotnego opartej na siatce rezystorów i kondensatorów. Zrozumienie struktury obwodu ułatwia interpretację pochodzenia danych, jako że analizowane przebiegi napięciowe, oznaczone jako zmienne $v1$ oraz $v2$, są rejestrowane bezpośrednio w węzłach rozmieszczonych pomiędzy elementami reaktancyjnymi przesuwnika fazowego. Symulację układu przeprowadzono w środowisku LTspice, co umożliwiło precyzyjne odwzorowanie złożonej dynamiki zjawisk nieliniowych.
+
+\begin{figure}[h!]
+\centering \includegraphics[width= 0.8\linewidth]{makro.png}
+\caption{Przebiegi czasowe napięć $v1$ i $v2$ ukazane w skali makro}
+\label{rys:LTspice_makro}
+\end{figure}
+ 
+Na rysunku~\ref{rys:LTspice_makro} przedstawiono przebiegi czasowe obu analizowanych napięć w skali makro, obejmującej interwał rzędu kilku milisekund, co pozwala na zaobserwowanie ogólnej gęstości sygnału oraz wyraźnego zróżnicowania amplitudowego zmiennych, przy czym napięcie $v1$ charakteryzuje się wyższymi wartościami i większą rozpiętością w stosunku do napięcia $v2$. Ze względu na znaczne zagęszczenie przebiegów, perspektywa makroskopowa zaciera jednak wgląd w oscylacyjną i silnie nieregularną naturę zachodzących procesów.
+
+\begin{figure}[h!]
+\centering \includegraphics[width= 0.8\linewidth]{mikro.png}
+\caption{Przebiegi czasowe w skali mikro, obrazujące przejście od regularnych oscylacji do rozwiniętego chaosu}
+\label{rys:LTspice_mikro}
+\end{figure}
+W celu rzetelnego zobrazowania dynamiki układu, na rysunku~\ref{rys:LTspice_mikro} uwzględniono powiększenie przebiegów w skali mikro. 
+Wykres ten obrazuje początkową fazę pracy obwodu, w której ewolucja zjawiska staje się w pełni widoczna, co pozwala na zaobserwowanie wyraźnie oscylacyjnego i relatywnie regularnego charakteru sygnałów na wczesnym etapie działania układu. Wraz z upływem czasu i narastaniem niestabilności wewnętrznej obwodu początkowe oscylacje płynnie przekształcają się w chaos deterministyczny, aż do osiągnięcia stanu chaosu w pełni rozwiniętego, który charakteryzuje się całkowitym brakiem okresowości oraz trudnymi do przewidzenia wahaniami amplitudy.
+\begin{figure}[h!]
+\centering \includegraphics[width= 0.6\linewidth]{chaos_v2.png}
+\caption{Rzut przestrzeni fazowej w układzie XY dla napięć $v1$ i $v2$}
+\label{rys:faza_XY}
+\end{figure}
+Pełniejsze zrozumienie zachowania nieliniowego układu ułatwia analiza jego dynamiki w przestrzeni fazowej, której rzut w układzie dwuwymiarowym XY, uzyskany poprzez zestawienie ze sobą chwilowych wartości napięć $v1$ oraz $v2$, przedstawiono na rysunku~\ref{rys:faza_XY}. Zależność ta uwidacznia formowanie się charakterystycznego atraktora, którego zapętlony kształt stanowi odzwierciedlenie deterministycznie chaotycznej natury sygnałów, reprezentując klasyczną topologię dynamiki nieliniowej zbliżoną do struktury atraktora Lorenza.  
+ 
+
+ 
+\section{Środowisko pracy i biblioteki obliczeniowe}
+ 
+Implementację modelu zrealizowano w języku Python, stanowiącym obecnie standard w badaniach z zakresu uczenia maszynowego ze względu na obszerne zaplecze narzędziowe. W celu optymalizacji procesu obliczeniowego zrezygnowano z samodzielnej implementacji podstawowych algorytmów matematycznych na rzecz wykorzystania sprawdzonych bibliotek numerycznych, dzięki czemu operacje na macierzach i wektorach zrealizowano przy użyciu biblioteki Numpy, natomiast do strukturyzacji danych wczytywanych z plików w formacie CSV zastosowano pakiet Pandas.
+ 
+Głównym środowiskiem obliczeniowym w projekcie jest biblioteka TensorFlow wraz z interfejsem Keras, wykorzystana do konstrukcji głębokich sieci neuronowych, co pozwala na elastyczne budowanie modeli wielowarstwowych oraz zapewnia dostęp do wbudowanych, zoptymalizowanych algorytmy aktualizacji wag. Dodatkowo wykorzystano bibliotekę Scikit-learn do przeprowadzenia normalizacji sygnałów wejściowych, co stanowi etap kluczowy dla poprawnego działania systemu ze względu na znaczną wrażliwość rekurencyjnych sieci neuronowych na zróżnicowaną skalę amplitudową przetwarzanych danych.
+ 
 \section{Uzasadnienie wyboru architektury GAN}
-
-W analizowanym rozwiązaniu zdecydowano się na wykorzystanie architektury generatywnych sieci przeciwstawnych, ponieważ badane układy dynamiczne charakteryzują się ogromną wrażliwością nawet na najdrobniejsze zmiany warunków początkowych.
-Tradycyjne modele uczenia maszynowego poprzez minimalizację błędu średniokwadratowego mają silną tendencję do uśredniania wyników podczas prognozowania wielokrokowego, co skutkuje szybkim zanikiem naturalnej dynamiki badanego sygnału i generowaniem płaskiej linii dążącej do średniej wartości zbioru.  
-Zastosowana architektura z łatwością eliminuje ten problem, gdyż dzięki wbudowanej obecności modelu dyskryminatora cały układ musi nie tylko wyznaczyć konkretną wartość liczbową, ale również stworzyć próbkę przypominającą swoim zachowaniem i dynamiką autentyczny fragment sygnału. Dyskryminator wymusza w ten sposób na generatorze ciągłe utrzymywanie charakterystycznego kształtu atraktora oraz naturalnej zmienności przebiegu, skutecznie zapobiegając rozmywaniu się predykcji, co stanowi absolutnie kluczowy aspekt przy poprawnym modelowaniu zjawiska chaosu deterministycznego.
-
-
+ 
+Wybór generatywnych sieci przeciwstawnych jako głównego narzędzia badawczego wynika bezpośrednio ze specyfiki układów chaotycznych, które charakteryzują się skrajną wrażliwością na warunki początkowe. Klasyczne modele uczenia maszynowego w procesie optymalizacji dążą wyłącznie do minimalizacji błędu średniokwadratowego, co podczas prognozowania wielokrokowego prowadzi do silnego uśredniania wyników, skutkując w przypadku sygnałów nieliniowych szybkim zanikiem naturalnej dynamiki i generowaniem ustabilizowanego, płaskiego przebiegu.
+ 
+Zastosowanie architektury GAN skutecznie eliminuje problem rozmywania predykcji dzięki wprowadzeniu modułu dyskryminatora, którego konkurencyjny charakter uczenia wymusza na generatorze nie tylko poprawne wyznaczanie kolejnych wartości liczbowych, ale przede wszystkim bezwzględne zachowanie globalnej struktury i zmienności atraktora. W ten sposób dyskryminator stale weryfikuje zgodność wygenerowanego przebiegu z naturalną dynamiką chaosu deterministycznego, co umożliwia uzyskanie długoterminowych i wiarygodnych ciągów danych.
+ 
+\section{Praktyczna implementacja modelu}
+ 
+Zarządzanie procesem uczenia oraz przepływem danych zrealizowano z wykorzystaniem 
+paradygmatu programowania obiektowego, co pozwoliło na czytelne wyodrębnienie 
+kluczowych modułów systemu i ułatwiło kontrolę nad poszczególnymi etapami 
+symulacji, a strukturę zaimplementowanego skryptu wraz z powiązaniami między 
+metodami na rysunku ~\ref{rys:SystemGAN} .
+ 
+\usetikzlibrary{positioning, shapes.multipart, arrows.meta}
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily,
+  >=latex,
+  class/.style={
+    rectangle split,
+    rectangle split parts=3,
+    draw=black,
+    thick,
+    fill=yellow!15,
+    text width=8.5cm,
+    align=left
+  },
+  simpleclass/.style={
+    rectangle split,
+    rectangle split parts=3,
+    draw=black,
+    thick,
+    fill=yellow!15,
+    text width=4cm,
+    align=center
+  }
+]
+ 
+% Główna klasa SystemGAN
+\node[class] (SystemGAN) {
+  \hfil \textbf{SystemGAN} \hfil
+  \nodepart{two}
+  - folder\_name: String\\
+  - seq\_len: int\\
+  - predict\_steps: int\\
+  - epochs: int\\
+  - batch\_size: int\\
+  - timestep: float\\
+  - dt\_eff: float\\
+  - scaler: MinMaxScaler\\
+  - analizator: AnalizaChaosu\\
+  - generator: Model\\
+  - discriminator: Model\\
+  - g\_optimizer: Adam\\
+  - d\_optimizer: Adam\\
+  - signal\_raw: array\\
+  - X: array\\
+  - y: array
+  \nodepart{three}
+  + \_\_init\_\_()\\
+  + wczytaj\_dane(nazwa\_pliku: String)\\
+  + buduj\_generator(): Model\\
+  + buduj\_dyskryminator(): Model\\
+  + krok\_treningu(real\_seq, real\_next)\\
+  + trenuj()\\
+  + generuj()
+};
+ 
+\end{tikzpicture}
+\caption{Diagram klasy \texttt{SystemGAN}.}
+\label{rys:uml_systemgan}
+\end{figure}
+ 
+Punktem wyjścia dla działania skryptu jest klasa \texttt{SystemGAN} przechowująca parametry konfiguracyjne modelu, którego proces inicjalizacji podstawowych zmiennych, obejmujący m.in. ustalenie długości okna analizy na 64 próbki oraz liczby epok treningowych na 150, przedstawiono na listingu~\ref{lst:init}. Na tym etapie tworzone są również instancje generatora i dyskryminatora z przypisanymi niezależnymi algorytmami optymalizacji Adam, przy czym zróżnicowanie wartości współczynnika uczenia zapobiega przedwczesnej dominacji jednego z modeli, stanowiącej zjawisko niepożądane w sieciach przeciwstawnych.
+ 
+\lstinputlisting[
+    language=Python, 
+    firstline=12, 
+    lastline=33, 
+    firstnumber=12,
+   caption={Inicjalizacja głównej klasy zarządzającej modelem GAN}, 
+   label={lst:init}
+]{GAN.py}
+ 
+\subsection{Wczytywanie i przygotowanie danych}
+ 
+Przed rozpoczęciem treningu wyniki uzyskane z symulatora LTspice poddano filtracji i skalowaniu, a fragment kodu odpowiedzialny za wczytywanie danych zaprezentowano na listingu~\ref{lst:data1}. Wdrożony algorytm automatycznie weryfikuje objętość analizowanego zbioru, pobierając co piątą próbkę w przypadku znacznej liczby punktów, co pozwala na istotne ograniczenie złożoności obliczeniowej bez odczuwalnej utraty informacji o głównej strukturze sygnału.
+ 
+\lstinputlisting[
+    language=Python, 
+    firstline=35, 
+    lastline=52, 
+    firstnumber=35,
+   caption={Wczytywanie i filtrowanie pliku CSV z wynikami symulacji}, 
+    label={lst:data1}
+]{GAN.py}
+ 
+Następnie wyodrębnione wartości są sprowadzane do zamkniętego przedziału $[-1, 1]$ z wykorzystaniem narzędzia \texttt{MinMaxScaler}, po czym przygotowane dane poddaje się formatowaniu przy użyciu metody okna przesuwnego, co zilustrowano na listingu~\ref{lst:data2}. Procedura ta polega na podziale ciągłego przebiegu na nakładające się sekwencje uczące w taki sposób, aby do każdego okna historycznego była przypisana jedna docelowa wartość oczekiwana, następująca bezpośrednio po nim.
+ 
+\lstinputlisting[
+    language=Python, 
+    firstline=62, 
+    lastline=73, 
+    firstnumber=62,
+   caption={Skalowanie wektora wejściowego i tworzenie okien przesuwnych}, 
+    label={lst:data2}
+]{GAN.py}
+ 
+\subsection{Architektura modułu generatywnego}
+ 
+Zadanie generatora polega na predykcji przyszłych wartości napięcia na podstawie wcześniejszej ewolucji sygnału, a strukturę tego modułu zaprezentowano na listingu~\ref{lst:generator}. Do wejściowego wektora danych wprowadzany jest szum Gaussa o niskiej amplitudzie pełniący funkcję regularyzacyjną, co zmusza sieć do identyfikacji ogólnych zależności zamiast zapamiętywania dokładnego układu punktów. Sygnał jest następnie przetwarzany przez warstwę splotową \texttt{Conv1D} w celu wyodrębnienia lokalnych wahań dynamiki, po czym trafia do podwójnego bloku komórek pamięci \texttt{LSTM}.
+ 
+Zastosowanie funkcji aktywacji tangensa hiperbolicznego ($\tanh$) w warstwie wyjściowej wynika z wcześniejszej normalizacji danych treningowych do przedziału $[-1, 1]$, jako że funkcja ta ogranicza każdy wynik obliczeń neuronów dokładnie do tego samego zakresu wartości, co gwarantuje pełną spójność wygenerowanych próbek z dziedziną danych referencyjnych. Podejście to zapobiega powstawaniu nierealistycznych, skrajnych amplitud, które zostałyby natychmiast odrzucone przez moduł dyskryminatora, co istotnie wpływa na stabilizację całego procesu zbieżności modelu.
+ 
+\lstinputlisting[
+    language=Python, 
+    firstline=75, 
+    lastline=90, 
+    firstnumber=75,
+   caption={Struktura generatora wykorzystującego warstwy splotowe i LSTM},
+    label={lst:generator}
+]{GAN.py}
+ 
+\subsection{Architektura modułu dyskryminującego}
+ 
+Zadaniem dyskryminatora jest bieżąca weryfikacja spójności nowo wygenerowanego punktu z wcześniejszą historią sygnału, a zgodnie z implementacją przedstawioną na listingu~\ref{lst:discriminator} model ten wyposażono w dwa oddzielne wejścia przeznaczone dla sekwencji bazowej oraz sprawdzanej próbki. Po wstępnym przetworzeniu historii przez warstwę \texttt{LSTM} generowany jest wektor stanowiący podsumowanie dotychczasowego przebiegu sygnału.
+ 
+W tym etapie oba zbiory danych są ze sobą łączone za pomocą funkcji \texttt{Concatenate}, której działanie polega na bezpośrednim scaleniu wektora historycznego ze współrzędnymi testowanego punktu w celu utworzenia jednolitego ciągu informacji. Operacja ta umożliwia dostarczenie kolejnej warstwie sieci pełnego kontekstu w tym samym czasie obliczeniowym, dzięki czemu jednoczesny dostęp do zapamiętanej przeszłości oraz nowego stanu pozwala dyskryminatorowi na trafną ocenę, czy badany punkt zachowuje spójność logiczną z dotychczasową trajektorią.
+ 
+Surowy wynik analizy przybiera nieograniczone wartości liczbowe, w związku z czym poddaje się go przetwarzaniu w warstwie wyjściowej z funkcją sigmoidalną, która przekształca każdą wartość do przedziału $[0, 1]$. W rezultacie wyjście sieci może być bezpośrednio interpretowane w kategoriach prawdopodobieństwa, gdzie wartość bliska 1 oznacza wysoką pewność co do autentyczności punktu, wartość bliska 0 wskazuje na próbkę syntetyczną, natomiast wynik w okolicach 0,5 świadczy o braku możliwości jednoznacznej klasyfikacji przez model.
+ 
+\lstinputlisting[
+    language=Python, 
+    firstline=92, 
+    lastline=101, 
+    firstnumber=92,
+   caption={Struktura dyskryminatora oceniającego poprawność punktu w czasie}, 
+    label={lst:discriminator}
+]{GAN.py}
+ 
+\subsection{Trening sieci i funkcje straty}
+ 
+W celu znacznego zwiększenia wydajności obliczeniowej całego procesu kluczową funkcję treningową poprzedzono dekoratorem \texttt{@tf.function}, który kompiluje standardowy skrypt języka Python do postaci zoptymalizowanego grafu uruchamianego bezpośrednio na sprzętowym akceleratorze, co pozwala na skrócenie czasu potrzebnego na wykonanie wszystkich zagnieżdżonych operacji matematycznych. Listing~\ref{lst:train_d} obrazuje procedurę uczenia dyskryminatora z wykorzystaniem obiektu \texttt{GradientTape} pełniącego funkcję rejestratora niezbędnego do późniejszego wyznaczania pochodnych i aktualizacji wag synaptycznych.
+ 
+W pierwszej fazie tego kroku model ocenia zarówno oryginalne sekwencje historyczne połączone z rzeczywistym kolejnym punktem, jak i te same sekwencje uzupełnione o próbki wygenerowane sztucznie. Algorytm określa stopień popełnianego błędu za pomocą binarnej entropii krzyżowej, która porównuje prawdopodobieństwa generowane przez model z oczekiwanymi wartościami wzorcowymi, przy czym odpowiedzi sieci dla danych prawdziwych są zestawiane z macierzą jedynek, natomiast oceny sztucznych próbek porównuje się z zerami. 
+Suma tych dwóch odchyleń odzwierciedla błąd całkowity dyskryminatora, na podstawie którego optymalizator koryguje wagi wewnątrz układu, aby w kolejnej epoce treningowej sieć skuteczniej i z wyższą dokładnością rozpoznawała syntetyczne sygnały.
+ 
+\lstinputlisting[
+    language=Python, 
+    firstline=103, 
+    lastline=113, 
+    firstnumber=103,
+   caption={Obliczanie błędów i aktualizacja wag dla dyskryminatora}, 
+    label={lst:train_d}
+]{GAN.py}
+ 
+Z kolei optymalizacja pracy samego generatora, przedstawiona szczegółowo na listingu~\ref{lst:train_g}, stanowi proces bardziej złożony i opiera się na wielokryterialnej funkcji straty składającej się z trzech oddzielnych członów. Pierwszym elementem tej zależności jest klasyczny błąd gry przeciwstawnej, w ramach którego generowany sygnał powinien skutecznie oszukać komponent dyskryminujący, w związku z czym ocena fałszywej próbki jest przyrównywana do wartości jeden.
+ 
+Po drugie, dąży się do zminimalizowania średniego błędu absolutnego w stosunku do oczekiwanego celu rzeczywistego, co wymusza precyzyjne odtwarzanie trajektorii układu, dlatego członowi temu przypisano wysoką wagę numeryczną. Ostatnim z nałożonych warunków jest penalizacja nagłych i nienaturalne skoków wartości względem końcowych punktów przetwarzanej sekwencji, wyliczana przy użyciu błędu średniokwadratowego. Zastosowanie tak skonstruowanej funkcji celu wymusza generowanie przebiegów charakteryzujących się wysoką stabilnością numeryczną oraz płynnością odzwierciedlającą fizyczne właściwości modelowanego obwodu chaotycznego.
+ 
+\lstinputlisting[
+    language=Python, 
+    firstline=115, 
+    lastline=129, 
+    firstnumber=115,
+   caption={Złożona funkcja straty i aktualizacja wag generatora}, 
+    label={lst:train_g}
+]{GAN.py}
+ 
+\subsection{Procedura pętli uczącej}
+ 
+Ostatnim istotnym elementem systemu jest główna pętla procesu uczenia, w której dane wejściowe są przekazywane do modelu w formie zoptymalizowanych paczek (ang. \textit{batches}). Zastosowanie interfejsu \texttt{tf.data.Dataset} pozwala na efektywne zarządzanie pamięcią operacyjną oraz automatyczne tasowanie próbek przed każdą epoką, co stanowi zabieg niezbędny do zapobiegania zjawisku zapamiętywania sekwencji przez sieć i wymuszenia generalizacji wiedzy, a kod tej pętli zaprezentowano na listingu~\ref{lst:train_loop}.
+ 
+W każdej epoce treningowej system iteracyjnie przetwarza cały zbiór danych, wywołując dla każdej paczki funkcję \texttt{krok\_treningu}. Wartości funkcji strat dla generatora oraz dyskryminatora są na bieżąco rejestrowane, a po zakończeniu epoki oblicza się ich wartość średnią. Informacje te są wyświetlane co dziesięć epok, co umożliwia ciągłe monitorowanie postępów uczenia oraz wczesną detekcję ewentualnych anomalii w zachowaniu modelu, dzięki czemu proces treningowy pozostaje w pełni kontrolowany.
+ 
+\lstinputlisting[
+    language=Python, 
+    firstline=131, 
+    lastline=142, 
+    firstnumber=131,
+   caption={Główna pętla sterująca procesem uczenia modelu GAN}, 
+    label={lst:train_loop}
+]{GAN.py}

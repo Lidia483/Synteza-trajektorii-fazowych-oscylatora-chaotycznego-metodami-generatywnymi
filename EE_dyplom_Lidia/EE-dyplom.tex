@@ -46,15 +46,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \streszczeniepracy{
 
+Celem niniejszej pracy magisterskiej jest zbadanie możliwości wykorzystania generatywnych sieci przeciwstawnych do modelowania i tworzenia sygnałów deterministycznie chaotycznych. Główny problem badawczy dotyczy trudności w długoterminowym przewidywaniu zachowania nieliniowych układów dynamicznych, które ze względu na dużą wrażliwość na warunki początkowe stanowią wyzwanie dla klasycznych metod obliczeniowych. Tradycyjne podejście, opierające się na całkowaniu równań różniczkowych, co często zawodzi z powodu zjawiska szybkiego rozbiegania się trajektorii, wymusza to poszukiwanie innych metod analizy bazujących bezpośrednio na zebranych danych.
+W ramach projektu zaprojektowano i przygotowano model uczenia maszynowego, w którym połączono sieci przeciwstawne z komórkami pamięci. Taka budowa pozwoliła na sprawne przetwarzanie złożonych ciągów czasowych, co z kolei skutecznie ograniczyło problem zanikającego gradientu podczas uczenia sieci. Model trenowano na danych zebranych z symulacji elektronicznego generatora chaosu z przesuwnikiem fazowym, a jego poprawne działanie zweryfikowano dodatkowo na klasycznym układzie Lorenza.
+Jakość wygenerowanych sygnałów oceniono za pomocą miar znanych z teorii informacji i statystyki, co pozwoliło obiektywnie potwierdzić ich chaotyczny charakter. Przeprowadzona analiza polegała na wyznaczeniu największego wykładnika Lapunowa algorytmem Rosensteina, obliczeniu znormalizowanej entropii Shannona w przesuwnym oknie oraz zbadaniu widma mocy za pomocą transformaty Fouriera, co miało na celu wykluczenie obecności sztucznych drgań okresowych.
+Uzyskane wyniki pokazały, że przygotowana sieć neuronowa potrafi bardzo dokładnie odtworzyć kształt atraktorów i zachować główne cechy badanej dynamiki nieliniowej bez konieczności opisywania układu równaniami fizycznymi. Opracowane rozwiązanie ma duży potencjał praktyczny i może ułatwić projektowanie systemów bezpiecznej transmisji danych, gdzie szerokie widmo sygnału chaotycznego pozwala dobrze maskować przesyłane informacje. Wyniki tych badań mogą również znaleźć zastosowanie w kryptografii, przy tworzeniu generatorów liczb losowych oraz podczas diagnozowania układów elektronicznych. 
 }% koniec streszczenia
 
-\slowakluczowe{.....}
+\slowakluczowe{Generatywne sieci przeciwstawne (GAN),
+Chaos deterministyczny,
+Uczenie maszynowe}
 
 \thesisabstract{
-
+The aim of this master's thesis is to investigate the possibility of using generative adversarial networks for modeling and generating deterministically chaotic signals. The main research problem concerns the difficulties in the long-term prediction of the behavior of nonlinear dynamical systems, which, due to their high sensitivity to initial conditions, pose a challenge to classical computational methods. The traditional approach based on the integration of differential equations often fails due to the phenomenon of rapid trajectory divergence, which necessitates the search for alternative analysis methods based directly on the collected data.
+As part of the project, a machine learning model was designed and prepared, combining adversarial networks with memory cells. Such an architecture allowed for the efficient processing of complex time series, which in turn effectively reduced the vanishing gradient problem during network training. The model was trained on data collected from the simulation of an electronic chaos generator with a phase shifter, and its correct operation was further verified on the classical Lorenz system.
+The quality of the generated signals was evaluated using measures known from information theory and statistics, which allowed for the objective confirmation of their chaotic nature. The conducted analysis consisted of determining the largest Lyapunov exponent using the Rosenstein algorithm, calculating the normalized Shannon entropy in a sliding window, and examining the power spectrum using the Fourier transform to rule out the presence of artificial periodic oscillations.
+The obtained results demonstrated that the prepared neural network is able to accurately reproduce the shape of attractors and preserve the main features of the studied nonlinear dynamics without the need to describe the system with physical equations. The developed solution has significant practical potential and can facilitate the design of secure data transmission systems, where the broad spectrum of a chaotic signal allows for effective masking of transmitted information. The results of this research may also find application in cryptography, the development of random number generators, and the diagnostics of electronic circuits.
 } % end of abstract
 
-\thesiskeywords{.....}
+\thesiskeywords{Generative Adversarial Networks (GAN),
+Deterministic chaos,
+Machine learning}
 
 
 

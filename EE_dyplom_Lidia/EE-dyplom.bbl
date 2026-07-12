@@ -19,70 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
-    \entry{wykładnikLaponowa7}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=e7d947e0b0565401dc9a9f97f12dc444}{%
-           family={Abarbanel},
-           familyi={A\bibinitperiod},
-           given={Henry\bibnamedelima DI},
-           giveni={H\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=cb32160a2e947fe98465baf718eb64da}{%
-           family={Brown},
-           familyi={B\bibinitperiod},
-           given={Reggie},
-           giveni={R\bibinitperiod}}}%
-        {{hash=6fa84783d2102fcf6a63fdb3f819852c}{%
-           family={Kennel},
-           familyi={K\bibinitperiod},
-           given={Matthew\bibnamedelima B},
-           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{1b6a60afd2706090bf3df3249ea65ecc}
-      \strng{fullhash}{4ce1fde9d97d9a666997cfd7aac4cb7b}
-      \strng{fullhashraw}{4ce1fde9d97d9a666997cfd7aac4cb7b}
-      \strng{bibnamehash}{4ce1fde9d97d9a666997cfd7aac4cb7b}
-      \strng{authorbibnamehash}{4ce1fde9d97d9a666997cfd7aac4cb7b}
-      \strng{authornamehash}{1b6a60afd2706090bf3df3249ea65ecc}
-      \strng{authorfullhash}{4ce1fde9d97d9a666997cfd7aac4cb7b}
-      \strng{authorfullhashraw}{4ce1fde9d97d9a666997cfd7aac4cb7b}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Nonlinear Science}
-      \field{number}{3}
-      \field{title}{Local Lyapunov exponents computed from observed data}
-      \field{volume}{2}
-      \field{year}{1992}
-      \field{pages}{343\bibrangedash 365}
-      \range{pages}{23}
-    \endentry
-    \entry{entropiaShannona3}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=dd4a35fb305f112906f0063f6f5f4dd1}{%
-           family={Andrzej\bibnamedelima Czajka},
-           familyi={A\bibinitperiod\bibinitdelim C\bibinitperiod},
-           given={Adam\bibnamedelimb G.\bibnamedelimi Polak},
-           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
-      }
-      \strng{namehash}{dd4a35fb305f112906f0063f6f5f4dd1}
-      \strng{fullhash}{dd4a35fb305f112906f0063f6f5f4dd1}
-      \strng{fullhashraw}{dd4a35fb305f112906f0063f6f5f4dd1}
-      \strng{bibnamehash}{dd4a35fb305f112906f0063f6f5f4dd1}
-      \strng{authorbibnamehash}{dd4a35fb305f112906f0063f6f5f4dd1}
-      \strng{authornamehash}{dd4a35fb305f112906f0063f6f5f4dd1}
-      \strng{authorfullhash}{dd4a35fb305f112906f0063f6f5f4dd1}
-      \strng{authorfullhashraw}{dd4a35fb305f112906f0063f6f5f4dd1}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Przegląd Elektrotechniczny}
-      \field{title}{Złożoność danych pomiarowych i metody jej określania}
-    \endentry
     \entry{korelacjaPearsona2}{incollection}{}{}
       \name{author}{4}{}{%
         {{hash=50f152a58e4a694e44bf07fc68be4636}{%
@@ -191,6 +127,64 @@
       \field{pages}{2\bibrangedash 8}
       \range{pages}{7}
     \endentry
+    \entry{FFT1}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=77470f024098f759c50f31e177c6fa6c}{%
+           family={Cerna},
+           familyi={C\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d87d343c06c0113a6236f1922ccf48cf}{%
+           family={Harvey},
+           familyi={H\bibinitperiod},
+           given={Audrey\bibnamedelima F},
+           giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{51893cfa79c4da14f6fcd1b4001b05af}
+      \strng{fullhash}{51893cfa79c4da14f6fcd1b4001b05af}
+      \strng{fullhashraw}{51893cfa79c4da14f6fcd1b4001b05af}
+      \strng{bibnamehash}{51893cfa79c4da14f6fcd1b4001b05af}
+      \strng{authorbibnamehash}{51893cfa79c4da14f6fcd1b4001b05af}
+      \strng{authornamehash}{51893cfa79c4da14f6fcd1b4001b05af}
+      \strng{authorfullhash}{51893cfa79c4da14f6fcd1b4001b05af}
+      \strng{authorfullhashraw}{51893cfa79c4da14f6fcd1b4001b05af}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{National Instruments, Junho}
+      \field{title}{The fundamentals of FFT-based signal analysis and measurement}
+      \field{volume}{54}
+      \field{year}{2000}
+    \endentry
+    \entry{chua}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d2ab8aa03962c7c331dafc8b1dce52b7}{%
+           family={Chua},
+           familyi={C\bibinitperiod},
+           given={Leon\bibnamedelima O},
+           giveni={L\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{d2ab8aa03962c7c331dafc8b1dce52b7}
+      \strng{fullhash}{d2ab8aa03962c7c331dafc8b1dce52b7}
+      \strng{fullhashraw}{d2ab8aa03962c7c331dafc8b1dce52b7}
+      \strng{bibnamehash}{d2ab8aa03962c7c331dafc8b1dce52b7}
+      \strng{authorbibnamehash}{d2ab8aa03962c7c331dafc8b1dce52b7}
+      \strng{authornamehash}{d2ab8aa03962c7c331dafc8b1dce52b7}
+      \strng{authorfullhash}{d2ab8aa03962c7c331dafc8b1dce52b7}
+      \strng{authorfullhashraw}{d2ab8aa03962c7c331dafc8b1dce52b7}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scholarpedia}
+      \field{number}{10}
+      \field{title}{Chua circuit}
+      \field{volume}{2}
+      \field{year}{2007}
+      \field{pages}{1488}
+      \range{pages}{1}
+    \endentry
     \entry{wykładnikLaponowa6}{article}{}{}
       \name{author}{2}{}{%
         {{hash=104606bbcc21bbe33f87d5a90003bead}{%
@@ -294,6 +288,42 @@
       \field{year}{2023}
       \field{pages}{97\bibrangedash 106}
       \range{pages}{10}
+    \endentry
+    \entry{EckmannRuelle1985}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=c411f2ed87af0c4a2431c9bab2d3aa1e}{%
+           family={Eckmann},
+           familyi={E\bibinitperiod},
+           given={J-P},
+           giveni={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=77374546b358b5dc2d6732508f9ed980}{%
+           family={Ruelle},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{fc3fbf1b5e1e0beb393636283144b868}
+      \strng{fullhash}{fc3fbf1b5e1e0beb393636283144b868}
+      \strng{fullhashraw}{fc3fbf1b5e1e0beb393636283144b868}
+      \strng{bibnamehash}{fc3fbf1b5e1e0beb393636283144b868}
+      \strng{authorbibnamehash}{fc3fbf1b5e1e0beb393636283144b868}
+      \strng{authornamehash}{fc3fbf1b5e1e0beb393636283144b868}
+      \strng{authorfullhash}{fc3fbf1b5e1e0beb393636283144b868}
+      \strng{authorfullhashraw}{fc3fbf1b5e1e0beb393636283144b868}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of modern physics}
+      \field{number}{3}
+      \field{title}{Ergodic theory of chaos and strange attractors}
+      \field{volume}{57}
+      \field{year}{1985}
+      \field{pages}{617}
+      \range{pages}{1}
     \endentry
     \entry{entropiaShannona6}{misc}{}{}
       \name{author}{1}{}{%
@@ -644,6 +674,34 @@
       \field{pages}{120\bibrangedash 136}
       \range{pages}{17}
     \endentry
+    \entry{FFT2}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6c03c8c559dd3e644ed79d1bbbac1e2a}{%
+           family={Heckbert},
+           familyi={H\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{6c03c8c559dd3e644ed79d1bbbac1e2a}
+      \strng{fullhash}{6c03c8c559dd3e644ed79d1bbbac1e2a}
+      \strng{fullhashraw}{6c03c8c559dd3e644ed79d1bbbac1e2a}
+      \strng{bibnamehash}{6c03c8c559dd3e644ed79d1bbbac1e2a}
+      \strng{authorbibnamehash}{6c03c8c559dd3e644ed79d1bbbac1e2a}
+      \strng{authornamehash}{6c03c8c559dd3e644ed79d1bbbac1e2a}
+      \strng{authorfullhash}{6c03c8c559dd3e644ed79d1bbbac1e2a}
+      \strng{authorfullhashraw}{6c03c8c559dd3e644ed79d1bbbac1e2a}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer Graphics}
+      \field{number}{1995}
+      \field{title}{Fourier transforms and the fast Fourier transform (FFT) algorithm}
+      \field{volume}{2}
+      \field{year}{1995}
+      \field{pages}{15\bibrangedash 463}
+      \range{pages}{449}
+    \endentry
     \entry{hochreiter1997long}{article}{}{}
       \name{author}{2}{}{%
         {{hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
@@ -730,6 +788,96 @@
       \field{pages}{104888}
       \range{pages}{1}
     \endentry
+    \entry{keunickx2014}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=549d2d9ad9f1334f4b7565a5bb8f1481}{%
+           family={Keuninckx},
+           familyi={K\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod}}}%
+        {{hash=078083f12986a21d6a6dcdd91da7d0b1}{%
+           family={Van\bibnamedelimb der\bibnamedelima Sande},
+           familyi={V\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Guy},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3004a4b2ac47d94d7c72f1338656390a}{%
+           family={Danckaert},
+           familyi={D\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {The Institute of Electronics, Information}%
+        {Communication Engineers}%
+      }
+      \strng{namehash}{a3e33949d16fbbdedd01560e2d414b6d}
+      \strng{fullhash}{c8a42e53f7bf7203afe05b9c72c66428}
+      \strng{fullhashraw}{c8a42e53f7bf7203afe05b9c72c66428}
+      \strng{bibnamehash}{c8a42e53f7bf7203afe05b9c72c66428}
+      \strng{authorbibnamehash}{c8a42e53f7bf7203afe05b9c72c66428}
+      \strng{authornamehash}{a3e33949d16fbbdedd01560e2d414b6d}
+      \strng{authorfullhash}{c8a42e53f7bf7203afe05b9c72c66428}
+      \strng{authorfullhashraw}{c8a42e53f7bf7203afe05b9c72c66428}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEICE Proceedings Series}
+      \field{number}{C2L-A4}
+      \field{title}{A simple Two-Transistor Chaos Generator Based On A Resistor-Capacitor Phase Shift Oscillator}
+      \field{volume}{46}
+      \field{year}{2014}
+    \endentry
+    \entry{klucze}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=8986cf4c654786fad963cda5a6004d8e}{%
+           family={Kotulski},
+           familyi={K\bibinitperiod},
+           given={Zbigniew},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{8986cf4c654786fad963cda5a6004d8e}
+      \strng{fullhash}{8986cf4c654786fad963cda5a6004d8e}
+      \strng{fullhashraw}{8986cf4c654786fad963cda5a6004d8e}
+      \strng{bibnamehash}{8986cf4c654786fad963cda5a6004d8e}
+      \strng{authorbibnamehash}{8986cf4c654786fad963cda5a6004d8e}
+      \strng{authornamehash}{8986cf4c654786fad963cda5a6004d8e}
+      \strng{authorfullhash}{8986cf4c654786fad963cda5a6004d8e}
+      \strng{authorfullhashraw}{8986cf4c654786fad963cda5a6004d8e}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Matematyka Stosowana: matematyka dla spo{ł}eczeństwa}
+      \field{number}{4}
+      \field{title}{Budowanie szyfrów blokowych: nowe możliwości}
+      \field{year}{2003}
+      \field{pages}{1\bibrangedash 24}
+      \range{pages}{24}
+    \endentry
+    \entry{kryptografia}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6778f0b9ff11a5f637aae9989a8f98b8}{%
+           family={Kowalski},
+           familyi={K\bibinitperiod},
+           given={Bartosz},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{6778f0b9ff11a5f637aae9989a8f98b8}
+      \strng{fullhash}{6778f0b9ff11a5f637aae9989a8f98b8}
+      \strng{fullhashraw}{6778f0b9ff11a5f637aae9989a8f98b8}
+      \strng{bibnamehash}{6778f0b9ff11a5f637aae9989a8f98b8}
+      \strng{authorbibnamehash}{6778f0b9ff11a5f637aae9989a8f98b8}
+      \strng{authornamehash}{6778f0b9ff11a5f637aae9989a8f98b8}
+      \strng{authorfullhash}{6778f0b9ff11a5f637aae9989a8f98b8}
+      \strng{authorfullhashraw}{6778f0b9ff11a5f637aae9989a8f98b8}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Szyfrowanie z wykorzystaniem uk{ł}adów chaotycznych}
+      \field{year}{2025}
+    \endentry
     \entry{lorenz2000butterfly}{incollection}{}{}
       \name{author}{1}{}{%
         {{hash=0e3296d4ad2820047a9c3ef4711904e9}{%
@@ -794,47 +942,6 @@
       \field{year}{1996}
       \field{pages}{598\bibrangedash 599}
       \range{pages}{2}
-    \endentry
-    \entry{korelacjaPearsona5}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=fadcc505110d0da79ce959353f11fc5b}{%
-           family={Ly},
-           familyi={L\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod}}}%
-        {{hash=6105f9ec8431b1deba2f1991e1dec47b}{%
-           family={Marsman},
-           familyi={M\bibinitperiod},
-           given={Maarten},
-           giveni={M\bibinitperiod}}}%
-        {{hash=d0127560e030afe2fdab5e2b35378c37}{%
-           family={Wagenmakers},
-           familyi={W\bibinitperiod},
-           given={Eric-Jan},
-           giveni={E\bibinithyphendelim J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley Online Library}%
-      }
-      \strng{namehash}{7d7406cd1606940040cb65d84fa4c41a}
-      \strng{fullhash}{6d95670942372c7156cc41de51d417c6}
-      \strng{fullhashraw}{6d95670942372c7156cc41de51d417c6}
-      \strng{bibnamehash}{6d95670942372c7156cc41de51d417c6}
-      \strng{authorbibnamehash}{6d95670942372c7156cc41de51d417c6}
-      \strng{authornamehash}{7d7406cd1606940040cb65d84fa4c41a}
-      \strng{authorfullhash}{6d95670942372c7156cc41de51d417c6}
-      \strng{authorfullhashraw}{6d95670942372c7156cc41de51d417c6}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Statistica Neerlandica}
-      \field{number}{1}
-      \field{title}{Analytic posteriors for Pearson's correlation coefficient}
-      \field{volume}{72}
-      \field{year}{2018}
-      \field{pages}{4\bibrangedash 13}
-      \range{pages}{10}
     \endentry
     \entry{lyapunov1992}{article}{}{}
       \name{author}{1}{}{%
@@ -1094,31 +1201,33 @@
       \field{pages}{11\bibrangedash 23}
       \range{pages}{13}
     \endentry
-    \entry{parandowski1992}{book}{}{}
+    \entry{Pesin1977}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=8bd6eaec2bbcec5c3beef8013f86c16e}{%
-           family={Parandowski},
+        {{hash=3b9f68c4c72841f72b56006c66bfb3c2}{%
+           family={Pesin},
            familyi={P\bibinitperiod},
-           given={Jan},
-           giveni={J\bibinitperiod}}}%
+           given={Ya\bibnamedelima B},
+           giveni={Y\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Puls}%
-      }
-      \strng{namehash}{8bd6eaec2bbcec5c3beef8013f86c16e}
-      \strng{fullhash}{8bd6eaec2bbcec5c3beef8013f86c16e}
-      \strng{fullhashraw}{8bd6eaec2bbcec5c3beef8013f86c16e}
-      \strng{bibnamehash}{8bd6eaec2bbcec5c3beef8013f86c16e}
-      \strng{authorbibnamehash}{8bd6eaec2bbcec5c3beef8013f86c16e}
-      \strng{authornamehash}{8bd6eaec2bbcec5c3beef8013f86c16e}
-      \strng{authorfullhash}{8bd6eaec2bbcec5c3beef8013f86c16e}
-      \strng{authorfullhashraw}{8bd6eaec2bbcec5c3beef8013f86c16e}
+      \strng{namehash}{3b9f68c4c72841f72b56006c66bfb3c2}
+      \strng{fullhash}{3b9f68c4c72841f72b56006c66bfb3c2}
+      \strng{fullhashraw}{3b9f68c4c72841f72b56006c66bfb3c2}
+      \strng{bibnamehash}{3b9f68c4c72841f72b56006c66bfb3c2}
+      \strng{authorbibnamehash}{3b9f68c4c72841f72b56006c66bfb3c2}
+      \strng{authornamehash}{3b9f68c4c72841f72b56006c66bfb3c2}
+      \strng{authorfullhash}{3b9f68c4c72841f72b56006c66bfb3c2}
+      \strng{authorfullhashraw}{3b9f68c4c72841f72b56006c66bfb3c2}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Mitologia}
-      \field{year}{1992}
+      \field{journaltitle}{Russian mathematical surveys}
+      \field{number}{4}
+      \field{title}{Characteristic Lyapunov exponents and smooth ergodic theory}
+      \field{volume}{32}
+      \field{year}{1977}
+      \field{pages}{55\bibrangedash 114}
+      \range{pages}{60}
     \endentry
     \entry{Conv1DLSTM}{article}{}{}
       \name{author}{2}{}{%
@@ -1152,47 +1261,6 @@
       \field{year}{2021}
       \field{pages}{581\bibrangedash 592}
       \range{pages}{12}
-    \endentry
-    \entry{entropiaShannona7}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=7950d5e0ad47ff92801e51b31b22eac4}{%
-           family={Rajaram},
-           familyi={R\bibinitperiod},
-           given={Rajeev},
-           giveni={R\bibinitperiod}}}%
-        {{hash=27de0b480756f8c664a18a68756e7040}{%
-           family={Castellani},
-           familyi={C\bibinitperiod},
-           given={Brian},
-           giveni={B\bibinitperiod}}}%
-        {{hash=ffef37e45d8f8bcde953a6ce92fa2ed7}{%
-           family={Wilson},
-           familyi={W\bibinitperiod},
-           given={AN},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley Online Library}%
-      }
-      \strng{namehash}{f20f31dc0d17ae9cba960fdbb4c25ba4}
-      \strng{fullhash}{beb87439418e8373e909dd13a5ff4bf5}
-      \strng{fullhashraw}{beb87439418e8373e909dd13a5ff4bf5}
-      \strng{bibnamehash}{beb87439418e8373e909dd13a5ff4bf5}
-      \strng{authorbibnamehash}{beb87439418e8373e909dd13a5ff4bf5}
-      \strng{authornamehash}{f20f31dc0d17ae9cba960fdbb4c25ba4}
-      \strng{authorfullhash}{beb87439418e8373e909dd13a5ff4bf5}
-      \strng{authorfullhashraw}{beb87439418e8373e909dd13a5ff4bf5}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Complexity}
-      \field{number}{1}
-      \field{title}{Advancing Shannon entropy for measuring diversity in systems}
-      \field{volume}{2017}
-      \field{year}{2017}
-      \field{pages}{8715605}
-      \range{pages}{1}
     \endentry
     \entry{GANLSTM2}{article}{}{}
       \name{author}{3}{}{%
@@ -1289,6 +1357,47 @@
       \field{pages}{187722\bibrangedash 187740}
       \range{pages}{19}
     \endentry
+    \entry{rosenstein1993}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=a7207becdc0429f4db8ecf988c21cddd}{%
+           family={Rosenstein},
+           familyi={R\bibinitperiod},
+           given={Michael\bibnamedelima T},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=d76629bdb9c4f81dee666fadeda7803c}{%
+           family={Collins},
+           familyi={C\bibinitperiod},
+           given={James\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=4ebe0b19127722a760f9ca4612b6cc06}{%
+           family={De\bibnamedelima Luca},
+           familyi={D\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Carlo\bibnamedelima J},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{a86526fded7db5cc31da9942e2677fda}
+      \strng{fullhash}{d659646a3b24e586c1b9cebe6ef986d9}
+      \strng{fullhashraw}{d659646a3b24e586c1b9cebe6ef986d9}
+      \strng{bibnamehash}{d659646a3b24e586c1b9cebe6ef986d9}
+      \strng{authorbibnamehash}{d659646a3b24e586c1b9cebe6ef986d9}
+      \strng{authornamehash}{a86526fded7db5cc31da9942e2677fda}
+      \strng{authorfullhash}{d659646a3b24e586c1b9cebe6ef986d9}
+      \strng{authorfullhashraw}{d659646a3b24e586c1b9cebe6ef986d9}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physica D: Nonlinear Phenomena}
+      \field{number}{1-2}
+      \field{title}{A practical method for calculating largest Lyapunov exponents from small data sets}
+      \field{volume}{65}
+      \field{year}{1993}
+      \field{pages}{117\bibrangedash 134}
+      \range{pages}{18}
+    \endentry
     \entry{shannon1948mathematical}{article}{}{}
       \name{author}{1}{}{%
         {{hash=e930d560748b00dab7e3d19806c848ba}{%
@@ -1356,51 +1465,6 @@
       \field{pages}{1\bibrangedash 25}
       \range{pages}{25}
     \endentry
-    \entry{entropiaShannona8}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=e6fc59890f8b31bc519ede4ddaf26280}{%
-           family={Song},
-           familyi={S\bibinitperiod},
-           given={Malin},
-           giveni={M\bibinitperiod}}}%
-        {{hash=703e87bc8efd29503a398968f8974eb2}{%
-           family={Zhu},
-           familyi={Z\bibinitperiod},
-           given={Qingyuan},
-           giveni={Q\bibinitperiod}}}%
-        {{hash=f81ffb0375f83e772e76e46d8b4ee923}{%
-           family={Peng},
-           familyi={P\bibinitperiod},
-           given={Jun},
-           giveni={J\bibinitperiod}}}%
-        {{hash=a768a9aaeaebedc08ee171053dcbaaf4}{%
-           family={Gonzalez},
-           familyi={G\bibinitperiod},
-           given={Ernesto\bibnamedelimb DR\bibnamedelima Santibanez},
-           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{45029cf559481c4caba8c68a2db292d5}
-      \strng{fullhash}{7405056c85e3980c414b9b58fdfd4b91}
-      \strng{fullhashraw}{7405056c85e3980c414b9b58fdfd4b91}
-      \strng{bibnamehash}{7405056c85e3980c414b9b58fdfd4b91}
-      \strng{authorbibnamehash}{7405056c85e3980c414b9b58fdfd4b91}
-      \strng{authornamehash}{45029cf559481c4caba8c68a2db292d5}
-      \strng{authorfullhash}{7405056c85e3980c414b9b58fdfd4b91}
-      \strng{authorfullhashraw}{7405056c85e3980c414b9b58fdfd4b91}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Computers \& Industrial Engineering}
-      \field{title}{Improving the evaluation of cross efficiencies: A method based on Shannon entropy weight}
-      \field{volume}{112}
-      \field{year}{2017}
-      \field{pages}{99\bibrangedash 106}
-      \range{pages}{8}
-    \endentry
     \entry{atraktorLorenza5}{book}{}{}
       \name{author}{1}{}{%
         {{hash=5a0ad8310f6afade135d286c551fb600}{%
@@ -1458,32 +1522,41 @@
       \field{pages}{130}
       \range{pages}{1}
     \endentry
-    \entry{wykładnikLaponowa8}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=2563e4b7a3f84546e7a4b52cc4e2ed9f}{%
-           family={Viana},
-           familyi={V\bibinitperiod},
-           given={Marcelo},
-           giveni={M\bibinitperiod}}}%
+    \entry{FPGA1}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5c6187f76c8b6a33cc83fafab103e9ea}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Chenghao},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ab6761e53ea7e208d052bb326c60a591}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Zhongqiang},
+           giveni={Z\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Cambridge University Press}%
+        {MDPI}%
       }
-      \strng{namehash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
-      \strng{fullhash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
-      \strng{fullhashraw}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
-      \strng{bibnamehash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
-      \strng{authorbibnamehash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
-      \strng{authornamehash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
-      \strng{authorfullhash}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
-      \strng{authorfullhashraw}{2563e4b7a3f84546e7a4b52cc4e2ed9f}
-      \field{sortinit}{V}
-      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \strng{namehash}{68ae1bd8e26d09a35c95e7b6bc32f627}
+      \strng{fullhash}{68ae1bd8e26d09a35c95e7b6bc32f627}
+      \strng{fullhashraw}{68ae1bd8e26d09a35c95e7b6bc32f627}
+      \strng{bibnamehash}{68ae1bd8e26d09a35c95e7b6bc32f627}
+      \strng{authorbibnamehash}{68ae1bd8e26d09a35c95e7b6bc32f627}
+      \strng{authornamehash}{68ae1bd8e26d09a35c95e7b6bc32f627}
+      \strng{authorfullhash}{68ae1bd8e26d09a35c95e7b6bc32f627}
+      \strng{authorfullhashraw}{68ae1bd8e26d09a35c95e7b6bc32f627}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Lectures on Lyapunov exponents}
-      \field{volume}{145}
-      \field{year}{2014}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{21}
+      \field{title}{A review of the optimal design of neural networks based on FPGA}
+      \field{volume}{12}
+      \field{year}{2022}
+      \field{pages}{10771}
+      \range{pages}{1}
     \endentry
     \entry{entropiaShannona2}{article}{}{}
       \name{author}{1}{}{%
@@ -1541,6 +1614,92 @@
       \field{year}{2013}
       \field{pages}{47\bibrangedash 61}
       \range{pages}{15}
+    \endentry
+    \entry{spearman1}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ec2e4d1fa17f69c6a1107c7d74d71e82}{%
+           family={Wiśniewski},
+           familyi={W\bibinitperiod},
+           given={Jerzy\bibnamedelima Witold},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{ec2e4d1fa17f69c6a1107c7d74d71e82}
+      \strng{fullhash}{ec2e4d1fa17f69c6a1107c7d74d71e82}
+      \strng{fullhashraw}{ec2e4d1fa17f69c6a1107c7d74d71e82}
+      \strng{bibnamehash}{ec2e4d1fa17f69c6a1107c7d74d71e82}
+      \strng{authorbibnamehash}{ec2e4d1fa17f69c6a1107c7d74d71e82}
+      \strng{authornamehash}{ec2e4d1fa17f69c6a1107c7d74d71e82}
+      \strng{authorfullhash}{ec2e4d1fa17f69c6a1107c7d74d71e82}
+      \strng{authorfullhashraw}{ec2e4d1fa17f69c6a1107c7d74d71e82}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Studia Ekonomiczne. Uniwersytet Ekonomiczny w Katowicach}
+      \field{title}{Dylematy stosowania wspó{ł}czynnika korelacji Spearmana}
+      \field{volume}{181}
+      \field{year}{2014}
+      \field{pages}{174\bibrangedash 184}
+      \range{pages}{11}
+    \endentry
+    \entry{FPGA2}{inproceedings}{}{}
+      \name{author}{7}{}{%
+        {{hash=2991e1a68b03b69604f189de341e5822}{%
+           family={Yazdanbakhsh},
+           familyi={Y\bibinitperiod},
+           given={Amir},
+           giveni={A\bibinitperiod}}}%
+        {{hash=279e6c005b7e8a2db66fa72564c2c555}{%
+           family={Brzozowski},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1d4e8da2784997c83c59f61c38afedf2}{%
+           family={Khaleghi},
+           familyi={K\bibinitperiod},
+           given={Behnam},
+           giveni={B\bibinitperiod}}}%
+        {{hash=6101a29a3f1bbbfb70a7f8ce48d0f023}{%
+           family={Ghodrati},
+           familyi={G\bibinitperiod},
+           given={Soroush},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bd9527f6db38d2bd28a046d9fff2690b}{%
+           family={Samadi},
+           familyi={S\bibinitperiod},
+           given={Kambiz},
+           giveni={K\bibinitperiod}}}%
+        {{hash=bd1fe6b97f384221d58c6e5937b4922c}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Nam\bibnamedelima Sung},
+           giveni={N\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=add999a8fb3dbbaa8c7d8ff09a5249c6}{%
+           family={Esmaeilzadeh},
+           familyi={E\bibinitperiod},
+           given={Hadi},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{5f2a26487f50ed1f173db067016e0865}
+      \strng{fullhash}{000ecc736102367648cd5b4ac4e17257}
+      \strng{fullhashraw}{000ecc736102367648cd5b4ac4e17257}
+      \strng{bibnamehash}{5f2a26487f50ed1f173db067016e0865}
+      \strng{authorbibnamehash}{5f2a26487f50ed1f173db067016e0865}
+      \strng{authornamehash}{5f2a26487f50ed1f173db067016e0865}
+      \strng{authorfullhash}{000ecc736102367648cd5b4ac4e17257}
+      \strng{authorfullhashraw}{000ecc736102367648cd5b4ac4e17257}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2018 IEEE 26th Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM)}
+      \field{title}{Flexigan: An end-to-end solution for fpga acceleration of generative adversarial networks}
+      \field{year}{2018}
+      \field{pages}{65\bibrangedash 72}
+      \range{pages}{8}
     \endentry
     \entry{GANLSTM3}{article}{}{}
       \name{author}{2}{}{%
@@ -1652,6 +1811,37 @@
       \field{year}{2019}
       \field{pages}{7354\bibrangedash 7363}
       \range{pages}{10}
+    \endentry
+    \entry{monte}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=4edcd61bf864bb0006c9bfdc2c50d1a8}{%
+           family={Zhdanov},
+           familyi={Z\bibinitperiod},
+           given={Vladimir\bibnamedelima P},
+           giveni={V\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{4edcd61bf864bb0006c9bfdc2c50d1a8}
+      \strng{fullhash}{4edcd61bf864bb0006c9bfdc2c50d1a8}
+      \strng{fullhashraw}{4edcd61bf864bb0006c9bfdc2c50d1a8}
+      \strng{bibnamehash}{4edcd61bf864bb0006c9bfdc2c50d1a8}
+      \strng{authorbibnamehash}{4edcd61bf864bb0006c9bfdc2c50d1a8}
+      \strng{authornamehash}{4edcd61bf864bb0006c9bfdc2c50d1a8}
+      \strng{authorfullhash}{4edcd61bf864bb0006c9bfdc2c50d1a8}
+      \strng{authorfullhashraw}{4edcd61bf864bb0006c9bfdc2c50d1a8}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Surface Science Reports}
+      \field{number}{7-8}
+      \field{title}{Monte Carlo simulations of oscillations, chaos and pattern formation in heterogeneous catalytic reactions}
+      \field{volume}{45}
+      \field{year}{2002}
+      \field{pages}{231\bibrangedash 326}
+      \range{pages}{96}
     \endentry
     \entry{GANLSTM1}{inproceedings}{}{}
       \name{author}{4}{}{%

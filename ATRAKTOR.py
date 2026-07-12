@@ -98,22 +98,23 @@ class AnalizaAtraktora:
         folder_wynikowy = "atraktor"
         os.makedirs(folder_wynikowy, exist_ok=True)
 
+# ----------------------------------------------------
+        # Okno 1: Atraktor (Przestrzeń fazowa) - PROSTOKĄTNY
         # ----------------------------------------------------
-        # Okno 1: Atraktor (Przestrzeń fazowa) - KWADRATOWY
-        # ----------------------------------------------------
-        plt.figure(figsize=(7, 7)) 
-        plt.plot(v1, v2, 'b', alpha=0.3, lw=0.5)
+        plt.figure(figsize=(8, 6)) # Lekko powiększony, wyraźnie prostokątny rozmiar
+        # Ustawienie color='blue' i wyższego alpha, aby niebieski był wyraźny
+        plt.plot(v1, v2, color='blue', alpha=0.8, lw=0.5) 
         plt.title("Atraktor")
-        plt.xlabel("Sygnał V1 [V]")
-        plt.ylabel("Sygnał V2 [V]")
+        plt.xlabel("Sygnał 1")
+        plt.ylabel("Sygnał 2")
         plt.grid(True)
         
-        plt.gca().set_aspect('equal', adjustable='box')
+        # Zmiana z 'equal' na 'auto' pozwala na narysowanie prostokąta
+        plt.gca().set_aspect('auto') 
         
         plt.tight_layout()
         plt.savefig(os.path.join(folder_wynikowy, f"Atraktor_{ts}.png"))
         plt.close()
-
         # ----------------------------------------------------
         # Okno 2: Wykładnik Lapunowa
         # ----------------------------------------------------

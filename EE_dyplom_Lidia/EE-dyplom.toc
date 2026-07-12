@@ -1,44 +1,34 @@
 \thispagestyle {empty}
 \xpg@aux {}{polish}
 \contentsline {chapter}{\numberline {1}Wstęp}{9}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Teoria chaosu}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Entropia Shannona}{11}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Zasada działania}{12}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Korelacja Pearsona}{13}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Zasada działania}{13}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Wykładnik Lapunowa}{14}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Zasada działania}{14}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Algorytm Rosensteina}{15}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Atraktor Lorenza}{16}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Zasada działania}{16}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}Sieci GAN}{17}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Zasada działania}{18}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Generator i dyskryminator}{19}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Sieci z pamięcią LSTM}{19}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Bramki informacyjne}{19}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Jednowymiarowe sieci splotowe Conv1D}{20}{subsection.2.6.2}%
-\contentsline {chapter}{\numberline {3}Generowanie chaosu}{21}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Dane wejściowe}{21}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Kod źródłowy}{22}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Importowanie bibliotek}{22}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Inicjalizacja klasy głównej}{22}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Przygotowanie Danych}{23}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Struktura Generatora}{24}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Struktura Dyskryminatora}{25}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Procedura Treningowa}{26}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Pętla Ucząca}{27}{subsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.2.8}Generowanie przebiegów}{28}{subsection.3.2.8}%
-\contentsline {section}{\numberline {3.3}Uzasadnienie wyboru architektury GAN}{28}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Dowód chaosu}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Analiza Chaosu}{31}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Wykładnik Lapunowa}{32}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Analiza wyników}{33}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Analiza entropii}{33}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Analiza wyników}{34}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Badanie korelacji}{35}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Analiza wyników}{35}{subsection.4.4.1}%
-\contentsline {section}{\numberline {4.5}Atraktor Lorenza}{36}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Analiza wyników}{37}{subsection.4.5.1}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{39}{chapter.5}%
-\contentsline {chapter}{Bibliografia}{41}{section*.13}%
-\contentsline {chapter}{Spis rysunków}{45}{chapter*.15}%
+\contentsline {chapter}{\numberline {2}Teoretyczne podstawy układów chaotycznych}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Odwzorowanie logistyczne i geometria fraktalna}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Atraktor Lorenza}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Entropia Shannona}{15}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Entropia Kołmogorowa-Sinaia}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Dystans Hamminga}{17}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Korelacja Pearsona i Spearmana}{18}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Analiza w dziedzinie częstotliwości i widmo mocy}{19}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Wykładnik Lapunowa}{20}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Algorytm Rosensteina}{22}{subsection.2.6.1}%
+\contentsline {section}{\numberline {2.7}Modelowanie zjawisk chaotycznych za pomocą sztucznych sieci neuronowych GAN}{22}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Sieci z pamięcią LSTM}{24}{section.2.8}%
+\contentsline {chapter}{\numberline {3}Generowanie przebiegów chaotycznych za pomocą sieci neuronowych}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dane wejściowe}{27}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Środowisko pracy i biblioteki obliczeniowe}{29}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Uzasadnienie wyboru architektury GAN}{30}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Praktyczna implementacja modelu}{30}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Wczytywanie i przygotowanie danych}{32}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Architektura modułu generatywnego}{33}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Architektura modułu dyskryminującego}{34}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Trening sieci i funkcje straty}{34}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Procedura pętli uczącej}{36}{subsection.3.4.5}%
+\contentsline {chapter}{\numberline {4}Weryfikacja właściwości chaotycznych w wygenerowanych przebiegach}{39}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Analiza przebiegu chaotycznego}{39}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Wykładnik Lapunowa}{40}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Analiza entropii}{41}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Widmo mocy}{43}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Atraktor Lorenza}{44}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{47}{chapter.5}%
+\contentsline {chapter}{Bibliografia}{49}{section*.20}%
+\contentsline {chapter}{Spis rysunków}{53}{chapter*.22}%

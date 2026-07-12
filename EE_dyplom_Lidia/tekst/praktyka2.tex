@@ -1,205 +1,88 @@
-\section{Analiza Chaosu}
-
-Po wygenerowaniu przebiegu przez sieć GAN konieczne jest przeprowadzenie 
-szczegółowej analizy jego właściwości chaotycznych. W tym celu zaprojektowano 
-specjalną klasę, której głównym zadaniem jest ocena jakości wygenerowanych 
-danych poprzez obliczenie podstawowych wskaźników chaosu deterministycznego, 
-takich jak największy wykładnik Lapunowa oraz znormalizowana entropia Shannona. 
-Dodatkowo w ramach tej klasy zaimplementowano funkcje umożliwiające wizualizację 
-atraktora Lorenza oraz badanie korelacji pomiędzy kolejnymi 
-fragmentami sygnału, co pozwala na znzcznie głębsze zrozumienie struktury
-wygenerowanego przebiegu. 
-
+\section{Analiza przebiegu chaotycznego}
+Po wygenerowaniu przebiegów przez architekturę uczącą się, konieczne staje się przeprowadzenie szczegółowej analizy ich właściwości pod kątem dynamiki nieliniowej. Zastosowana sieć neuronowa o uogólnionej strukturze realizuje proces odnajdywania ukrytych wzorców wyłącznie na podstawie dostarczonych próbek wejściowych, a sam proces uczenia przebiega niezależnie od specyfiki fizycznego układu, z którego pozyskano dane badawcze.
 \begin{figure}[h!]
 \centering \includegraphics[width=1\linewidth]{rysunki/Sygnal.png}
-\caption{Przebieg czasowy sygnału chaotycznego} 
+\caption{Przebieg czasowy sygnałów wejściowych oraz wygenerowanych (zbliżenie)}
 \label{rys:Sygnal}
 \end{figure}
-
-Na wykresie zaprezentowano fragment rzeczywistego sygnału chaotycznego (kolor zielony i niebieski), który posłużył jako materiał uczący dla sieci GAN. Pozostała część widocznego sygnału (kolor czerwony i różowy) to wygenerowany przez sieć przebieg, który stanowi przedmiot dalszej analizy. Oba sygnały charakteryzują się nieregularną,
-oscylacyjną naturą, co jest typowe dla układów chaotycznych. Widać, że wygenerowany
-przebieg zachowuje podobne cechy do oryginalnego, co sugeruje, że sieć GAN była w
-stanie nauczyć się podstawowych wzorców dynamiki układu, choć ostateczna ocena
-jakości wygenerowanych danych będzie opierać się na bardziej szczegółowych wskaźnikach.
+W celu obiektywnej weryfikacji poprawności odwzorowania specyficznych cech sygnału, zbadano podstawowe metryki chaosu deterministycznego, ze szczególnym uwzględnieniem największego wykładnika Lapunowa oraz analizy w dziedzinie częstotliwości. Na zamieszczonym rysunku~\ref{rys:Sygnal} zaprezentowano fragment rzeczywistego sygnału wprowadzanego do modelu oraz przebieg wygenerowany przez wytrenowaną sieć neuronową. Oznaczenia poszczególnych zmiennych stanu układu zdefiniowano bezpośrednio w legendzie wykresu. Widoczna nieregularna natura drgań, ukazana na odpowiednio zawężonym przedziale czasowym, pozwala na dokładną obserwację rzeczywistego kształtu fali. Otrzymany obraz wyraźnie wskazuje na to, że zaimplementowana sieć posiada zdolność do trafnego odtwarzania ogólnego charakteru dynamiki analizowanego układu.
 
 \section{Wykładnik Lapunowa}
+Największy wykładnik Lapunowa stanowi podstawową miarę pozwalającą ocenić stopień reakcji badanego układu na minimalne zmiany warunków początkowych. Wartość tego wskaźnika odgrywa istotną rolę w procesie przewidywania przyszłych stanów, ponieważ jego odwrotność określa maksymalny horyzont czasowy, w którym możliwe jest wiarygodne prognozowanie zachowania systemu. Obliczenia zrealizowane w niniejszej pracy oparto na algorytmie Rosensteina, którego implementację zaprezentowano na listingu~\ref{lst:lapunow}.
+Analiza przedstawionego skryptu wskazuje, że działanie narzędzia rozpoczyna się od wyznaczenia odległości między punktami na badanej trajektorii, po czym algorytm identyfikuje najbliższych sąsiadów dla każdego punktu referencyjnego. 
 
-Zaprojektowano metodę obliczającą największy wykładnik Lapunowa w oparciu o
-algorytm Rosensteina, który znajduje szerokie zastosowanie podczas analizowania sygnałów chaotycznych.
-Algorytm na samym początku losuje reprezentatywną próbę punktów odniesienia z badanej trajektorii fazowej, a następnie dla każdego z nich poszukuje najbliższego sąsiada w przestrzeni, dbając jednocześnie o zachowanie odpowiedniej separacji czasowej w celu uniknięcia fałszywych korelacji.
-W kolejnym etapie śledzona jest ewolucja obu początkowo bliskich sobie punktów i rejestrowane jest ich wzajemne oddalanie się w kolejnych krokach iteracyjnych. Zgromadzone wartości logarytmów z obliczonych odległości są uśredniane dla każdej iteracji, po czym wyodrębnia się początkowy obszar liniowego narastania błędu i dopasowuje do niego prostą. Współczynnik kierunkowy wyznaczonej prostej po podzieleniu przez zastosowany krok całkowania bezpośrednio definiuje ostateczną wartość wykładnika Lapunowa.
+\lstinputlisting[
+language=Python,
+firstline=201,
+lastline=225,
+firstnumber=201,
+caption={Implementacja algorytmu Rosensteina do wyznaczania największego wykładnika Lapunowa},
+label={lst:lapunow}
+]{GAN.py}
 
-
-\begin{lstlisting}[language=Python]
-    def lapunow(self, signal, emb_dim=3, tau=1, min_tsep=10, max_k=50):
-        N = len(signal)
-        N_emb = N - (emb_dim - 1) * tau
-        X = np.array([signal[i : i + emb_dim*tau : tau] for i in range(N_emb)])
-        
-        nn_indices = []
-        for i in range(N_emb):
-            dists = np.max(np.abs(X - X[i]), axis=1)
-            dists[max(0, i-min_tsep):min(N_emb, i+min_tsep+1)] = np.inf
-            nn = np.argmin(dists)
-            nn_indices.append(nn)
-            
-        S = np.zeros(max_k)
-        c = np.zeros(max_k)
-        
-        for k in range(max_k):
-            for i, nn in enumerate(nn_indices):
-                if i + k < N_emb and nn + k < N_emb:
-                    dist = np.max(np.abs(X[i+k] - X[nn+k]))
-                    if dist > 0:
-                        S[k] += np.log(dist)
-                        c[k] += 1
-                        
-        with np.errstate(divide='ignore', invalid='ignore'):
-            return S / c
-\end{lstlisting}
-
-\subsection{Analiza wyników}
+Proces ten uwzględnia celowe pomijanie wartości zlokalizowanych zbyt blisko w czasie, co skutecznie zapobiega powstawaniu błędów wynikających ze zjawiska autokorelacji. W ramach głównej pętli program systematycznie mierzy tempo oddalania się początkowo bliskich sobie punktów w kolejnych krokach symulacji, a uzyskane wyniki poddawane są logarytmowaniu oraz uśrednianiu, co ostatecznie umożliwia wyznaczenie poszukiwanego wykładnika Lapunowa.
+Zbadany wykładnik, co zilustrowano na rysunku~\ref{rys:Lapunowa}, przyjmuje w analizowanym przypadku dodatnią wartość wynoszącą 0.0925, co stanowi bezpośredni dowód matematyczny na obecność chaosu deterministycznego w wygenerowanym sygnale. 
 
 \begin{figure}[h!]
-\centering \includegraphics[width=0.7\linewidth]{rysunki/Lapunowa.png}
-\caption{Wykładnik Lapunowa}
+\centering
+\includegraphics[width=0.8\linewidth]{rysunki/Lapunowa.png}
+\caption{Największy wykładnik Lapunowa}
 \label{rys:Lapunowa}
 \end{figure}
 
-Wykłdanik Lapunowa ma wartość dodatnią, co jednoznacznie wskazuje na obecność chaosu deterministycznego w wygenerowanym sygnale. Wartość ta wynosi powyżej 0.1, co jest typowe dla układów chaotycznych i sugeruje, że trajektoria fazowa charakteryzuje się silną wrażliwością na warunki początkowe. Otrzymany wynik potwierdza, że sieć GAN była w stanie nauczyć się generować dane, które zachowują kluczowe właściwości dynamiki układu, a wygenerowany przebieg posiada cechy charakterystyczne dla zjawisk nieliniowych. Dodatnia wartość wykładnika Lapunowa jednoznacznie wskazuje, że wygenerowany sygnał jest trudny do przewidzenia w dłuższym horyzoncie czasowym, co jest typowe dla układów chaotycznych.
+Rezultat ten jednoznacznie potwierdza, że sztuczny szereg czasowy z powodzeniem powiela złożone właściwości oryginału, co w konsekwencji znacząco utrudnia precyzyjną predykcję jego zachowania w dłuższej perspektywie czasowej.
 
 \section{Analiza entropii}
-
-Zaimplementowano metodę analizy statystycznej wygenerowanego sygnału wykorzystującą 
-przesuwne okno pomiarowe poruszające się wzdłuż badanej osi czasu. Zdefiniowano 
-w niej wewnętrzną funkcję obliczającą znormalizowaną entropię informacyjną Shannona 
-na podstawie histogramu rozkładu wartości w danym wycinku. Zastosowana normalizacja 
-polega na podzieleniu klasycznego wyniku przez maksymalną wartość , co pozwala na sprowadzenie odczytów do bardzo wygodnego zakresu od 0 do 1. Otrzymane z pętli wyniki cząstkowe są następnie gromadzone w jednej liście, a ich ostateczna średnia arytmetyczna 
-zostaje wyliczona i zaprezentowana użytkownikowi w czytelnej ramce.
-
-
-\begin{lstlisting}[language=Python]
-    def analiza_entropii_i_korelacji(self, generowany, ts):
-        print("Analiza entropii i korelacji...")
-        rozmiar_okna = 100
-        skok = 50
-        liczba_koszy = 20
-        
-        def licz_znormalizowana_entropie(fragment):
-            hist, _ = np.histogram(fragment, bins=liczba_koszy)
-            p = hist / np.sum(hist)
-            p = p[p > 0]
-            entropia = -np.sum(p * np.log2(p))
-            entropia_maksymalna = np.log2(liczba_koszy)
-            return entropia / entropia_maksymalna if entropia_maksymalna > 0 else 0
-
-        entropia_gen = []
-        for i in range(0, len(generowany) - rozmiar_okna + 1, skok):
-            frag_gen = generowany[i : i + rozmiar_okna, 0]
-            entropia_gen.append(licz_znormalizowana_entropie(frag_gen))
-\end{lstlisting}
-
-\subsection{Analiza wyników}
-
+Kolejnym etapem badań była analiza znormalizowanej entropii informacyjnej Shannona, przeprowadzona w celu oceny ogólnej złożoności oraz poziomu nieuporządkowania wygenerowanego sygnału. Zgodnie z teorią dotyczącą entropii Kołmogorowa-Sinaia, omówioną w poprzednich rozdziałach, jej wartość dla badanego układu jest tożsama z wykładnikiem Lapunowa i wynosi 0.0925, w związku z czym entropia Shannona pełni w tym kontekście wyłącznie funkcję dodatkowego, pomocniczego wskaźnika statystycznego. W celu poprawy czytelności struktury kodu, procedury obliczeniowe wyodrębniono jako niezależną metodę, co pozwoliło na wyeliminowanie zbędnego zagnieżdżania funkcji, a fragment zaimplementowanego rozwiązania przedstawiono na listingu~\ref{lst:entropia}.
+\lstinputlisting[
+language=Python,
+firstline=287,
+lastline=306,
+firstnumber=287,
+caption={Algorytm obliczania znormalizowanej entropii Shannona w przesuwnym oknie},
+label={lst:entropia}
+]{GAN.py}
+Analiza zaprezentowanego kodu obrazuje metodologię pomiaru nieprzewidywalności danych, w ramach której funkcja dokonuje początkowego podziału przebiegu napięciowego na nakładające się okna czasowe i generuje dla nich histogramy, umożliwiając wyznaczenie prawdopodobieństwa wystąpienia poszczególnych wartości. Następnie algorytm eliminuje prawdopodobieństwa o wartości równej zero w celu uniknięcia błędów dziedziny podczas wyliczania logarytmu, po czym oblicza standardową entropię. Otrzymany wynik jest docelowo dzielony przez entropię maksymalną, co pozwala na uzyskanie czytelnego parametru w formie znormalizowanej, a ponieważ program iteracyjnie powtarza ten proces dla całego sygnału z określonym krokiem próbkowania, wyliczona z wszystkich okien średnia arytmetyczna stanowi globalną miarę złożoności badanego przebiegu.
 \begin{figure}[h!]
-\centering \includegraphics[width=0.7\linewidth]{rysunki/Entropia.png}
-\caption{Entropia}
+\centering
+\includegraphics[width=0.8\linewidth]{rysunki/Entropia_Shannona.png}
+\caption{Entropia badana w przesuwnym oknie}
 \label{rys:Entropia}
 \end{figure}
-
-Znormalizowana entropia informacyjna Shannona dla wygenerowanego sygnału 
-wynosi około 0.96, co wykazuje znaczny stopień nieuporządkowania i wewnętrznej 
-złożoności charakterystyczny dla układów chaotycznych. 
-Przyjmuje się powszechnie, że stan chaosu deterministycznego można z powodzeniem 
-określić w sytuacji, gdy znormalizowana miara Shannona przyjmuje wartości 
-przekraczające próg 0.6. Warunek ten został w tym konkretnym przypadku spełniony, 
-a zatem można stanowczo stwierdzić, że wygenerowany przebieg posiada silne cechy 
-charakterystyczne dla zjawisk nieliniowych. Wysoka wartość entropii jednoznacznie 
-sugeruje, że sztuczny szereg czasowy zawiera dużą ilość informacji i jest niezwykle 
-trudny do przewidzenia w dłuższych badaniach. Analiza tego wskaźnika pozwala 
-na rzetelną ocenę jakości danych opracowanych przez sieć neuronową.
-
-
-\section{Badanie korelacji}
-
-W drugiej części badanej metody zaprojektowano algorytm przeznaczony do wyznaczania 
-współczynników korelacji pomiędzy odrębnymi wycinkami zebranego przebiegu sztucznego. 
-Zastosowany mechanizm systematycznie przesuwa okno wzdłuż osi czasu 
-i dokonuje precyzyjnych obliczeń matematycznego podobieństwa pomiędzy bieżącym 
-fragmentem sygnału a fragmentem wygenerowanym bezpośrednio przed nim. Procedura ta 
-pozwala na niezwykle skuteczną weryfikację stabilności badanego systemu poprzez 
-oznaczanie autokorelacji krótkoczasowej dwóch sąsiadujących ze sobą ram pomiarowych.
-
-\begin{lstlisting}[language=Python]
-        def bezpieczna_korelacja(a, b):
-            if np.std(a) == 0 or np.std(b) == 0:
-                return 0
-            return np.corrcoef(a, b)[0, 1]
-        
-        korelacje_gen_gen = []
-        poprzedni_gen = generowany[0 : rozmiar_okna, 0]
-        
-        for i in range(skok, len(generowany) - rozmiar_okna + 1, skok):
-            obecny_gen = generowany[i : i + rozmiar_okna, 0]
-            korelacje_gen_gen.append(bezpieczna_korelacja(obecny_gen, poprzedni_gen))
-            poprzedni_gen = obecny_gen
-\end{lstlisting}
-
-\subsection{Analiza wyników}
-
+Wyliczona średnia entropia, zaprezentowana na rysunku~\ref{rys:Entropia}, osiąga wartość bliską 0.9581. Taki rezultat wyraźnie wskazuje, że wygenerowany przebieg nie jest sygnałem o charakterystyce białego szumu ani standardowym drganiem okresowym, co z kolei potwierdza poprawność założeń przyjętych podczas projektowania modelu.
+\section{Widmo mocy}
+W celu weryfikacji, czy zastosowana sieć w sposób poprawny odtworzyła naturalną dynamikę układu bez generowania sztucznych okresowości, wyznaczono widmo mocy z wykorzystaniem transformaty Fouriera. W poprawnie zamodelowanych układach nieliniowych gęstość widmowa ewoluuje w sposób ciągły z postaci dyskretnej do formy szerokopasmowej, a tego rodzaju podejście analityczne stanowi znacznie bardziej wiarygodną metodę oceny niż klasyczna autokorelacja, wykazująca znaczną podatność na zniekształcenia. Kod odpowiedzialny za realizację tych obliczeń zamieszczono na listingu~\ref{lst:widmo}.
+\lstinputlisting[
+language=Python,
+firstline=323,
+lastline=332,
+firstnumber=323,
+caption={Kod do wyznaczania widma mocy wygenerowanego sygnału z wykorzystaniem FFT},
+label={lst:widmo}
+]{GAN.py}
+W pierwszej fazie działania algorytm wczytuje jednowymiarowy fragment sygnału, na którym realizuje szybką transformatę Fouriera, a następnie wyznacza odpowiadające jej częstotliwości w oparciu o zdefiniowany czas próbkowania. Ze względu na fakt, że transformata dla sygnałów rzeczywistych charakteryzuje się symetrią sprzężoną, program odrzuca drugą połowę wyników, po czym oblicza gęstość widmową mocy poprzez podniesienie do kwadratu modułu uzyskanej wartości zespolonej.
 \begin{figure}[h!]
-\centering \includegraphics[width=0.7\linewidth]{rysunki/Korelacje.png}
-\caption{Korelacje}
-\label{rys:Korelacje}
+\centering
+\includegraphics[width=0.7\linewidth]{rysunki/Widmo_mocy.png}
+\caption{Widmo mocy wygenerowanego sygnału}
+\label{rys:Widmo_mocy}
 \end{figure}
-
-Na powyższym wykresie przedstawiono współczynniki korelacji wyliczone pomiędzy 
-kolejnymi, następującymi po sobie fragmentami wygenerowanego sygnału. Wartości te 
-nieustannie oscylują w bliskich okolicach zera, co wyraźnie dowodzi brak 
-zależności liniowych. Niskie wartości autokorelacji wskazują 
-na ogromną zmienność i nieregularność w strukturze przesuwanego okna, co idealnie 
-wpisuje się w oczekiwania stawiane przed układami chaotycznymi. Zebrane w ten 
-sposób dane pozwalają na ocenę stopnia niezależności poszczególnych ramek sygnału 
-oraz na wykluczenie obecności niepożądanych, deterministycznych oscylacji okresowych 
-w wygenerowanym przez sieć przebiegu.
-
+Zgodnie z ilustracją przedstawioną na rysunku~\ref{rys:Widmo_mocy}, uzyskane widmo charakteryzuje się dużą szerokością pasma oraz jest pozbawione wyizolowanych składowych harmonicznych, co skutecznie wyklucza obecność prostych drgań ustalonych w analizowanym sygnale. Obserwowany rozkład mocy dowodzi jednoznacznie, że wygenerowane dane zachowują prawidłową, chaotyczną dynamikę układu referencyjnego.
 \section{Atraktor Lorenza}
-
-
-Ten fragment kodu jest odpowiedzialny za wizualizację atraktora Lorenza.
-Funkcja przyjmuje jako argumenty wejściowe macierz z przewidywanymi wartościami 
-oraz znacznik czasowy wykorzystywany do poprawnego nazwania pliku. Wykorzystując zewnętrzną bibliotekę graficzną, zaimplementowany 
-skrypt tworzy przejrzysty wykres dwuwymiarowej przestrzeni fazowej. Po zakończeniu 
-procesu nakładania punktów, gotowy obraz zapisywany jest w wyznaczonym folderze 
-głównym systemu.
-
-Ten fragment kodu po prostu generuje ostateczny rysunek atraktora. Najpierw przygotowuje się odpowiednio duże tło, a następnie nanosi się na nie przewidziane przez sieć punkty. Łączy się je ze sobą cieniutką, fioletową i lekko przezroczystą linią, dzięki czemu powstaje charakterystyczny kształt przypominający skrzydła motyla. Na sam koniec dodaje się tylko niezbędny tytuł, podpisy osi oraz siatkę pomocniczą, po czym gotowy obrazek zostaje od razu zapisany w odpowiednim folderze na dysku komputera.
-
-\begin{lstlisting}[language=Python]
-    def rysuj_atraktor(self, generowany, ts):
-        print("Rysowanie atraktora...")
-        plt.figure(figsize=(8, 6))
-        plt.plot(generowany[:, 0], generowany[:, 1], color='purple', alpha=0.6, lw=0.5)
-        plt.title("Atraktor Lorenza")
-        plt.xlabel("V1")
-        plt.ylabel("V2")
-        plt.grid(True)
-        plt.savefig(os.path.join(self.folder_name, f"Atraktor_{ts}.png"))
-        plt.close()
-\end{lstlisting}
-
-\subsection{Analiza wyników}
-
+W końcowym etapie testów zweryfikowano zdolność modelu do przetworzenia klasycznego atraktora Lorenza, co miało na celu potwierdzenie uniwersalności opracowanego rozwiązania. Podczas analizy wyników w przestrzeni fazowej należy jednak zauważyć konieczność wyraźnego oddzielenia precyzyjnej predykcji trajektorii w dziedzinie czasu od samego procesu odwzorowania globalnego kształtu atraktora. Zastosowany model, pomimo braku implementacji fizycznych równań różniczkowych, prawidłowo zrekonstruował spójną strukturę geometryczną wyłącznie na podstawie dostarczonych danych historycznych, a skrypt odpowiedzialny za generowanie przestrzeni fazowej przedstawiono na listingu~\ref{lst:atraktor}.
+\lstinputlisting[
+language=Python,
+firstline=233,
+lastline=243,
+firstnumber=233,
+caption={Skrócona procedura generowania przestrzeni fazowej w celu analizy atraktora},
+label={lst:atraktor}
+]{GAN.py}
+Zaimplementowana procedura przypisuje bezpośrednio wygenerowane dane do określonych osi układu współrzędnych, gdzie pierwsza kolumna odpowiada wartościom napięcia V1, natomiast druga reprezentuje zmienną V2. Wykorzystanie odpowiednich funkcji graficznych z ograniczoną grubością linii pozwala na wyraźne zobrazowanie gęsto splątanych ścieżek, wzdłuż których ewoluuje stan badanego układu w obrębie ograniczonej przestrzeni fazowej.
 \begin{figure}[h!]
-\centering \includegraphics[width=0.7\linewidth]{rysunki/Atraktor.png}
-\caption{Atraktor Lorenza}
+\centering
+\includegraphics[width=0.8\linewidth]{rysunki/Atraktor.png}
+\caption{Odtworzona przestrzeń fazowa Atraktora Lorenza}
 \label{rys:Atraktor}
 \end{figure}
-
-Na powyższym wykresie zaprezentowano przestrzeń fazową atraktora Lorenza wygenerowaną 
-z bardzo dużą dokładnością na podstawie danych stworzonych przez wytrenowaną sieć 
-neuronową. Charakterystyczna struktura przypominająca rozłożone skrzydła motyla 
-jest na tym rysunku wyraźnie widoczna, co jednoznacznie potwierdza prawidłowe 
-uchwycenie kluczowych właściwości badanej dynamiki przez nieliniowy model matematyczny. 
-Dzięki uzyskanej wizualizacji można w prosty sposób zaobserwować typowe, nieregularne 
-oscylacje charakterystyczne dla przebiegu chaotycznego.
+Powyższa wizualizacja ostatecznie potwierdza, że zastosowana sieć neuronowa posiada zdolność do precyzyjnego odwzorowywania kształtu oraz ograniczeń przestrzennych nieliniowych układów dynamicznych. Model zachowuje pełną poprawność strukturalną nawet w sytuacji, gdy następuje naturalna utrata zdolności do dokładnego prognozowania kolejnych punktów trajektorii w dziedzinie czasu, co stanowi zjawisko typowe i oczekiwane w badaniach nad chaosem deterministyczym.

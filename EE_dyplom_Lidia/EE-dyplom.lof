@@ -1,16 +1,23 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1}{\ignorespaces \xpg@aux {}{polish}Schemat ogólnego sytemu komunikacji}}{12}{figure.caption.2}%
-\contentsline {figure}{\numberline {2}{\ignorespaces \xpg@aux {}{polish}Entropia Shannona}}{13}{figure.caption.3}%
-\contentsline {figure}{\numberline {3}{\ignorespaces \xpg@aux {}{polish}Wizualizacja dywergencji początkowych trajektorii}}{15}{figure.caption.4}%
-\contentsline {figure}{\numberline {4}{\ignorespaces \xpg@aux {}{polish}Wykres przedstawiający atraktor Lorenza}}{17}{figure.caption.5}%
-\contentsline {figure}{\numberline {5}{\ignorespaces \xpg@aux {}{polish}Schemat sieci GAN}}{18}{figure.caption.6}%
+\contentsline {figure}{\numberline {1}{\ignorespaces \xpg@aux {}{polish}Zbiór Julii, autor: PantheraLeo1359531}}{12}{figure.caption.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces \xpg@aux {}{polish}Atraktor Lorenza, autor: Dschwen, Licencja: CC BY 2.5}}{13}{figure.caption.3}%
+\contentsline {figure}{\numberline {3}{\ignorespaces \xpg@aux {}{polish}Atraktor Chua, autor: Shiyu Ji, Licencja: CC BY-SA 4.0}}{14}{figure.caption.4}%
+\contentsline {figure}{\numberline {4}{\ignorespaces \xpg@aux {}{polish}Schemat ogólnego systemu komunikacji}}{15}{figure.caption.5}%
+\contentsline {figure}{\numberline {5}{\ignorespaces \xpg@aux {}{polish}Graficzna reprezentacja odległości Hamminga w trójwymiarowej przestrzeni.}}{18}{figure.caption.6}%
+\contentsline {figure}{\numberline {6}{\ignorespaces \xpg@aux {}{polish}Wizualizacja dywergencji początkowych trajektorii}}{21}{figure.caption.7}%
+\contentsline {figure}{\numberline {7}{\ignorespaces \xpg@aux {}{polish}Schemat blokowy i przepływ danych w sieci GAN}}{23}{figure.caption.8}%
+\contentsline {figure}{\numberline {8}{\ignorespaces \xpg@aux {}{polish}Schemat blokowy komórki pamięci LSTM obrazujący matematyczny przepływ informacji.}}{25}{figure.caption.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6}{\ignorespaces \xpg@aux {}{polish}Przebiegi czasowe napięć v1 oraz v2}}{21}{figure.caption.7}%
+\contentsline {figure}{\numberline {9}{\ignorespaces \xpg@aux {}{polish}Schemat elektryczny dwutranzystorowego generatora chaosu z zaznaczonymi węzłami pomiarowymi $v1$ i $v2$}}{27}{figure.caption.10}%
+\contentsline {figure}{\numberline {10}{\ignorespaces \xpg@aux {}{polish}Przebiegi czasowe napięć $v1$ i $v2$ ukazane w skali makro}}{28}{figure.caption.11}%
+\contentsline {figure}{\numberline {11}{\ignorespaces \xpg@aux {}{polish}Przebiegi czasowe w skali mikro, obrazujące przejście od regularnych oscylacji do rozwiniętego chaosu}}{28}{figure.caption.12}%
+\contentsline {figure}{\numberline {12}{\ignorespaces \xpg@aux {}{polish}Rzut przestrzeni fazowej w układzie XY dla napięć $v1$ i $v2$}}{29}{figure.caption.13}%
+\contentsline {figure}{\numberline {13}{\ignorespaces \xpg@aux {}{polish}Diagram klasy \texttt {SystemGAN}.}}{31}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7}{\ignorespaces \xpg@aux {}{polish}Przebieg czasowy sygnału chaotycznego}}{31}{figure.caption.8}%
-\contentsline {figure}{\numberline {8}{\ignorespaces \xpg@aux {}{polish}Wykładnik Lapunowa}}{33}{figure.caption.9}%
-\contentsline {figure}{\numberline {9}{\ignorespaces \xpg@aux {}{polish}Entropia}}{34}{figure.caption.10}%
-\contentsline {figure}{\numberline {10}{\ignorespaces \xpg@aux {}{polish}Korelacje}}{36}{figure.caption.11}%
-\contentsline {figure}{\numberline {11}{\ignorespaces \xpg@aux {}{polish}Atraktor Lorenza}}{37}{figure.caption.12}%
+\contentsline {figure}{\numberline {14}{\ignorespaces \xpg@aux {}{polish}Przebieg czasowy sygnałów wejściowych oraz wygenerowanych (zbliżenie)}}{39}{figure.caption.15}%
+\contentsline {figure}{\numberline {15}{\ignorespaces \xpg@aux {}{polish}Największy wykładnik Lapunowa}}{41}{figure.caption.16}%
+\contentsline {figure}{\numberline {16}{\ignorespaces \xpg@aux {}{polish}Entropia badana w przesuwnym oknie}}{43}{figure.caption.17}%
+\contentsline {figure}{\numberline {17}{\ignorespaces \xpg@aux {}{polish}Widmo mocy wygenerowanego sygnału}}{44}{figure.caption.18}%
+\contentsline {figure}{\numberline {18}{\ignorespaces \xpg@aux {}{polish}Odtworzona przestrzeń fazowa Atraktora Lorenza}}{45}{figure.caption.19}%
 \addvspace {10\p@ }
